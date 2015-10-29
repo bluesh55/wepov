@@ -9,10 +9,14 @@ var PointInput = React.createClass({
     }
   },
 
+  componentDidMount: function() {
+    this.refs.input.focus();
+  },
+
   render: function() {
     return (
       <div className="point-input">
-        <input type="text" className="form-control" onKeyDown={this.onKeyDown}/>
+        <input type="text" className="form-control" onKeyDown={this.onKeyDown} ref="input" />
       </div>
     );
   }
