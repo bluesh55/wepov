@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @point.user %>
+</p>
+
+<p>
+  <strong>Debate:</strong>
+  <%= @point.debate %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @point.title %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @point.priority %>
+</p>
+
+<p>
+  <strong>Is visible:</strong>
+  <%= @point.is_visible %>
+</p>
+
+<%= link_to 'Edit', edit_point_path(@point) %> |
+<%= link_to 'Back', points_path %>

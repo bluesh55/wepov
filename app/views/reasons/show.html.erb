@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @reason.user %>
+</p>
+
+<p>
+  <strong>Point:</strong>
+  <%= @reason.point %>
+</p>
+
+<p>
+  <strong>Is pros:</strong>
+  <%= @reason.is_pros %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @reason.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @reason.content %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @reason.priority %>
+</p>
+
+<p>
+  <strong>Is visible:</strong>
+  <%= @reason.is_visible %>
+</p>
+
+<%= link_to 'Edit', edit_reason_path(@reason) %> |
+<%= link_to 'Back', reasons_path %>

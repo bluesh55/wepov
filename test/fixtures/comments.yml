@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  debate_id: 
+  user_id: 
+  content: MyText
+  comment_id: 
+  like_count: 1
+  dislike_count: 1
+  is_visible: false
+
+two:
+  debate_id: 
+  user_id: 
+  content: MyText
+  comment_id: 
+  like_count: 1
+  dislike_count: 1
+  is_visible: false

@@ -1,0 +1,45 @@
+<%= form_for(@reason) do |f| %>
+  <% if @reason.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@reason.errors.count, "error") %> prohibited this reason from being saved:</h2>
+
+      <ul>
+      <% @reason.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :point_id %><br>
+    <%= f.text_field :point_id %>
+  </div>
+  <div class="field">
+    <%= f.label :is_pros %><br>
+    <%= f.check_box :is_pros %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    <%= f.label :priority %><br>
+    <%= f.number_field :priority %>
+  </div>
+  <div class="field">
+    <%= f.label :is_visible %><br>
+    <%= f.check_box :is_visible %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
