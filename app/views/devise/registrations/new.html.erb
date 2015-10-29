@@ -1,29 +1,99 @@
-<h2>Sign up</h2>
+<div class="login-1">
+  <div class="bg-overlay">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+          <!-- Log in -->
+          <div class="panel-group" id="login-accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel top-panel panel-default">
+              <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#login-accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    Login to your account
+                  </a>
+                </h4>
+              </div>
+              <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+                  <div class="form-login">
+                    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                      <!-- Username -->
+                      <div class="form-group">
+                        <%= f.email_field :email, id: "username-login-1", class: "form-control", placeholder: "Enter your name", autofocus: true %>
+                        <label for="username-login-1">Email</label>
+                      </div>
+                      <!-- Password -->
+                      <div class="form-group">
+                        <%= f.password_field :password, id: "pass-login-1", class: "form-control", placeholder: "Enter your password", autocomplete: "off" %>
+                        <label for="pass-login-1">Password</label>
+                        <span class="pull-right"><a href="#" class="forget-pass-link">Forget password?</a></span>
+                      </div>
+                      <% if devise_mapping.rememberable? -%>
+                      <div class="form-group">
+                        <label class="checkbox-inline">
+                          <input type="checkbox" id="newsletter-check" value="option1" checked="" name="remember_me"> Remember me?
+                        </label>
+                      </div>
+                      <% end -%>
+                      <!-- Submit -->
+                      <%= f.submit "Login", class: "btn" %>
+                    <% end %>
+                  </div><!-- / .form-wrapper -->
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+                </div><!-- / .panel-body -->
+              </div><!-- / .panel-collapse -->
+            </div><!-- / .panel -->
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+            <!-- Register Account -->
+            <div class="panel bottom-panel panel-default">
+              <div class="panel-heading" role="tab" id="headingTwo">
+                <h4 class="panel-title">
+                  <a role="button" data-toggle="collapse" data-parent="#login-accordion" href="#register-login-page-2" aria-expanded="true" aria-controls="register-login-page-2">
+                    Register account
+                  </a>
+                </h4>
+              </div>
+              <div id="register-login-page-2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="panel-body">
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+                  <div class="form-register">
+                    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                    <%= devise_error_messages! %>
+                      <!-- First Name -->
+                      <div class="form-group col-md-6 no-gap-left">
+                        <input type="text" id="name-login-1" class="form-control" placeholder="Name">
+                        <label for="name-login-1">Name</label>
+                      </div>
+                      <!-- Email -->
+                      <div class="form-group">
+                        <%= f.email_field :email, id: "email-signup-1", class: "form-control", placeholder: "Enter your email", autofocus: true %>
+                        <label for="email-signup-1">Email</label>
+                      </div>
+                      <!-- Password -->
+                      <div class="form-group">
+                        <%= f.password_field :password, id: "pass-signup-1", class: "form-control", placeholder: "Enter a password", autocomplete: "off" %>
+                        <label for="pass-signup-1">Password</label>
+                        <% if @minimum_password_length %>
+                        <span class="pull-right">(<%= @minimum_password_length %> characters minimum)</span>
+                        <% end %>
+                      </div>
+                      <!-- Re-Enter Password -->
+                      <div class="form-group">
+                        <%= f.password_field :password_confirmation, id: "re-pass-signup-1", class: "form-control", placeholder: "Re-enter your password", autocomplete: "off" %>
+                        <label for="re-pass-signup-1">Re-enter password</label>
+                      </div>
+                      <!-- Submit -->
+                      <%= f.submit "Register", class: "btn" %>
+                    <% end %>
+                  </div><!-- / .form-wrapper -->
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+                </div><!-- / .panel-body -->
+              </div><!-- / #register-login-page-2 .panel-colapse -->
+            </div><!-- / .panel -->
+          </div><!-- / #login-accordion .panel-group -->
+        </div><!-- / .col-md-6 -->
+      </div><!-- / .row -->
+    </div><!-- / .container -->
+  </div><!-- / .bg-overlay -->
+</div>
