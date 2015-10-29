@@ -20,3 +20,5 @@ node_modules
 
 public/js
 Gemfile.lock
+
+/spring/*.pid
