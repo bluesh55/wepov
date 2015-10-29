@@ -70,6 +70,6 @@ class DebatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def debate_params
-      params.require(:debate).permit(:user_id, :title, :image, :content, :pros_count, :cons_count, :priority, :is_visible)
+      params.require(:debate).permit(:title, :image, :content)
     end
 end
