@@ -1,5 +1,5 @@
 class DebatesController < ApplicationController
-  before_action :set_debate, only: [:show, :edit, :update, :destroy]
+  before_action :set_debate, only: [:show, :edit, :update, :destroy, :pros, :cons, :cancel]
   before_action :authenticate_user!, except: [:index, :show]
 
   # GET /debates
@@ -26,6 +26,7 @@ class DebatesController < ApplicationController
   # POST /debates.json
   def create
     @debate = Debate.new(debate_params)
+    @debate.user_id = current_user.id
 
     respond_to do |format|
       if @debate.save
@@ -63,9 +64,45 @@ class DebatesController < ApplicationController
   end
 
   def pros
+    @vote = Vote.new(user_id: current_user.id, debate_id: @debate.id, is_pros: true)
+    Vote.transaction do
+      if @vote.save
+        @debate.pros_count += 1
+        @debate.save
+        render :show, status: :ok, location: @debate
+      else
+        render json: @vote.errors, status: :unprocessable_entity
+      end
+    end
   end
 
   def cons
+    @vote = Vote.new(user_id: current_user.id, debate_id: @debate.id, is_pros: false)
+    Vote.transaction do
+      if @vote.save
+        @debate.cons_count += 1
+        @debate.save
+        render :show, status: :ok, location: @debate
+      else
+        render json: @vote.errors, status: :unprocessable_entity
+      end
+    end
+  end
+
+  def cancel
+    @vote = Vote.where(user_id: current_user.id, debate_id: @debate.id).take
+    unless @vote.nil?
+      if @vote.is_pros
+        @debate.pros_count -= 1
+      else
+        @debate.cons_count -= 1
+      end
+      Vote.transaction do
+        @debate.save
+        @vote.destroy
+      end
+    end
+    render :show, status: :ok, location: @debate
   end
 
   private

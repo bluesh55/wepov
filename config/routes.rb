@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     member do
       get 'pros'
       get 'cons'
+      get 'cancel'
     end
   end
   devise_for :users

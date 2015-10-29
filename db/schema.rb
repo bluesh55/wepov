@@ -31,15 +31,15 @@ ActiveRecord::Schema.define(version: 20151029143833) do
 
   create_table "debates", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "title"
+    t.string   "title",                     null: false
     t.string   "image"
     t.text     "content"
-    t.integer  "pros_count"
-    t.integer  "cons_count"
-    t.integer  "priority"
-    t.boolean  "is_visible"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "pros_count", default: 0
+    t.integer  "cons_count", default: 0
+    t.integer  "priority",   default: 1
+    t.boolean  "is_visible", default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   add_index "debates", ["user_id"], name: "index_debates_on_user_id"
