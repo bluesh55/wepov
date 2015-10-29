@@ -6,15 +6,15 @@ var Route = require('react-router').Route;
 var createBrowserHistory = require('history/lib/createBrowserHistory');
 var history = createBrowserHistory();
 
-var PointBox = require('./components/PointBox.react');
+var DebateForm = require('./components/DebateForm.react');
 
 
 
 /* /debates/new */
-if(document.getElementById("pointBox")) {
+if(document.getElementById("debateForm")) {
   ReactDOM.render((
     <Router history={history}>
-      <Route path="/debates/new" component={PointBox} />
+      <Route path="/debates/new" component={DebateForm} />
     </Router>
-  ), document.getElementById('pointBox'));
+  ), document.getElementById('debateForm'));
 }
