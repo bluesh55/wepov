@@ -1,5 +1,6 @@
 class ReasonsController < ApplicationController
   before_action :set_reason, only: [:show, :edit, :update, :destroy]
+  before_action :only_owner, only: [:edit, :update, :destroy]
 
   # GET /reasons
   # GET /reasons.json
@@ -71,5 +72,12 @@ class ReasonsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def reason_params
       params.require(:reason).permit(:point_id, :is_pros, :title, :content)
+    end
+
+    def only_owner
+      unless @reason.user_id == current_user.id
+        redirect_to :root
+        return
+      end
     end
 end

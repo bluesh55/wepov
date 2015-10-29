@@ -1,5 +1,6 @@
 class DebatesController < ApplicationController
   before_action :set_debate, only: [:show, :edit, :update, :destroy, :pros, :cons, :cancel]
+  before_action :only_owner, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
   # GET /debates
@@ -114,5 +115,12 @@ class DebatesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def debate_params
       params.require(:debate).permit(:title, :image, :content)
+    end
+
+    def only_owner
+      unless @debate.user_id == current_user.id
+        redirect_to :root
+        return
+      end
     end
 end

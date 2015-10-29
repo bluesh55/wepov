@@ -1,5 +1,6 @@
 class PointsController < ApplicationController
   before_action :set_point, only: [:show, :edit, :update, :destroy]
+  before_action :only_owner, only: [:edit, :update, :destroy]
 
   # GET /points
   # GET /points.json
@@ -71,5 +72,12 @@ class PointsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def point_params
       params.require(:point).permit(:debate_id, :title)
+    e
+    nd
+    def only_owner
+      unless @point.user_id == current_user.id
+        redirect_to :root
+        return
+      end
     end
 end

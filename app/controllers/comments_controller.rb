@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy, :like, :dislike, :cancel]
+  before_action :only_owner, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
   # GET /comments
@@ -114,5 +115,12 @@ class CommentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
       params.require(:comment).permit(:debate_id, :content, :comment_id)
+    end
+
+    def only_owner
+      unless @comment.user_id == current_user.id
+        redirect_to :root
+        return
+      end
     end
 end
