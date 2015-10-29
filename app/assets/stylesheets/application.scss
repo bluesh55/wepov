@@ -17,3 +17,7 @@
 
 @import "theme/main";
 @import "theme/responsive";
+
+body > #app {
+  padding-top: 75px;
+}
