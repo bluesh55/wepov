@@ -2,20 +2,50 @@
 <html>
 <head>
   <title>Debatepedia</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <%= stylesheet_link_tag 'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<ul>
-  <% if user_signed_in? %>
-    <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-  <% else %>
-    <li><%= link_to('Login', new_user_session_path)  %></li>
-  <% end %>
-</ul>
+<!-- ========== Navigation ========== -->
+
+<nav class="navbar navbar-default navbar-fixed-top mega navbar-inverse navbar-trans" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- Logo -->
+      <a class="navbar-brand" href="index.html"><img src="http://www.octarinethemes.com/demos/definity/assets/images/logo-light.png" alt="Definity - Logo"></a>
+    </div><!-- / .navbar-header -->
+
+    <!-- Navbar Links -->
+    <div id="navbar" class="navbar-collapse collapse">
+      <!-- Navbar Links Right -->
+      <ul class="nav navbar-nav navbar-right">
+        <li class="mega-fw">
+          <%= link_to('새 논쟁 만들기', new_debate_path) %>
+        </li>
+
+        <li class="mega-fw">
+          <% if user_signed_in? %>
+            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+          <% else %>
+            <%= link_to('Login', new_user_session_path)  %>
+          <% end %>
+        </li>
+
+      </ul><!-- / .nav .navbar-nav .navbar-right -->
+
+    </div><!--/.navbar-collapse -->
+  </div><!-- / .container -->
+</nav><!-- / .navbar -->
 
 <%= yield %>
 
+<%= javascript_include_tag 'application' %>
 </body>
 </html>
