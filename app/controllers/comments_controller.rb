@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :set_comment, only: [:show, :edit, :update, :destroy, :like, :dislike, :cancel]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /comments
   # GET /comments.json
@@ -25,6 +26,7 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
+    @comment.user_id = current_user.id
 
     respond_to do |format|
       if @comment.save
@@ -59,6 +61,48 @@ class CommentsController < ApplicationController
       format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def like
+    @like = Like.new(user_id: current_user.id, comment_id: @comment.id, is_like: true)
+    Vote.transaction do
+      if @like.save
+        @comment.like_count += 1
+        @comment.save
+        render :show, status: :ok, location: @comment
+      else
+        render json: @like.errors, status: :unprocessable_entity
+      end
+    end
+  end
+
+  def dislike
+    @like = Like.new(user_id: current_user.id, comment_id: @comment.id, is_like: false)
+    Vote.transaction do
+      if @like.save
+        @comment.dislike_count += 1
+        @comment.save
+        render :show, status: :ok, location: @comment
+      else
+        render json: @like.errors, status: :unprocessable_entity
+      end
+    end
+  end
+
+  def cancel
+    @like = Like.where(user_id: current_user.id, comment_id: @comment.id).take
+    unless @like.nil?
+      if @like.is_like
+        @comment.like_count -= 1
+      else
+        @comment.dislike_count -= 1
+      end
+      Vote.transaction do
+        @comment.save
+        @like.destroy
+      end
+    end
+    render :show, status: :ok, location: @comment
   end
 
   private
