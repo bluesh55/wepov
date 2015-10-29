@@ -29,7 +29,7 @@ var DebateForm = React.createClass({
     return (
       <div>
         <div className="form-group">
-          <input type="file" className="form-control" />
+          <input type="file" name="image" className="form-control" />
         </div>
         <div className="form-group">
           <label htmlFor="input-title">논쟁 제목</label>
