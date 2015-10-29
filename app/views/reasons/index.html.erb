@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Reasons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Point</th>
+      <th>Is pros</th>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Priority</th>
+      <th>Is visible</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reasons.each do |reason| %>
+      <tr>
+        <td><%= reason.user %></td>
+        <td><%= reason.point %></td>
+        <td><%= reason.is_pros %></td>
+        <td><%= reason.title %></td>
+        <td><%= reason.content %></td>
+        <td><%= reason.priority %></td>
+        <td><%= reason.is_visible %></td>
+        <td><%= link_to 'Show', reason %></td>
+        <td><%= link_to 'Edit', edit_reason_path(reason) %></td>
+        <td><%= link_to 'Destroy', reason, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Reason', new_reason_path %>
