@@ -22,3 +22,4 @@ public/js
 Gemfile.lock
 
 /spring/*.pid
+.DS_Store
