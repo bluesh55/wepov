@@ -1,5 +1,6 @@
 class ReasonsController < ApplicationController
   before_action :set_reason, only: [:show, :edit, :update, :destroy, :up, :down, :block]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :only_owner, only: [:edit, :update, :destroy]
   before_action :only_debate_point_creator, only: [:up, :down, :block]
 

@@ -1,7 +1,7 @@
 class DebatesController < ApplicationController
   before_action :set_debate, only: [:show, :edit, :update, :destroy, :pros, :cons, :cancel]
-  before_action :only_owner, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :only_owner, only: [:edit, :update, :destroy]
 
   # GET /debates
   # GET /debates.json
