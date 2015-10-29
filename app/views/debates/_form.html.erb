@@ -1,4 +1,4 @@
-<%= form_tag :debates, :method => :post, :multipart => true do %>
+<%= form_tag :debates, :method => :post, :multipart => true, :class => "debate-form" do %>
   <div class="form-group">
     <input type="file" class="form-control" />
   </div>
@@ -13,7 +13,7 @@
   </div>
 
   <div class="form-group">
-    <div id="point-wrapper">
+    <div id="pointBox">
     </div>
   </div>
 
