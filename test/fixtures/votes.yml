@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  debate_id: 
+  is_pros: false
+
+two:
+  user_id: 
+  debate_id: 
+  is_pros: false
