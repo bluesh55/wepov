@@ -26,11 +26,17 @@ class DebatesController < ApplicationController
   # POST /debates
   # POST /debates.json
   def create
-    @debate = Debate.new(debate_params)
+    @debate = Debate.new
+    @debate.title = params[:title]
+    @debate.image = params[:image]
+    @debate.content = params[:content]
     @debate.user_id = current_user.id
 
     respond_to do |format|
       if @debate.save
+        params[:points].each do |p|
+          Point.create(user_id: current_user.id, debate_id: @debate.id, title: p)
+        end
         format.html { redirect_to @debate, notice: 'Debate was successfully created.' }
         format.json { render :show, status: :created, location: @debate }
       else
