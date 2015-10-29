@@ -6,5 +6,5 @@ class User < ActiveRecord::Base
 
   has_many :debates
 
-  validates :email, presence: true, length: {maximum: 255}, format: {with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i}
+  validates :email, presence: true, length: {maximum: 255}, format: {with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i}, uniqueness: {case_sensitive: false}
 end
