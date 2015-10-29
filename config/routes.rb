@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   resources :comments
   resources :reasons
   resources :points
-  resources :debates
+  resources :debates do
+    member do
+      get 'pros'
+      get 'cons'
+    end
+  end
   devise_for :users
 
   root 'home#index'

@@ -62,6 +62,12 @@ class DebatesController < ApplicationController
     end
   end
 
+  def pros
+  end
+
+  def cons
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_debate
