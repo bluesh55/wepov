@@ -13,6 +13,8 @@
  *= require_self
  */
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
 @import "theme/main.scss";
 @import "theme/responsive.scss";
 
