@@ -1,29 +1,23 @@
-<%= form_for(@debate, multipart: true) do |f| %>
-  <% if @debate.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@debate.errors.count, "error") %> prohibited this debate from being saved:</h2>
+<%= form_tag :debates, :method => :post, :multipart => true do %>
+  <div class="form-group">
+    <input type="file" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label for="input-title">논쟁 제목</label>
+    <input type="text" id="input-title" class="form-control" />
+  </div>
 
-      <ul>
-      <% @debate.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="form-group">
+    <label for="input-desc">논쟁 간단 설명</label>
+    <textarea rows="5" cols="50" id="input-desc" class="form-control"></textarea>
+  </div>
+
+  <div class="form-group">
+    <div id="point-wrapper">
     </div>
-  <% end %>
+  </div>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :image %><br>
-    <%= f.file_field :image %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <button class="btn">작성하기</button>
   </div>
 <% end %>
