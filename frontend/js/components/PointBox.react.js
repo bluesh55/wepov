@@ -7,7 +7,6 @@ var PointInput = require('./PointInput.react');
 var PointBox = React.createClass({
   getInitialState: function() {
     return {
-      points: [],
       inputState: false
     };
   },
@@ -19,14 +18,9 @@ var PointBox = React.createClass({
   },
 
   addPoint: function(point) {
-    var points = this.state.points;
-    points.push({
-      id: Date.now(),
-      content: point
-    });
+    this.props.addPoint(point);
 
     this.setState({
-      points: points,
       inputState: false
     });
   },
@@ -39,8 +33,8 @@ var PointBox = React.createClass({
     ) : null;
 
     return (
-      <div>
-        {this.state.points.map(function(point) {
+      <div id="pointBox">
+        {this.props.points.map(function(point) {
           return (
             <Point point={point} key={point.id} />
           );

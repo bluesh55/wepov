@@ -1,23 +1,4 @@
 <%= form_tag :debates, :method => :post, :multipart => true, :class => "debate-form" do %>
-  <div class="form-group">
-    <input type="file" class="form-control" />
-  </div>
-  <div class="form-group">
-    <label for="input-title">논쟁 제목</label>
-    <input type="text" name="title" id="input-title" class="form-control" />
-  </div>
-
-  <div class="form-group">
-    <label for="input-desc">논쟁 간단 설명</label>
-    <textarea rows="5" cols="50" name="content" id="input-desc" class="form-control"></textarea>
-  </div>
-
-  <div class="form-group">
-    <div id="pointBox">
-    </div>
-  </div>
-
-  <div class="form-group">
-    <button class="btn">작성하기</button>
+  <div id="debateForm">
   </div>
 <% end %>
