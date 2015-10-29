@@ -7,8 +7,20 @@ Rails.application.routes.draw do
       get 'cancel'
     end
   end
-  resources :reasons
-  resources :points
+  resources :reasons do
+    member do
+      get 'up'
+      get 'down'
+      get 'block'
+    end
+  end
+  resources :points do
+    member do
+      get 'up'
+      get 'down'
+      get 'block'
+    end
+  end
   resources :debates do
     member do
       get 'pros'

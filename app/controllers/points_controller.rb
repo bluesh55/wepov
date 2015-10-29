@@ -1,6 +1,7 @@
 class PointsController < ApplicationController
-  before_action :set_point, only: [:show, :edit, :update, :destroy]
+  before_action :set_point, only: [:show, :edit, :update, :destroy, :up, :down, :block]
   before_action :only_owner, only: [:edit, :update, :destroy]
+  before_action :only_debate_creator, only: [:up, :down, :block]
 
   # GET /points
   # GET /points.json
@@ -63,6 +64,25 @@ class PointsController < ApplicationController
     end
   end
 
+  def up
+    @point.priority += 1
+    @point.save
+    render :show, status: :ok, location: @point
+  end
+
+  def down
+    @point.priority -= 1
+    @point.save
+    render :show, status: :ok, location: @point
+  end
+
+  def block
+    @point.priority = -1
+    @point.is_visible = false
+    @point.save
+    render :show, status: :ok, location: @point
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_point
@@ -72,10 +92,17 @@ class PointsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def point_params
       params.require(:point).permit(:debate_id, :title)
-    e
-    nd
+    end
+
     def only_owner
       unless @point.user_id == current_user.id
+        redirect_to :root
+        return
+      end
+    end
+
+    def only_debate_creator
+      unless @point.debate.user_id == current_user.id
         redirect_to :root
         return
       end

@@ -1,6 +1,7 @@
 class ReasonsController < ApplicationController
-  before_action :set_reason, only: [:show, :edit, :update, :destroy]
+  before_action :set_reason, only: [:show, :edit, :update, :destroy, :up, :down, :block]
   before_action :only_owner, only: [:edit, :update, :destroy]
+  before_action :only_debate_point_creator, only: [:up, :down, :block]
 
   # GET /reasons
   # GET /reasons.json
@@ -63,6 +64,25 @@ class ReasonsController < ApplicationController
     end
   end
 
+  def up
+    @reason.priority += 1
+    @reason.save
+    render :show, status: :ok, location: @reason
+  end
+
+  def down
+    @reason.priority -= 1
+    @reason.save
+    render :show, status: :ok, location: @reason
+  end
+
+  def block
+    @reason.priority = -1
+    @reason.is_visible = false
+    @reason.save
+    render :show, status: :ok, location: @reason
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_reason
@@ -76,6 +96,13 @@ class ReasonsController < ApplicationController
 
     def only_owner
       unless @reason.user_id == current_user.id
+        redirect_to :root
+        return
+      end
+    end
+
+    def only_debate_point_creator
+      unless @reason.point.debate.user_id == current_user.id or @reason.point.user_id == current_user.id
         redirect_to :root
         return
       end
