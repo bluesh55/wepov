@@ -19,6 +19,7 @@ group :development, :test do
   gem 'spring'
   gem 'minitest-reporters'
   gem 'mini_backtrace'
+  gem 'guard'
 end
 
 group :production do
