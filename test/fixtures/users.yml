@@ -6,10 +6,10 @@
 #
 one:
     email: choi@likelion.net
-    encrypted_password: 12341234
+    encrypted_password: <%=User.new(password: "1245678").encrypted_password%>
 # column: value
 #
 two:
     email: a@b.com
-    encrypted_password: 12341234
+    encrypted_password: <%=User.new(password: "1245678").encrypted_password%>
 #  column: value
