@@ -4,10 +4,10 @@ class CreateReasons < ActiveRecord::Migration
       t.references :user, index: true, foreign_key: true
       t.references :point, index: true, foreign_key: true
       t.boolean :is_pros
-      t.string :title
+      t.string :title, null: false
       t.text :content
-      t.integer :priority
-      t.boolean :is_visible
+      t.integer :priority, default: 1
+      t.boolean :is_visible, default: true
 
       t.timestamps null: false
     end

@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :comments
+  resources :comments do
+    member do
+      get 'like'
+      get 'dislike'
+      get 'cancel'
+    end
+  end
   resources :reasons
   resources :points
   resources :debates do
