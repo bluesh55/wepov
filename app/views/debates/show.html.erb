@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @debate.user %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @debate.title %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @debate.image %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @debate.content %>
+</p>
+
+<p>
+  <strong>Pros count:</strong>
+  <%= @debate.pros_count %>
+</p>
+
+<p>
+  <strong>Cons count:</strong>
+  <%= @debate.cons_count %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @debate.priority %>
+</p>
+
+<p>
+  <strong>Is visible:</strong>
+  <%= @debate.is_visible %>
+</p>
+
+<%= link_to 'Edit', edit_debate_path(@debate) %> |
+<%= link_to 'Back', debates_path %>
