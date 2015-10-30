@@ -28,7 +28,11 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+
+  gem 'mysql2'
 end
 
 gem 'bootstrap-sass', '~> 3.3.5'
 gem "twitter-bootstrap-rails"
+
+gem 'dotenv-rails'
