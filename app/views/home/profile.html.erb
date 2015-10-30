@@ -35,7 +35,7 @@
     <h1>만든 논쟁</h1>
     <ul>
       <% if @user_debates.empty? %>
-        <li>만든 논쟁이 없습니다</li>
+        <li>만든 논쟁이 없습니다. <%= link_to '새 논쟁 만들기', new_debate_path if @user == current_user %></li>
       <% else %>
         <% @user_debates.each do |d| %>
           <li><%= link_to d.title, d %></li>
@@ -47,7 +47,7 @@
     <h1>작성한 근거</h1>
     <ul>
       <% if @user_points.empty? %>
-        <li>작성한 근거가 없습니다</li>
+        <li>작성한 근거가 없습니다.</li>
       <% else %>
         <% @user_points.each do |p| %>
           <li><%= link_to p.title, p %></li>
