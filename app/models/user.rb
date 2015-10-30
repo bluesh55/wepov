@@ -4,7 +4,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :debates
-
   validates :email, presence: true, length: {maximum: 255}, format: {with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i}, uniqueness: {case_sensitive: false}
+
+  has_many :debates
+  has_many :vote_histories, class_name: 'Vote', dependent: :destroy
+  has_many :voted_debates, through: :vote_histories, source: :debate
+  has_many :points
+
 end

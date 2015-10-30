@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create(email: "user@wepov.com", password: "12341234", password_confirmation: "12341234")
+User.create(email: "user@wepov.com", name: "wepov", intro: "논쟁을 위해 태어난", password: "12341234", password_confirmation: "12341234")
 Debate.create(user_id: 1, title: "2015 한국사 교과서 국정화 논쟁", content: "검정 국사 교과서 중 보수적인 논조였던 교학사의 고등학교 역사교과서가 부실 논란 후 검정 취소되었다. 이후, 검정교과서의 대다수가 '국사를 부정적으로 서술'하며, '좌편향'되었다는 논리로, 정부주도로 국정교과서로 환원하려는 움직임이 일고 있다.", image: "http://pub.chosun.com/editor/cheditor_new/attach/QAPOYF6PIY67QAKCQCHI_1.jpg")
 Point.create(user_id: 1, debate_id: 1, title: "기존의 검정 교과서 체제를 보완하는 것으로는 불가능한 문제인가?")
 Reason.create(user_id: 1, point_id: 1, title: "모두가 인정할 수 있는 하나의 교과서로 전 국민이 배워야, 사회적 통합을 이룰 수 있다.", content: "", is_pros: true)

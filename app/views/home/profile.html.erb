@@ -1,0 +1,58 @@
+<div id="mypage" class="mypage">
+  <div class="bg-overlay">
+    <div class="container">
+      <header class="sec-heading">
+        <h2>My Debates!</h2>
+        <span class="subheading">한눈에 보세요</span>
+      </header>
+      <div class="row">
+        <div class="col-md-4">
+          <% if @user == current_user %>
+            <a href="/users/edit">프로필 수정</a><br />
+          <% end %>
+          <%= @user.name %><br />
+          <%= @user.email %>
+        </div>
+        <div class="col-nd-8">
+          <%= @user.intro %>
+        </div>
+      </div>
+    </div>
+  </div><!--bg-overlay-->
+  <div class="container">
+    <h1>투표한 논쟁</h1>
+    <ul>
+      <% if @user_votes.empty? %>
+        <li>투표한 논쟁이 없습니다</li>
+      <% else %>
+        <% @user_votes.each do |h| %>
+          <li><%= h.is_pros ? '찬' : '반' %> : <%= link_to h.debate.title, h.debate %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+  <div class="container">
+    <h1>만든 논쟁</h1>
+    <ul>
+      <% if @user_debates.empty? %>
+        <li>만든 논쟁이 없습니다</li>
+      <% else %>
+        <% @user_debates.each do |d| %>
+          <li><%= link_to d.title, d %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+  <div class="container">
+    <h1>작성한 근거</h1>
+    <ul>
+      <% if @user_points.empty? %>
+        <li>작성한 근거가 없습니다</li>
+      <% else %>
+        <% @user_points.each do |p| %>
+          <li><%= link_to p.title, p %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
