@@ -5,7 +5,7 @@ var NoReasonPoint = React.createClass({
     var point = this.props.point;
 
     return (
-      <div className="point">
+      <div className="no-reason-point">
         <input type="hidden" name="points[]" value={point.title} />
         {point.title}
       </div>       
