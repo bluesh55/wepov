@@ -2,24 +2,31 @@ var React = require('react');
 
 var PointBox = require('./PointBox');
 
+var DebateActions = require('../actions/DebateActions');
+var DebateStore   = require('../stores/DebateStore');
+
+
+var getStateFromStores = function() {
+  return {
+    debateData: DebateStore.getDebateData()
+  };
+};
+
 var DebateShowApp = React.createClass({
+
+  _onChange: function() {
+    this.setState(getStateFromStores());
+  },
 
   /* props로 초기화하면 될 듯 */
   getInitialState: function() {
-    return {
-      debateData: []
-    };
+    return getStateFromStores();
   },
 
   componentDidMount: function() {
-    var self = this;
-    var debateId = location.pathname.split('/').pop();
-
-    $.get('/debates/' + debateId + '.json', function(data) {
-      self.setState({
-        debateData: data
-      });
-    });
+    DebateStore.addChangeListener(this._onChange);
+    
+    DebateActions.readDebate();
   },
 
   addPoint: function(point) {
@@ -62,8 +69,6 @@ var DebateShowApp = React.createClass({
                     </div>
                   </div>
                 </div>
-                
-
               </div>
             </div>
           </div>
