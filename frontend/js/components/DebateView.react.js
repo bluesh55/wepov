@@ -13,7 +13,9 @@ var DebateView = React.createClass({
 
   componentDidMount: function() {
     var self = this;
-    $.get('/debates/1.json', function(data) {
+    var debateId = location.pathname.split('/').pop();
+
+    $.get('/debates/' + debateId + '.json', function(data) {
       self.setState({
         debateData: data
       });
@@ -21,7 +23,15 @@ var DebateView = React.createClass({
   },
 
   addPoint: function(point) {
+    var debateId = location.pathname.split('/').pop();
 
+    $.post('/points', {
+      "point[title]": point,
+      "point[debate_id]": debateId
+    }, function(data) {
+      // 논점 추가 완료
+      // data.status == 'ok'
+    });
   },
 
   render: function() {

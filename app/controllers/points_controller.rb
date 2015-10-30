@@ -30,14 +30,10 @@ class PointsController < ApplicationController
     @point = Point.new(point_params)
     @point.user_id = current_user.id
 
-    respond_to do |format|
-      if @point.save
-        format.html { redirect_to @point, notice: 'Point was successfully created.' }
-        format.json { render :show, status: :created, location: @point }
-      else
-        format.html { render :new }
-        format.json { render json: @point.errors, status: :unprocessable_entity }
-      end
+    if @point.save
+      render :json => {status: :ok, point: @point}
+    else
+      render :json => {status: :fail}
     end
   end
 
