@@ -3,6 +3,8 @@ json.extract!  @debate, :id, :user_id, :title, :image, :content, :pros_count, :c
 json.name @debate.user.name
 
 json.points @debate.points do |p|
+  json.id p.id
+  json.user_id p.user_id
   json.title p.title
   json.visible p.is_visible
   json.priority p.priority
