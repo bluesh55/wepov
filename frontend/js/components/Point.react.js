@@ -2,8 +2,30 @@ var React = require('react');
 
 var Reason = require('./Reason.react');
 var AddReasonButton = require('./AddReasonButton.react');
+var ReasonEditor = require('./ReasonEditor.react');
 
 var Point = React.createClass({
+  getInitialState: function() {
+    return {
+      prosEditorOpened: false,
+      consEditorOpend: false
+    };
+  },
+
+  onClickAddProsReason: function() {
+    this.setState({
+      prosEditorOpened: true,
+      consEditorOpened: false
+    });
+  },
+
+  onClickAddConsReason: function() {
+    this.setState({
+      consEditorOpened: true,
+      prosEditorOpened: false
+    });
+  },
+
   render: function() {
     var point = this.props.point;
     var reasons = point.reasons;
@@ -17,6 +39,7 @@ var Point = React.createClass({
           <i className="fa fa-balance-scale"></i>
           <span>{point.title}</span>
         </h3>
+
         <div className="procon row">
           <div className="col-md-6 pro">
             <div className="title">
@@ -33,8 +56,11 @@ var Point = React.createClass({
               {prosReasons.map(function(reason) {
                 return <Reason reason={reason} />;
               })}
-              
-              <AddReasonButton />
+
+              <AddReasonButton
+                onClickAddReason={this.onClickAddProsReason}
+                isReasonEditorOpened={this.state.prosEditorOpened}
+              />
             </div>
           </div>
           <div className="col-md-6 con">
@@ -52,11 +78,18 @@ var Point = React.createClass({
               {consReasons.map(function(reason) {
                 return <Reason reason={reason} />;
               })}
-              
-              <AddReasonButton />
+              <AddReasonButton
+                onClickAddReason={this.onClickAddConsReason}
+                isReasonEditorOpened={this.state.consEditorOpened}
+              />
             </div>
           </div>
         </div>
+
+        <ReasonEditor
+          prosEditorOpened={this.state.prosEditorOpened}
+          consEditorOpened={this.state.consEditorOpened}
+        />
       </div>       
     );
   }

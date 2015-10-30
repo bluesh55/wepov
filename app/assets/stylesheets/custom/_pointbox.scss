@@ -73,6 +73,40 @@
         }
       }
     }
+
+    .add-reason {
+      margin-top: 10px;
+      text-align: center;
+      &.active {
+        button {
+          background-color: #f0f0f0;
+        }
+      }
+      button {
+        width: 100%;
+        background-color: white;
+        border: 1px solid #ddd;
+        padding: 5px;
+        outline: none;
+      }
+    }
+
+    .reason-input-wrapper {
+      display: none;
+      margin-top: 20px;
+      white-space: nowrap;
+      &.active {
+        display: block;
+      }
+
+      textarea {
+        display: block;
+        width: 100%;
+        margin-top: -8px;
+        border: 1px solid #ddd;
+        outline: none;
+      }
+    }
   }
 
   .point-input {
