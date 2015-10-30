@@ -7,15 +7,15 @@ var DebateView = React.createClass({
   /* props로 초기화하면 될 듯 */
   getInitialState: function() {
     return {
-      points: []
+      debateData: []
     };
   },
 
   componentDidMount: function() {
     var self = this;
-    $.get('/points.json', function(data) {
+    $.get('/debates/1.json', function(data) {
       self.setState({
-        points: data
+        debateData: data
       });
     });
   },
@@ -28,7 +28,7 @@ var DebateView = React.createClass({
     return (
       <PointBox
         addPoint={this.addPoint}
-        points={this.state.points}
+        points={this.state.debateData.points}
         withReason={true}
       />
     );

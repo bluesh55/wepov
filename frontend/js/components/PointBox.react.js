@@ -37,19 +37,21 @@ var PointBox = React.createClass({
 
     var points;
 
-    if(withReason) {
-      points = this.props.points.map(function(point) {
-        return (
-          <Point point={point} key={point.id} />
-        );
-      });
-    } else {
-      
-      points = this.props.points.map(function(point) {
-        return (
-          <NoReasonPoint point={point} key={point.id} />
-        );
-      });
+    if(this.props.points) {
+      if(withReason) {
+        points = this.props.points.map(function(point) {
+          return (
+            <Point point={point} key={point.id} />
+          );
+        });
+      } else {
+        
+        points = this.props.points.map(function(point) {
+          return (
+            <NoReasonPoint point={point} key={point.id} />
+          );
+        });
+      }
     }
 
     return (

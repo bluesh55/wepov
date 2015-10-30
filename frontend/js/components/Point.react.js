@@ -4,6 +4,8 @@ var Reason = require('./Reason.react');
 var AddReasonButton = require('./AddReasonButton.react');
 var ReasonEditor = require('./ReasonEditor.react');
 
+var _ = require('underscore');
+
 var Point = React.createClass({
   getInitialState: function() {
     return {
@@ -30,8 +32,8 @@ var Point = React.createClass({
     var point = this.props.point;
     var reasons = point.reasons;
 
-    var prosReasons = reasons ? reasons.pros : [];
-    var consReasons = reasons ? reasons.cons : [];
+    var prosReasons = _.filter(reasons, function(obj) { return obj.is_pros });
+    var consReasons = _.filter(reasons, function(obj) { return !obj.is_pros });
 
     return (
       <div className="point">
@@ -54,7 +56,7 @@ var Point = React.createClass({
 
             <div className="reasons">
               {prosReasons.map(function(reason) {
-                return <Reason reason={reason} />;
+                return <Reason reason={reason} key={reason.id}/>;
               })}
 
               <AddReasonButton
@@ -76,7 +78,7 @@ var Point = React.createClass({
 
             <div className="reasons">
               {consReasons.map(function(reason) {
-                return <Reason reason={reason} />;
+                return <Reason reason={reason} key={reason.id} />;
               })}
               <AddReasonButton
                 onClickAddReason={this.onClickAddConsReason}
