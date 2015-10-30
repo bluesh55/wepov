@@ -1,0 +1,74 @@
+<div id="home" class="agency2-hero">
+  <div class="bg-overlay">
+    <div id="large-header" class="large-header">
+      <canvas id="demo-canvas" class="demo-canvas"></canvas>
+
+      <!-- Hero Content -->
+      <div class="hero-content-wrapper">
+        <div class="hero-content">
+          <h1 class="hero-lead">Creative Agency</h1>
+          <h4 class="h-alt hero-secondary">Web Design &amp; Development</h4>
+          <%= link_to "새 논쟁 만들기", new_debate_path, class: "btn btn-light" %>
+          <!-- Scroller -->
+          <a href="#about" class="scroller">
+            <span class="scroller-text">scroll down</span>
+            <span class="linea-basic-magic-mouse"></span>
+          </a>
+
+        </div><!-- / .hero-content -->
+      </div><!-- / .hero-content-wrapper -->
+
+    </div><!-- / #large-header -->
+
+  </div><!-- / .bg-overlay -->
+</div><!-- / #home -->
+
+
+<!-- ========== Blog Preview ========== -->
+
+<div class="gray-bg">
+  <section id="blog" class="section container blog-columns blog-preview">
+    <div class="row">
+      <header class="sec-heading">
+        <h2>Latest from our blog</h2>
+        <span class="subheading">Check out our blog to see what were up to</span>
+      </header>
+      <% @debates.each do |d| %>
+      <!-- Blog Post 1 -->
+      <div class="col-lg-4 col-md-6 mb-sm-50">
+        <div class="blog-post wow fadeIn" data-wow-duration="2s">
+
+          <!-- Image -->
+          <a href="/debates/<%=d.id%>" class="post-img"><img src="<%=d.image.thumb.url%>" alt="<%=d.title%>"></a>
+
+          <div class="bp-content">
+            <!-- Meta data -->
+            <div class="post-meta">
+              <a href="#" class="post-date">
+                <i class="fa fa-calendar-o"></i>
+                <span><%=d.created_at.in_time_zone('Seoul').strftime('%B %d.%Y')%></span>
+              </a>
+              <a href="#" class="post-comments">
+                <i class="fa fa-comments-o"></i>
+                <span><%=d.comments.count%></span>
+              </a>
+            </div><!-- / .meta -->
+
+            <!-- Post Title -->
+            <a href="/debates/<%=d.id%>" class="post-title"><h4><%=d.title%></h4></a>
+
+            <!-- Blurb -->
+            <p><%=d.content%></p>
+
+            <!-- Link -->
+            <%= link_to "Read More", d, class: "btn btn-small" %>
+
+          </div><!-- / .bp-content -->
+
+        </div><!-- / .blog-post -->
+      </div><!-- / .col-lg-4 -->
+      <% end %>
+
+    </div><!-- / .row -->
+  </section><!-- / .container -->
+</div><!-- / .gray-bg -->
