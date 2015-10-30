@@ -1,3 +1,47 @@
 // Place all the styles related to the Debates controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#debateView {
+  header {
+    .title {
+    }
+
+    .col-sm-6 {
+      margin-top: 30px;
+    }
+
+    .info {
+      p {
+        display: -webkit-box;
+        height: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+        line-height: 1.5;
+      }
+    }
+
+    .progress-box {
+      width: 50%;
+      margin: 0 auto;
+    }
+  }
+
+
+  .blog-post-comments {
+    .bp-comment, .bp-comment-reply {
+      .comment-info {
+        margin-top: 0;
+      }
+      
+      .comment-content {
+        margin-top: 0;
+        margin-left: 30px;
+      }
+    }
+  }
+}
+
+

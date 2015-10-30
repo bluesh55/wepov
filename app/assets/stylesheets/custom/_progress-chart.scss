@@ -1,0 +1,18 @@
+.progress {
+  background-color: #EF654A;
+  .progress-bar {
+    background-color: #556BC3;
+  }
+}
+
+
+.progress-title {
+  display: inline-block;
+  &.pros {
+  }
+
+  &.cons {
+    float: right;
+  }
+}
+

@@ -1,44 +1,146 @@
-<p id="notice"><%= notice %></p>
+<div id="debateView">
+  <header class="page-title pt-light pt-plax-md-light" data-stellar-background-ratio="0.4">
+    <div class="bg-overlay">
+      <div class="container">
+        <div class="row">
 
-<p>
-  <strong>User:</strong>
-  <%= @debate.user %>
-</p>
+          <div class="col-sm-12 title">
+            <h1>E-books vs traditional books</h1>
+          </div>
+          <div class="col-sm-6 info">
+            <p>For the first time, Amazon.com, the world's largest on-line bookseller, sold more e-books than hardcover books. Although exact sales figures were not revealed, this is a major milestone for e-books and indicates major changes are taking place within the publishing world. At Amazon, e-books are significantly less expensive than new hardcover books.</p>
+          </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @debate.title %>
-</p>
+          <div class="col-sm-6">
+            <div class="progress-box">
+              <div class="progress">
+                <div class="progress-bar" style="width: 60%"></div>
+              </div>
+              <div class="progress-title pros">
+                찬성 60%
+              </div>
+              <div class="progress-title cons">
+                반대 40%
+              </div>
+            </div>
+          </div>
+          
 
-<p>
-  <strong>Image:</strong>
-  <%= @debate.image %>
-</p>
+        </div>
+      </div>
+    </div>
+  </header>
 
-<p>
-  <strong>Content:</strong>
-  <%= @debate.content %>
-</p>
 
-<p>
-  <strong>Pros count:</strong>
-  <%= @debate.pros_count %>
-</p>
+  <div class="container">
+    <!-- ========== Points & Reasons ======== -->
+    <div id="pointBox">
+      <div class="point">
+        <h3 class="title">논점1. ㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹ?</h3>
+        <div class="procon row">
+          <div class="col-md-6">
+            <div class="title">
+              찬성
+            </div>
 
-<p>
-  <strong>Cons count:</strong>
-  <%= @debate.cons_count %>
-</p>
+            <div class="reasons">
+              <div class="reason">
+                <h5>
+                  <a href="#collapse" data-toggle="collapse">
+                    근거1
+                  </a>
+                </h5>
+                <div class="well collapse" id="collapse">
+                  Detail
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="title">
+              반대
+            </div>
 
-<p>
-  <strong>Priority:</strong>
-  <%= @debate.priority %>
-</p>
+            <div class="reasons">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="point">
+        <h3 class="title">논점2. ㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹ?</h3>
+        <div class="procon row">
+          <div class="col-md-6">
+            <div class="title">
+              찬성
+            </div>
 
-<p>
-  <strong>Is visible:</strong>
-  <%= @debate.is_visible %>
-</p>
+            <div class="reasons">
+              <div class="reason">
+                <h5>
+                  <a href="#collapse2" data-toggle="collapse">
+                    근거1
+                  </a>
+                </h5>
+                <div class="well collapse" id="collapse2">
+                  Detail
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="title">
+              반대
+            </div>
 
-<%= link_to 'Edit', edit_debate_path(@debate) %> |
-<%= link_to 'Back', debates_path %>
+            <div class="reasons">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== Comments ========== -->
+
+    <div class="row">
+      <div class="col-md-12 blog-post-comments">
+        <h4 class="blog-section-title">Comments <span>(4)</span></h4>
+
+        <!-- Comment 1 -->
+        <div class="bp-comment">
+          <div class="comment-info">
+            <h6 class="comment-name">Stella Hartmann</h6>
+            <span class="comment-time">on June 23,2015, at 22:34</span>
+            <button class="comment-replay-btn"><i class="fa fa-mail-reply-all"></i> Reply</button>
+          </div>
+          <p class="comment-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div><!-- / .bp-comment -->
+
+        <!-- Replay Comment -->
+        <div class="bp-comment-reply">
+          <div class="comment-info">
+            <h6 class="comment-name">Stella Hartmann</h6>
+            <span class="comment-time">on June 23,2015, at 22:34</span>
+            <button class="comment-replay-btn"><i class="fa fa-mail-reply-all"></i> Reply</button>
+          </div>
+          <p class="comment-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div><!-- / .bp-comment-reply -->
+        
+
+        <!-- Leave a comment -->
+        <div class="comment-form">
+          <h4 class="blog-section-title">Leave a comment</h4>
+
+          <form action="post">
+            <!-- Comment -->
+            <div class="col-md-12 form-group no-gap">
+              <textarea class="form-control" name="textarea" id="txt-forms" rows="5" placeholder="Your Comment"></textarea>
+            </div>
+
+            <input type="submit" value="Send Comment" class="btn pull-right">
+          </form>
+        </div><!-- / .comment-form -->
+
+      </div><!-- / .blog-post-comments -->
+    </div><!-- / .row -->
+  </div>
+</div>

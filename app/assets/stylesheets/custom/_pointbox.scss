@@ -1,13 +1,46 @@
 #pointBox {
+  a {
+    text-decoration: none;
+
+  }
+
+
+  margin: 50px 0;
   .point {
     position: relative;
+    padding-bottom: 18px;
     h4 {
+      
     }
-    span {
+    span.remove {
       position: absolute;
       top: 0;
       right: 0;
       cursor: pointer;
+    }
+
+    .procon {
+      .col-md-6 {
+        > .title {
+          border-bottom: 1px solid #ccc;
+        }
+
+        .reasons {
+          .reason {
+            h5 {
+              display: inline-block;
+              width: 80%;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+            }
+
+            .collapse {
+              
+            }
+          }
+        }
+      }
     }
   }
 
