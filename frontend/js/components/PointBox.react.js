@@ -1,6 +1,8 @@
 var React = require('react');
 
+var NoReasonPoint = require('./NoReasonPoint.react');
 var Point = require('./Point.react');
+
 var AddPointButton = require('./AddPointButton.react');
 var PointInput = require('./PointInput.react');
 
@@ -26,19 +28,32 @@ var PointBox = React.createClass({
   },
 
   render: function() {
+    var withReason = this.props.withReason;
     var input = this.state.inputState ? (
       <PointInput 
         addPoint={this.addPoint}
       />
     ) : null;
 
+    var points;
+
+    if(withReason) {
+      points = this.props.points.map(function(point) {
+        return (
+          <NoReasonPoint point={point} key={point.id} />
+        );
+      });
+    } else {
+      points = this.props.points.map(function(point) {
+        return (
+          <Point point={point} key={point.id} />
+        );
+      });
+    }
+
     return (
       <div id="pointBox">
-        {this.props.points.map(function(point) {
-          return (
-            <Point point={point} key={point.id} />
-          );
-        })}
+        {points}
 
         {input}
         <AddPointButton

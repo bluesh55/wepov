@@ -29,6 +29,7 @@ var DebateView = React.createClass({
       <PointBox
         addPoint={this.addPoint}
         points={this.state.points}
+        withReason={false}
       />
     );
   }
