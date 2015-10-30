@@ -1,4 +1,5 @@
 class DebatesController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_debate, only: [:show, :edit, :update, :destroy, :pros, :cons, :cancel]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :only_owner, only: [:edit, :update, :destroy]
