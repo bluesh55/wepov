@@ -29,6 +29,18 @@ var DebateStore = assign(EventEmitter.prototype, {
   }
 });
 
+function postReason(reason) {
+  $.post('/reasons', {
+    "reason[point_id]": reason.point_id,
+    "reason[is_pros]": reason.is_pros,
+    "reason[title]": reason.title,
+    "reason[content]": reason.content
+  }, function(data) {
+    
+    DebateStore.emitChange();
+  });
+}
+
 AppDispatcher.register(function(action) {
   switch(action.actionType) {
     case Constants.READ_DEBATE:
@@ -41,6 +53,9 @@ AppDispatcher.register(function(action) {
       });
 
 
+      break;
+    case Constants.POST_REASON:
+      postReason(action.reason);
       break;
   }
 });

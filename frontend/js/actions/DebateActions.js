@@ -6,5 +6,12 @@ module.exports = {
     AppDispatcher.dispatch({
       actionType: Constants.READ_DEBATE
     });
+  },
+
+  postReason: function(reason) {
+    AppDispatcher.dispatch({
+      actionType: Constants.POST_REASON,
+      reason: reason
+    });
   }
 };

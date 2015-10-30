@@ -89,6 +89,7 @@ var Point = React.createClass({
         </div>
 
         <ReasonEditor
+          point={point}
           prosEditorOpened={this.state.prosEditorOpened}
           consEditorOpened={this.state.consEditorOpened}
         />

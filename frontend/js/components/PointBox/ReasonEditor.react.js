@@ -2,10 +2,23 @@ var React = require('react');
 
 var classnames = require('classnames');
 
+var DebateActions = require('../../actions/DebateActions');
+
+
 var ReasonEditor = React.createClass({
 
   onClick: function() {
+    var point_id = this.props.point.id;
+    var is_pros = this.props.prosEditorOpened;
+    var title = this.refs.title.value;
+    var content = this.refs.reason.value;
 
+    DebateActions.postReason({
+      title: title,
+      content: content,
+      is_pros: is_pros,
+      point_id: point_id
+    });
   },
 
   render: function() {
