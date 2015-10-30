@@ -1,8 +1,8 @@
 var React = require('react');
 
-var DebateBanner = require('./DebateBanner.react');
-var PointBox = require('./PointBox');
-var CommentBox = require('./CommentBox.react');
+var DebateBanner = require('./DebateShowApp/DebateBanner.react');
+var PointBox = require('./DebateShowApp/PointBox');
+var CommentBox = require('./DebateShowApp/CommentBox.react');
 
 var DebateActions = require('../actions/DebateActions');
 var DebateStore   = require('../stores/DebateStore');

@@ -1,6 +1,6 @@
 var React = require('react');
 
-var DebateActions = require('../../actions/DebateActions');
+var DebateActions = require('../../../actions/DebateActions');
 
 var PointInput = React.createClass({
   onKeyDown: function(e) {

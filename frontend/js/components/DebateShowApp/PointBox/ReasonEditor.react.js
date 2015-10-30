@@ -2,7 +2,7 @@ var React = require('react');
 
 var classnames = require('classnames');
 
-var DebateActions = require('../../actions/DebateActions');
+var DebateActions = require('../../../actions/DebateActions');
 
 
 var ReasonEditor = React.createClass({
