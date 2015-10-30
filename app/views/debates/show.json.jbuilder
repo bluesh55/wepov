@@ -8,5 +8,5 @@ json.points @debate.points do |p|
   json.title p.title
   json.visible p.is_visible
   json.priority p.priority
-  json.reasons p.reasons.select([:id, :user_id, :title, :content, :priority, :is_visible])
+  json.reasons p.reasons.select([:id, :user_id, :title, :content, :priority, :is_visible, :is_pros])
 end
