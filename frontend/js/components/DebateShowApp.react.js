@@ -1,6 +1,8 @@
 var React = require('react');
 
+var DebateBanner = require('./DebateBanner.react');
 var PointBox = require('./PointBox');
+var CommentBox = require('./CommentBox.react');
 
 var DebateActions = require('../actions/DebateActions');
 var DebateStore   = require('../stores/DebateStore');
@@ -44,36 +46,8 @@ var DebateShowApp = React.createClass({
   render: function() {
     return (
       <div>
-        <header className="page-title pt-light pt-plax-md-light"  style={{backgroundImage: debateImageURL}}>
-          <div className="bg-overlay">
-            <div className="container">
-              <div className="row">
-
-                <div className="col-sm-12 title">
-                  <h1>{debateTitle}</h1>
-                </div>
-                <div className="col-sm-6 info">
-                  <p>{debateContent}</p>
-                </div>
-
-                <div className="col-sm-6">
-                  <div className="progress-box">
-                    <div className="progress">
-                      <div className="progress-bar" style={{width: '60%'}}></div>
-                    </div>
-                    <div className="progress-title pros">
-                      찬성 60%
-                    </div>
-                    <div className="progress-title cons">
-                      반대 40%
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </header>
-
+        
+        <DebateBanner />
 
         <div className="container">
           <PointBox
@@ -82,44 +56,9 @@ var DebateShowApp = React.createClass({
             withReason={true}
           />
 
-          <div className="row">
-            <div className="col-md-12 blog-post-comments">
-              <h4 className="blog-section-title">Comments <span>(4)</span></h4>
-
-              <div className="bp-comment">
-                <div className="comment-info">
-                  <h6 className="comment-name">Stella Hartmann</h6>
-                  <span className="comment-time">on June 23,2015, at 22:34</span>
-                  <button className="comment-replay-btn"><i className="fa fa-mail-reply-all"></i> Reply</button>
-                </div>
-                <p className="comment-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-              </div>
-
-              <div className="bp-comment-reply">
-                <div className="comment-info">
-                  <h6 className="comment-name">Stella Hartmann</h6>
-                  <span className="comment-time">on June 23,2015, at 22:34</span>
-                  <button className="comment-replay-btn"><i className="fa fa-mail-reply-all"></i> Reply</button>
-                </div>
-                <p className="comment-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-              </div>
-              
-
-              <div className="comment-form">
-                <h4 className="blog-section-title">Leave a comment</h4>
-
-                <form action="post">
-                  <div className="col-md-12 form-group no-gap">
-                    <textarea className="form-control" name="textarea" id="txt-forms" rows="5" placeholder="Your Comment"></textarea>
-                  </div>
-
-                  <input type="submit" value="Send Comment" className="btn pull-right" />
-                </form>
-              </div>
-
-            </div>
-          </div>
+          <CommentBox />
         </div>
+
       </div>
     );
   }
