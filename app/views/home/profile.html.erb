@@ -2,19 +2,34 @@
   <div class="bg-overlay">
     <div class="container">
       <header class="sec-heading">
-        <h2>My Debates!</h2>
-        <span class="subheading">한눈에 보세요</span>
+        <h2><%= @user.name %> 님의 프로필</h2>
       </header>
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-offset-1 col-md-3">
+          <%= image_tag 'profile.png', class: "profile-img" %>
           <% if @user == current_user %>
-            <a href="/users/edit">프로필 수정</a><br />
+            <a href="/users/edit" class="edit-btn">
+              <span class="label label-outline">프로필 수정</span>
+            </a>
           <% end %>
-          <%= @user.name %><br />
-          <%= @user.email %>
         </div>
-        <div class="col-nd-8">
-          <%= @user.intro %>
+        <div class="col-md-7">
+          <div class="row">
+            <div class="col-md-6">
+              <span class="tag-title">이름</span>
+              <span class="profile-value"><%= @user.name %></span>
+            </div>
+            <div class="col-md-6">
+              <span class="tag-title">이메일</span>
+              <span class="profile-value"><%= @user.email.gsub('@', ' at ') %></span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 intro">
+              <span class="tag-title">자기소개</span>
+              <p class="profile-value profile-intro"><%= @user.intro %></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -81,13 +96,13 @@
   </div><!-- / .gray-bg -->
 
   <div class="container">
-    <h1>작성한 근거</h1>
+    <h1>작성한 근거들</h1>
     <ul>
-      <% if @user_points.empty? %>
+      <% if @user_reasons.empty? %>
         <li>작성한 근거가 없습니다.</li>
       <% else %>
-        <% @user_points.each do |p| %>
-          <li><%= link_to p.title, p %></li>
+        <% @user_reasons.each do |r| %>
+          <li><%= r.is_pros ? "찬" : "반" %> <%= link_to r.title, r %></li>
         <% end %>
       <% end %>
     </ul>

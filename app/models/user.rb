@@ -10,5 +10,6 @@ class User < ActiveRecord::Base
   has_many :vote_histories, class_name: 'Vote', dependent: :destroy
   has_many :voted_debates, through: :vote_histories, source: :debate
   has_many :points
+  has_many :reasons
 
 end
