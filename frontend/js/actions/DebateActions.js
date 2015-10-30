@@ -13,5 +13,18 @@ module.exports = {
       actionType: Constants.POST_REASON,
       reason: reason
     });
+  },
+
+  postPoint: function(point) {
+    AppDispatcher.dispatch({
+      actionType: Constants.POST_POINT,
+      point: point
+    });
+  },
+
+  clickAddPointButton: function() {
+    AppDispatcher.dispatch({
+      actionType: Constants.CLICK_ADD_POINT_BUTTON
+    });
   }
 };

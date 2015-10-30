@@ -1,8 +1,11 @@
 var React = require('react');
 
+var DebateActions = require('../../actions/DebateActions');
+
 var AddPointButton = React.createClass({
   onClick: function(e) {
-    this.props.onAddButtonClick();
+
+    DebateActions.clickAddPointButton();
 
     e.stopPropagation();
     e.preventDefault();

@@ -8,12 +8,17 @@ var assign = require('object-assign');
 var CHANGE_EVENT = "change";
 
 var debateData = [];
+var pointInputState = false;
 
 var DebateStore = assign(EventEmitter.prototype, {
 
   /* getter */
   getDebateData: function() {
     return debateData;
+  },
+
+  getPointInputState: function() {
+    return pointInputState;
   },
 
   emitChange: function() {
@@ -41,6 +46,19 @@ function postReason(reason) {
   });
 }
 
+function postPoint(point) {
+    $.post('/points', {
+      "point[title]": point.title,
+      "point[debate_id]": point.debate_id
+    }, function(data) {
+      // 논점 추가 완료
+      // data.status == 'ok'
+
+      pointInputState = false;
+      DebateStore.emitChange();
+    });
+}
+
 AppDispatcher.register(function(action) {
   switch(action.actionType) {
     case Constants.READ_DEBATE:
@@ -56,6 +74,14 @@ AppDispatcher.register(function(action) {
       break;
     case Constants.POST_REASON:
       postReason(action.reason);
+      break;
+    case Constants.POST_POINT:
+      postPoint(action.point);
+      break;
+
+    case Constants.CLICK_ADD_POINT_BUTTON:
+      pointInputState = true;
+      DebateStore.emitChange();
       break;
   }
 });

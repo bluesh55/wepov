@@ -10,7 +10,8 @@ var DebateStore   = require('../stores/DebateStore');
 
 var getStateFromStores = function() {
   return {
-    debateData: DebateStore.getDebateData()
+    debateData: DebateStore.getDebateData(),
+    pointInputState: DebateStore.getPointInputState()
   };
 };
 
@@ -31,18 +32,6 @@ var DebateShowApp = React.createClass({
     DebateActions.readDebate();
   },
 
-  addPoint: function(point) {
-    var debateId = location.pathname.split('/').pop();
-
-    $.post('/points', {
-      "point[title]": point,
-      "point[debate_id]": debateId
-    }, function(data) {
-      // 논점 추가 완료
-      // data.status == 'ok'
-    });
-  },
-
   render: function() {
     return (
       <div>
@@ -51,8 +40,8 @@ var DebateShowApp = React.createClass({
 
         <div className="container">
           <PointBox
-            addPoint={this.addPoint}
-            points={this.state.debateData.points}
+            pointInputState={this.state.pointInputState}
+            debateData={this.state.debateData}
             withReason={true}
           />
 
