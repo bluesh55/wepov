@@ -17,7 +17,7 @@ var DebateForm = React.createClass({
     var points = this.state.points;
     points.push({
       id: Date.now(),
-      content: point
+      title: point
     });
 
     this.setState({

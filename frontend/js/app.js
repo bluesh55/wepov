@@ -7,14 +7,15 @@ var createBrowserHistory = require('history/lib/createBrowserHistory');
 var history = createBrowserHistory();
 
 var DebateForm = require('./components/DebateForm.react');
+var DebateView = require('./components/DebateView.react');
 
 
 
 /* /debates/new */
 if(document.getElementById("debateForm")) {
-  ReactDOM.render((
-    <Router history={history}>
-      <Route path="/debates/new" component={DebateForm} />
-    </Router>
-  ), document.getElementById('debateForm'));
+  ReactDOM.render(<DebateForm />, document.getElementById('debateForm'));
+}
+
+if(document.getElementById("debateView")) {
+  ReactDOM.render(<DebateView />, document.getElementById("debateView"));
 }
