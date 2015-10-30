@@ -1,14 +1,14 @@
 <div id="debateView">
-  <header class="page-title pt-light pt-plax-md-light" data-stellar-background-ratio="0.4">
+  <header class="page-title pt-light pt-plax-md-light" data-stellar-background-ratio="0.4" style="background-image: url(<%= @debate.image.url %>)">
     <div class="bg-overlay">
       <div class="container">
         <div class="row">
 
           <div class="col-sm-12 title">
-            <h1>E-books vs traditional books</h1>
+            <h1><%= @debate.title %></h1>
           </div>
           <div class="col-sm-6 info">
-            <p>For the first time, Amazon.com, the world's largest on-line bookseller, sold more e-books than hardcover books. Although exact sales figures were not revealed, this is a major milestone for e-books and indicates major changes are taking place within the publishing world. At Amazon, e-books are significantly less expensive than new hardcover books.</p>
+            <p><%= @debate.content %></p>
           </div>
 
           <div class="col-sm-6">
