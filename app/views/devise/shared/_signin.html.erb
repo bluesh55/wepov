@@ -1,0 +1,22 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <!-- Username -->
+<div class="form-group">
+  <%= f.email_field :email, id: "username-login-1", class: "form-control", placeholder: "Enter your name", autofocus: true %>
+  <label for="username-login-1">Email</label>
+</div>
+<!-- Password -->
+<div class="form-group">
+  <%= f.password_field :password, id: "pass-login-1", class: "form-control", placeholder: "Enter your password", autocomplete: "off" %>
+  <label for="pass-login-1">Password</label>
+  <span class="pull-right"><a href="#" class="forget-pass-link">Forget password?</a></span>
+</div>
+<% if devise_mapping.rememberable? -%>
+  <div class="form-group">
+  <label class="checkbox-inline">
+    <input type="checkbox" id="newsletter-check" value="option1" checked="" name="remember_me"> Remember me?
+  </label>
+</div>
+<% end -%>
+<!-- Submit -->
+<%= f.submit "Login", class: "btn" %>
+<% end %>

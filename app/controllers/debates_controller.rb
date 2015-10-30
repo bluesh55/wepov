@@ -33,9 +33,11 @@ class DebatesController < ApplicationController
     @debate.user_id = current_user.id
 
     respond_to do |format|
-      if params[:points] and @debate.save
-        params[:points].each do |p|
-          Point.create(user_id: current_user.id, debate_id: @debate.id, title: p)
+      if @debate.save
+        if params[:points]
+          params[:points].each do |p|
+            Point.create(user_id: current_user.id, debate_id: @debate.id, title: p)
+          end
         end
         format.html { redirect_to @debate, notice: 'Debate was successfully created.' }
         format.json { render :show, status: :created, location: @debate }
