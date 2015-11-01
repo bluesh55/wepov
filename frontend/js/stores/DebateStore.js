@@ -41,8 +41,9 @@ function postReason(reason) {
     "reason[title]": reason.title,
     "reason[content]": reason.content
   }, function(data) {
-    
-    DebateStore.emitChange();
+   
+    //모든 정보 다시 불러오기
+    readDebate();
   });
 }
 
@@ -55,22 +56,26 @@ function postPoint(point) {
       // data.status == 'ok'
 
       pointInputState = false;
-      DebateStore.emitChange();
+
+      //모든 정보 다시 불러오기
+      readDebate();
     });
+}
+
+function readDebate() {
+  var debateId = location.pathname.split('/').pop();
+  var self = this;
+
+  $.get('/debates/' + debateId + '.json', function(data) {
+    debateData = data;
+    DebateStore.emitChange();
+  });
 }
 
 AppDispatcher.register(function(action) {
   switch(action.actionType) {
     case Constants.READ_DEBATE:
-      var debateId = location.pathname.split('/').pop();
-      var self = this;
-
-      $.get('/debates/' + debateId + '.json', function(data) {
-        debateData = data;
-        DebateStore.emitChange();
-      });
-
-
+      readDebate();
       break;
     case Constants.POST_REASON:
       postReason(action.reason);
