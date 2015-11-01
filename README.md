@@ -11,7 +11,7 @@ cd ...
 bundle install --without production
 npm install -g gulp-cli
 npm install
-gulp watch      # for react in new tab
+gulp      # for react in new tab
 guard           # for auto test in new tab
 ```
 
