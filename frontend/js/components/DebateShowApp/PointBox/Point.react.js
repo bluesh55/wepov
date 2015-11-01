@@ -28,6 +28,13 @@ var Point = React.createClass({
     });
   },
 
+  onClickPostReason: function() {
+    this.setState({
+      consEditorOpened: false,
+      prosEditorOpened: false
+    });
+  },
+
   render: function() {
     var point = this.props.point;
     var reasons = point.reasons;
@@ -92,6 +99,7 @@ var Point = React.createClass({
           point={point}
           prosEditorOpened={this.state.prosEditorOpened}
           consEditorOpened={this.state.consEditorOpened}
+          onClickPostReason={this.onClickPostReason}
         />
       </div>       
     );
