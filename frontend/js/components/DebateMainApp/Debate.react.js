@@ -1,5 +1,7 @@
 var React = require('react');
 
+var Link = require('react-router').Link;
+
 
 var Debate = React.createClass({
 
@@ -11,9 +13,9 @@ var Debate = React.createClass({
       <div className="col-lg-4 col-md-6 mb-sm-50">
         <div className="blog-post wow fadeIn" data-wow-duration="2s">
 
-          <a href={debateURL} className="post-img">
+          <Link to={debateURL} className="post-img">
             <img src={debate.image.image.thumb.url} />
-          </a>
+          </Link>
 
           <div className="bp-content">
             <div className="post-meta">
@@ -27,11 +29,13 @@ var Debate = React.createClass({
               </a>
             </div>
 
-            <a href={debateURL} className="post-title"><h4>{debate.title}</h4></a>
+            <Link to={debateURL} className="post-title">
+              <h4>{debate.title}</h4>
+            </Link>
 
             <p>{debate.content}</p>
 
-            <a href={debateURL} className="btn btn-small">Read More</a>
+            <Link to={debateURL} className="btn btn-small">Read More</Link>
 
           </div>
 

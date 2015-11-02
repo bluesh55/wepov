@@ -29,6 +29,10 @@ var DebateMainApp = React.createClass({
     DebateActions.readDebates();
   },
 
+  componentWillUnmount: function() {
+    DebateStore.removeChangeListener(this._onChange);
+  },
+
   render: function() {
     return (
       <div id="app">

@@ -7,6 +7,8 @@ var CommentBox = require('./DebateShowApp/CommentBox.react');
 var DebateActions = require('../actions/DebateActions');
 var DebateStore   = require('../stores/DebateStore');
 
+var _ = require('underscore');
+
 
 var getStateFromStores = function() {
   return {
@@ -32,11 +34,17 @@ var DebateShowApp = React.createClass({
     DebateActions.readDebate();
   },
 
+  componentWillUnmount: function() {
+    DebateStore.removeChangeListener(this._onChange);
+  },
+
   render: function() {
-    return (
+    var view = _.isEmpty(this.state.debateData) ? 
+      <div></div> :  (
       <div>
-        
-        <DebateBanner />
+        <DebateBanner
+          debateData={this.state.debateData}
+        />
 
         <div className="container">
           <PointBox
@@ -47,9 +55,11 @@ var DebateShowApp = React.createClass({
 
           <CommentBox />
         </div>
-
       </div>
     );
+
+
+    return view;
   }
 });
 

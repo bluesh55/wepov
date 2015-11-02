@@ -9,7 +9,7 @@ var assign = require('object-assign');
 var CHANGE_EVENT = "change";
 
 var debatesData = [];
-var debateData = [];
+var debateData = {};
 var pointInputState = false;
 
 var DebateStore = assign(EventEmitter.prototype, {
@@ -35,7 +35,7 @@ var DebateStore = assign(EventEmitter.prototype, {
     this.on(CHANGE_EVENT, callback);
   },
 
-  removeChangeLister: function(callback) {
+  removeChangeListener: function(callback) {
     this.removeListener(CHANGE_EVENT, callback);
   }
 });

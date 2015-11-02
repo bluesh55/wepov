@@ -1,5 +1,7 @@
 var React = require('react');
 
+var Link = require('react-router').Link;
+
 var DebateMainApp = React.createClass({
   render: function() {
     return (
@@ -12,7 +14,7 @@ var DebateMainApp = React.createClass({
               <div className="hero-content">
                 <h1 className="hero-lead">Creative Agency</h1>
                 <h4 className="h-alt hero-secondary">Web Design &amp; Development</h4>
-                <a href="/debates/new" className="btn btn-light">새 논쟁 만들기</a>
+                <Link to={`/debates/new`} className="btn btn-light">새 논쟁 만들기</Link>
                 <a href="#about" className="scroller">
                   <span className="scroller-text">scroll down</span>
                   <span className="linea-basic-magic-mouse"></span>
