@@ -13,6 +13,7 @@ var CommentBox = React.createClass({
       return (
         <Comment
           key={comment.id}
+          debateData={debate}
           comment={comment}
         />
       );
@@ -24,7 +25,6 @@ var CommentBox = React.createClass({
       </div>
     );
 
-    console.log(commentsView);
     return (
       <div className="row">
         <div className="col-md-12 blog-post-comments">
