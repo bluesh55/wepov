@@ -53,7 +53,9 @@ var DebateShowApp = React.createClass({
             withReason={true}
           />
 
-          <CommentBox />
+          <CommentBox
+            debateData={this.state.debateData}
+          />
         </div>
       </div>
     );
