@@ -1,5 +1,6 @@
-var AppDispatcher = require('../dispatcher/AppDispatcher');
+var $ = require('jquery');
 
+var AppDispatcher = require('../dispatcher/AppDispatcher');
 var Constants = require('../constants/Constants');
 
 var EventEmitter = require('events').EventEmitter;
@@ -7,12 +8,17 @@ var assign = require('object-assign');
 
 var CHANGE_EVENT = "change";
 
+var debatesData = [];
 var debateData = [];
 var pointInputState = false;
 
 var DebateStore = assign(EventEmitter.prototype, {
 
   /* getter */
+  getDebatesData: function() {
+    return debatesData;
+  },
+
   getDebateData: function() {
     return debateData;
   },
@@ -72,8 +78,18 @@ function readDebate() {
   });
 }
 
+function readDebates() {
+  $.get('/debates.json', function(data) {
+    debatesData = data;
+    DebateStore.emitChange();
+  });
+}
+
 AppDispatcher.register(function(action) {
   switch(action.actionType) {
+    case Constants.READ_DEBATES:
+      readDebates();
+      break;
     case Constants.READ_DEBATE:
       readDebate();
       break;

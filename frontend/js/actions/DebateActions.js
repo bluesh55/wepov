@@ -8,6 +8,12 @@ module.exports = {
     });
   },
 
+  readDebates: function() {
+    AppDispatcher.dispatch({
+      actionType: Constants.READ_DEBATES
+    });
+  },
+
   postReason: function(reason) {
     AppDispatcher.dispatch({
       actionType: Constants.POST_REASON,
