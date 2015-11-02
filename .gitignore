@@ -29,3 +29,5 @@ db/schema.rb
 public/uploads
 
 .env
+
+public/assets
