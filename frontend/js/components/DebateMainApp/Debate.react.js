@@ -19,11 +19,11 @@ var Debate = React.createClass({
             <div className="post-meta">
               <a href="#" className="post-date">
                 <i className="fa fa-calendar-o"></i>
-                <span>date</span>
+                <span>{debate.created_at}</span>
               </a>
               <a href="#" className="post-comments">
                 <i className="fa fa-comments-o"></i>
-                <span>0</span>
+                <span>{debate.comments_count}</span>
               </a>
             </div>
 
