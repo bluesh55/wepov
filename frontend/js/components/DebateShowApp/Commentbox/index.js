@@ -9,6 +9,22 @@ var CommentBox = React.createClass({
     var debate = this.props.debateData;
     var comments = debate.comments;
 
+    var commentsView = comments.map(function(comment) {
+      return (
+        <Comment
+          key={comment.id}
+          comment={comment}
+        />
+      );
+    });
+
+    var commentsEmptyView = (
+      <div>
+        작성된 댓글이 없습니다.
+      </div>
+    );
+
+    console.log(commentsView);
     return (
       <div className="row">
         <div className="col-md-12 blog-post-comments">
@@ -16,14 +32,12 @@ var CommentBox = React.createClass({
             comments={comments}
           />
 
-          {comments.map(function(comment) {
-            return (
-              <Comment
-                key={comment.id}
-                comment={comment}
-              />
-            );
-          })}
+
+          {
+            comments.length > 0 ?
+            commentsView :
+            commentsEmptyView
+          }
 
           <CommentForm
             debateData={debate}
