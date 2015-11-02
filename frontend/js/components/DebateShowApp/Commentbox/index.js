@@ -1,6 +1,6 @@
 var React = require('react');
 
-var CommentCount = require('./Commentcount.react');
+var CommentCount = require('./CommentCount.react');
 var Comment = require('./Comment.react');
 var CommentForm = require('./CommentForm.react');
 
