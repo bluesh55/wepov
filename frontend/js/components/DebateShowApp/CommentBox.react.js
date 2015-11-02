@@ -19,6 +19,7 @@ var CommentBox = React.createClass({
           {comments.map(function(comment) {
             return (
               <Comment
+                key={comment.id}
                 comment={comment}
               />
             );
