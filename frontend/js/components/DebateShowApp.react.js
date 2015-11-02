@@ -3,7 +3,7 @@ var React = require('react');
 var BreadCrumb = require('./DebateShowApp/BreadCrumb.react');
 var DebateBanner = require('./DebateShowApp/DebateBanner.react');
 var PointBox = require('./DebateShowApp/PointBox');
-var CommentBox = require('./DebateShowApp/CommentBox.react');
+var CommentBox = require('./DebateShowApp/CommentBox');
 
 var DebateActions = require('../actions/DebateActions');
 var DebateStore   = require('../stores/DebateStore');
