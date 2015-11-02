@@ -5,11 +5,17 @@ var DebateActions = require('../../../actions/DebateActions');
 var CommentForm = React.createClass({
 
   onClickSubmit: function() {
-    DebateActions.postComment({
-      debate_id: this.props.debateData.id,
-      comment_id: "",
-      content: this.refs.content.value
-    });
+    var content = this.refs.content.value;
+
+    if(content != "") {
+      DebateActions.postComment({
+        debate_id: this.props.debateData.id,
+        comment_id: "",
+        content: this.refs.content.value
+      });
+
+      this.refs.content.value = "";
+    }
   },
 
   render: function() {
