@@ -2,14 +2,15 @@ var React = require('react');
 
 var Reply = React.createClass({
   render: function() {
+    var reply = this.props.reply;
+
     return (
       <div className="bp-comment-reply">
         <div className="comment-info">
-          <h6 className="comment-name">Stella Hartmann</h6>
-          <span className="comment-time">on June 23,2015, at 22:34</span>
-          <button className="comment-replay-btn"><i className="fa fa-mail-reply-all"></i> Reply</button>
+          <h6 className="comment-name">{reply.user_name}</h6>
+          <span className="comment-time">{reply.date}</span>
         </div>
-        <p className="comment-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        <p className="comment-content">{reply.content}</p>
       </div>
     );
   }

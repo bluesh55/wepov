@@ -20,4 +20,14 @@ json.comments @debate.main_comments do |c|
   json.is_visible c.is_visible
   json.date c.updated_at
   json.replies_count c.comments.count
+
+  json.replies c.comments do |reply|
+    json.id reply.id
+    json.user_name reply.user.name
+    json.content reply.content
+    json.like_count reply.like_count
+    json.dislike_count reply.dislike_count
+    json.is_visible reply.is_visible
+    json.date reply.updated_at
+  end
 end

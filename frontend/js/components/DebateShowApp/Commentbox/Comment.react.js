@@ -5,6 +5,8 @@ var Reply = require('./Reply.react');
 var Comment = React.createClass({
   render: function() {
     var comment = this.props.comment;
+    var replies = comment.replies;
+
     return (
       <div>
         <div className="bp-comment">
@@ -15,6 +17,15 @@ var Comment = React.createClass({
           </div>
           <p className="comment-content">{comment.content}</p>
         </div>
+
+        {replies.map(function(reply) {
+          return (
+            <Reply
+              reply={reply}
+              key={reply.id}
+            />
+          );
+        })}
       </div>
     );
   }
