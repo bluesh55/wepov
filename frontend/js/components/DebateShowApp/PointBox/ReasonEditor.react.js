@@ -19,6 +19,11 @@ var ReasonEditor = React.createClass({
       is_pros: is_pros,
       point_id: point_id
     });
+
+    this.refs.title.value = "";
+    this.refs.reason.value = "";
+
+    this.props.onClickPostReason();
   },
 
   render: function() {

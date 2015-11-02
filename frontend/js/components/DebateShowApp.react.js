@@ -1,11 +1,14 @@
 var React = require('react');
 
+var BreadCrumb = require('./DebateShowApp/BreadCrumb.react');
 var DebateBanner = require('./DebateShowApp/DebateBanner.react');
 var PointBox = require('./DebateShowApp/PointBox');
-var CommentBox = require('./DebateShowApp/CommentBox.react');
+var CommentBox = require('./DebateShowApp/CommentBox');
 
 var DebateActions = require('../actions/DebateActions');
 var DebateStore   = require('../stores/DebateStore');
+
+var _ = require('underscore');
 
 
 var getStateFromStores = function() {
@@ -32,11 +35,21 @@ var DebateShowApp = React.createClass({
     DebateActions.readDebate();
   },
 
+  componentWillUnmount: function() {
+    DebateStore.removeChangeListener(this._onChange);
+  },
+
   render: function() {
-    return (
+    var view = _.isEmpty(this.state.debateData) ? 
+      <div></div> :  (
       <div>
-        
-        <DebateBanner />
+        <BreadCrumb
+          title={this.state.debateData.title}
+        />
+
+        <DebateBanner
+          debateData={this.state.debateData}
+        />
 
         <div className="container">
           <PointBox
@@ -45,11 +58,15 @@ var DebateShowApp = React.createClass({
             withReason={true}
           />
 
-          <CommentBox />
+          <CommentBox
+            debateData={this.state.debateData}
+          />
         </div>
-
       </div>
     );
+
+
+    return view;
   }
 });
 

@@ -6,23 +6,15 @@ var Route = require('react-router').Route;
 var createBrowserHistory = require('history/lib/createBrowserHistory');
 var history = createBrowserHistory();
 
+var DebateMainApp = require('./components/DebateMainApp.react');
 var DebateNewApp = require('./components/DebateNewApp.react');
 var DebateShowApp = require('./components/DebateShowApp.react');
 
 
 
-/*
-if(document.getElementById("debateForm")) {
-  ReactDOM.render(<DebateForm />, document.getElementById('debateForm'));
-}
-
-if(document.getElementById("debateView")) {
-  ReactDOM.render(<DebateView />, document.getElementById("debateView"));
-}
-*/
-
 ReactDOM.render((
   <Router history={history}>
+    <Route path="/" component={DebateMainApp} />
     <Route path="/debates/new" component={DebateNewApp} />
     <Route path="/debates/:debateId" component={DebateShowApp} />
 
