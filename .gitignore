@@ -27,3 +27,5 @@ Gemfile.lock
 db/schema.rb
 
 public/uploads
+
+.env
