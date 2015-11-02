@@ -20,7 +20,9 @@ var CommentBox = React.createClass({
             );
           })}
 
-          <CommentForm />
+          <CommentForm
+            debateData={debate}
+          />
         </div>
       </div>
     );

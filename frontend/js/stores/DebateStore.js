@@ -85,6 +85,22 @@ function readDebates() {
   });
 }
 
+
+/* Comment */
+function postComment(commentData) {
+  $.post('/comments', {
+    "comment[debate_id]": commentData.debate_id,
+    "comment[comment_id]": commentData.comment_id,
+    "comment[content]": commentData.content
+  }, function(data) {
+    // 댓글 추가 완료
+    if(data.status == 200) {
+      //모든 정보 다시 불러오기
+      readDebate();
+    }
+  });
+}
+
 AppDispatcher.register(function(action) {
   switch(action.actionType) {
     case Constants.READ_DEBATES:
@@ -103,6 +119,10 @@ AppDispatcher.register(function(action) {
     case Constants.CLICK_ADD_POINT_BUTTON:
       pointInputState = true;
       DebateStore.emitChange();
+      break;
+
+    case Constants.POST_COMMENT:
+      postComment(action.commentData);
       break;
   }
 });

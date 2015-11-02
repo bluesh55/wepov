@@ -32,5 +32,15 @@ module.exports = {
     AppDispatcher.dispatch({
       actionType: Constants.CLICK_ADD_POINT_BUTTON
     });
+  },
+
+
+
+  /* Comment */
+  postComment: function(commentData) {
+    AppDispatcher.dispatch({
+      actionType: Constants.POST_COMMENT,
+      commentData: commentData
+    });
   }
 };
