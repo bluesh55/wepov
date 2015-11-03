@@ -1,18 +1,6 @@
-.progress {
-  background-color: $conColor;
-  .progress-bar {
-    background-color: $proColor;
-  }
+#progressBox {
+  display: block;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
 }
-
-
-.progress-title {
-  display: inline-block;
-  &.pros {
-  }
-
-  &.cons {
-    float: right;
-  }
-}
-
