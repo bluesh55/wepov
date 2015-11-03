@@ -3,6 +3,12 @@ var React = require('react');
 var DebateActions = require('../../actions/DebateActions');
 var DebateStore   = require('../../stores/DebateStore');
 
+var ProfileBox = require('./ProfileBox.react');
+var Menu       = require('./Menu.react');
+var MainBoard  = require('./MainBoard.react');
+
+
+
 var getStateFromStores = function() {
   return {
   };
@@ -28,7 +34,14 @@ var DebateMainApp = React.createClass({
 
   render: function() {
     return (
-      <div id="app">
+      <div id="ProfileApp">
+        <div className="menu">
+          <ProfileBox />
+          <Menu />
+        </div>
+        <div className="dashboard">
+          <MainBoard />
+        </div>
       </div>
     );
   }
