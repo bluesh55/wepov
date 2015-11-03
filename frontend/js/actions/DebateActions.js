@@ -42,5 +42,20 @@ module.exports = {
       actionType: Constants.POST_COMMENT,
       commentData: commentData
     });
+  },
+
+  /* Pros and Cons */
+  clickPros: function(debate_id) {
+    AppDispatcher.dispatch({
+      actionType: Constants.CLICK_PROS,
+      debate_id: debate_id
+    });
+  },
+
+  clickCons: function(debate_id) {
+    AppDispatcher.dispatch({
+      actionType: Constants.CLICK_CONS,
+      debate_id: debate_id
+    });
   }
 };

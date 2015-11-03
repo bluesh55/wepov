@@ -101,6 +101,24 @@ function postComment(commentData) {
   });
 }
 
+
+/* Pros and Cons */
+function clickPros(debate_id) {
+  var debateId = location.pathname.split('/').pop();
+
+  $.get('/debates/' + debateId + '/pros', function(data) {
+    readDebate();
+  });
+}
+
+function clickCons(debate_id) {
+   var debateId = location.pathname.split('/').pop();
+
+  $.get('/debates/' + debateId + '/cons', function(data) {
+    readDebate();
+  }); 
+}
+
 AppDispatcher.register(function(action) {
   switch(action.actionType) {
     case Constants.READ_DEBATES:
@@ -123,6 +141,14 @@ AppDispatcher.register(function(action) {
 
     case Constants.POST_COMMENT:
       postComment(action.commentData);
+      break;
+
+    case Constants.CLICK_PROS:
+      clickPros(action.debate_id);
+      break;
+
+    case Constants.CLICK_CONS:
+      clickCons(action.debate_id);
       break;
   }
 });

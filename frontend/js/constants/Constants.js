@@ -7,5 +7,8 @@ module.exports = keymirror({
   POST_POINT: null,
   CLICK_ADD_POINT_BUTTON: null,
 
-  POST_COMMENT: null
+  POST_COMMENT: null,
+
+  CLICK_PROS: null,
+  CLICK_CONS: null
 });
