@@ -67,8 +67,8 @@ var DebateBanner = React.createClass({
 
               <div className="col-sm-6">
                 {isVoteEmpty ? 
-                  <DebateBanner.EmptyVote id="progressBox" /> :
-                  <canvas id="progressBox" ref="chart" key={Date.now()} />
+                  <DebateBanner.EmptyVote id="chartBox" /> :
+                  <canvas id="chartBox" ref="chart" key={Date.now()} />
                 }
 
                 <DebateBanner.VoteBox
