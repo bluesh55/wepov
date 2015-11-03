@@ -34,7 +34,7 @@
 
         <% if user_signed_in? %>
         <li class="mega-fw">
-        <%= link_to('Mypage', "/profile/#{current_user.id}")  %>
+        <%= link_to('Mypage', user_path(current_user.id))  %>
         </li>
         <li class="mega-fw">
             <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
