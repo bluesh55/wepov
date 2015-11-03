@@ -35,11 +35,11 @@ var DebateMainApp = React.createClass({
   render: function() {
     return (
       <div id="ProfileApp">
-        <div className="menu">
+        <div id="Menu">
           <ProfileBox />
           <Menu />
         </div>
-        <div className="dashboard">
+        <div id="Dashboard">
           <MainBoard />
         </div>
       </div>

@@ -1,7 +1,30 @@
 #ProfileApp {
-  .menu {
+  #Menu {
+    float: left;
+    display: block;
+    width: 300px;
+
+    #ProfileBox {
+      text-align: center;
+
+      .profile-container {
+        padding: 15px;
+
+        .image-wrapper {
+          margin: 20px 0;
+          img {
+            width: 80px;
+            height: 80px;
+          }
+        }
+      }
+    }
   }
 
-  .dashboard {
+  #Dashboard {
+    display: block;
+    width: 100%;
+    padding-left: 300px;
+
   }
 }
