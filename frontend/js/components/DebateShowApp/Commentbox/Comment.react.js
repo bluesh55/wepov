@@ -4,6 +4,18 @@ var Reply = require('./Reply.react');
 var ReplyForm = require('./ReplyForm.react');
 
 var Comment = React.createClass({
+  getInitialState: function() {
+    return {
+      replyForm: false
+    };
+  },
+
+  onClickReplyForm: function() {
+    this.setState({
+      replyForm: true
+    });
+  },
+
   render: function() {
     var debate = this.props.debateData;
     var comment = this.props.comment;
@@ -15,7 +27,7 @@ var Comment = React.createClass({
           <div className="comment-info">
             <h6 className="comment-name">{comment.user_name}</h6>
             <span className="comment-time">{comment.date}</span>
-            <button className="comment-replay-btn"><i className="fa fa-mail-reply-all"></i> Reply</button>
+            <button className="comment-replay-btn" onClick={this.onClickReplyForm}><i className="fa fa-mail-reply-all"></i> Reply</button>
           </div>
           <p className="comment-content">{comment.content}</p>
         </div>
@@ -29,10 +41,13 @@ var Comment = React.createClass({
           );
         })}
 
+        {this.state.replyForm ? 
         <ReplyForm
           debate_id={debate.id}
           comment_id={comment.id}
-        />
+        /> :
+        ""
+        }
       </div>
     );
   }
