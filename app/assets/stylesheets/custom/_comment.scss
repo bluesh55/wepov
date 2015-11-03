@@ -1,0 +1,37 @@
+.comment {
+
+  .comment-info {
+    .comment-name {
+      display: inline-block;
+    }
+    .comment-time {
+      display: inline-block;
+      margin-left: 20px;
+    }
+  }
+  
+  .comment-content {
+  }
+}
+
+.comment-reply {
+  margin-left: 30px;
+
+  .comment-info {
+    .comment-name {
+      display: inline-block;
+    }
+    .comment-time {
+      display: inline-block;
+      margin-left: 20px;
+    }
+  }
+  
+  .comment-content {
+  }
+}
+
+
+.reply-form {
+  margin-left: 30px;
+}
