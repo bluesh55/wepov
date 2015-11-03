@@ -3,9 +3,15 @@ var React = require('react');
 var DebateBanner = React.createClass({
   render: function() {
     var debateData = this.props.debateData;
+    var imageURL = debateData.image.image.url;
+
+    var style = imageURL ? {
+      backgroundImage: "url(" + imageURL + ")"
+    } :
+    null;
 
     return (
-      <header className="page-title pt-light pt-plax-md-light"  style={{backgroundImage: "url(" + debateData.image.image.url + ")"}}>
+      <header className="page-title pt-light pt-plax-md-light"  style={style}>
         <div className="bg-overlay">
           <div className="container">
             <div className="row">
