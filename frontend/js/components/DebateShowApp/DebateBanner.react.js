@@ -1,5 +1,7 @@
 var React = require('react');
 
+var classnames = require('classnames');
+
 var DebateActions = require('../../actions/DebateActions');
 
 var DebateBanner = React.createClass({
@@ -72,6 +74,7 @@ var DebateBanner = React.createClass({
                 <DebateBanner.VoteBox
                   debateData={debateData}
                 />
+
               </div>
             </div>
           </div>
@@ -108,10 +111,24 @@ DebateBanner.VoteBox = React.createClass({
   },
 
   render: function() {
+    var debate = this.props.debateData;
+    var isVoted = debate.isVoted;
+    var isPros = debate.isPros;
+
+    var prosBtnClass = classnames({
+      'btn': true,
+      'voted': isPros == true
+    });
+
+    var consBtnClass = classnames({
+      'btn': true,
+      'voted': isPros == false
+    });
+
     return (
       <div id="voteBox">
-        <button className="btn" onClick={this.onClickPros}>찬성</button>
-        <button className="btn" onClick={this.onClickCons}>반대</button>
+        <button className={prosBtnClass} onClick={this.onClickPros}>찬성</button>
+        <button className={consBtnClass} onClick={this.onClickCons}>반대</button>
       </div>
     );
   }

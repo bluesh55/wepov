@@ -107,15 +107,21 @@ function clickPros(debate_id) {
   var debateId = location.pathname.split('/').pop();
 
   $.get('/debates/' + debateId + '/pros', function(data) {
-    readDebate();
-  });
+    if(data.status == 422) {
+    } else {
+      readDebate();
+    }
+  })
 }
 
 function clickCons(debate_id) {
    var debateId = location.pathname.split('/').pop();
 
   $.get('/debates/' + debateId + '/cons', function(data) {
-    readDebate();
+    if(data.status == 422) {
+    } else {
+      readDebate();
+    }
   }); 
 }
 

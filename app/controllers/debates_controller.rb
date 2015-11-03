@@ -13,6 +13,15 @@ class DebatesController < ApplicationController
   # GET /debates/1
   # GET /debates/1.json
   def show
+    vote = Vote.find_by(user: current_user, debate: @debate) if current_user
+
+    if vote.nil?
+      @isVoted = false
+      @isPros = nil
+    else
+      @isVoted = true
+      @isPros = vote.is_pros
+    end
   end
 
   # GET /debates/new
@@ -79,9 +88,10 @@ class DebatesController < ApplicationController
       if @vote.save
         @debate.pros_count += 1
         @debate.save
-        render :show, status: :ok, location: @debate
+
+        render json: {status: 200}
       else
-        render json: @vote.errors, status: :unprocessable_entity
+        render json: {status: 422, errors: @vote.errors}
       end
     end
   end
@@ -92,9 +102,9 @@ class DebatesController < ApplicationController
       if @vote.save
         @debate.cons_count += 1
         @debate.save
-        render :show, status: :ok, location: @debate
+        render json: {status: 200}
       else
-        render json: @vote.errors, status: :unprocessable_entity
+        render json: {status: 422, errors: @vote.errors}
       end
     end
   end

@@ -31,3 +31,6 @@ json.comments @debate.main_comments do |c|
     json.date reply.updated_at
   end
 end
+
+json.isVoted @isVoted
+json.isPros @isPros
