@@ -4,7 +4,9 @@ var React = require('react');
 var MainBoard = React.createClass({
   render: function() {
     return (
-      <div>MainBoard</div>
+      <div className="dashboard" style={{minHeight: this.props.minHeight}}>
+        MainBoard
+      </div>
     );
   }
 });

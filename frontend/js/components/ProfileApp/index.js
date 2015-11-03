@@ -8,9 +8,11 @@ var ListMenu   = require('./ListMenu.react');
 var MainBoard  = require('./MainBoard.react');
 
 
+var minHeight = window.innerHeight - 75;
 
 var getStateFromStores = function() {
   return {
+    minHeight: minHeight
   };
 };
 
@@ -19,6 +21,17 @@ var DebateMainApp = React.createClass({
     this.setState(getStateFromStores());
   },
 
+  onResize: function() {
+    if(window.innerHeight > minHeight) {
+      this.setState({
+        minHeight: window.innerHeight - 75
+      });
+    } else if(this.state.minHeight != minHeight) {
+      this.setState({
+        minHeight: minHeight
+      });
+    }
+  },
   /* props로 초기화하면 될 듯 */
   getInitialState: function() {
     return getStateFromStores();
@@ -26,6 +39,8 @@ var DebateMainApp = React.createClass({
 
   componentDidMount: function() {
     DebateStore.addChangeListener(this._onChange);
+
+    window.onresize = this.onResize;
   },
 
   componentWillUnmount: function() {
@@ -40,7 +55,9 @@ var DebateMainApp = React.createClass({
           <ListMenu />
         </div>
         <div id="Dashboard">
-          <MainBoard />
+          <MainBoard
+            minHeight={this.state.minHeight}
+          />
         </div>
       </div>
     );

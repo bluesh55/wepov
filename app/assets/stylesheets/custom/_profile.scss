@@ -50,7 +50,14 @@
   #Dashboard {
     display: block;
     width: 100%;
+    min-height: 100%;
     padding-left: 300px;
+  
+    .dashboard {
+      width: 100%;
+      min-height: 100%;
+      border-left: 1px solid #E9E9E9;
+    }
 
   }
 }
