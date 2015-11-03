@@ -1,7 +1,7 @@
 var React = require('react');
 
 
-var Menu = React.createClass({
+var ListMenu = React.createClass({
   render: function() {
     return (
       <div>Menu</div>
@@ -9,4 +9,4 @@ var Menu = React.createClass({
   }
 });
 
-module.exports = Menu;
+module.exports = ListMenu;

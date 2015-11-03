@@ -4,7 +4,7 @@ var DebateActions = require('../../actions/DebateActions');
 var DebateStore   = require('../../stores/DebateStore');
 
 var ProfileBox = require('./ProfileBox.react');
-var Menu       = require('./Menu.react');
+var ListMenu   = require('./ListMenu.react');
 var MainBoard  = require('./MainBoard.react');
 
 
@@ -37,7 +37,7 @@ var DebateMainApp = React.createClass({
       <div id="ProfileApp">
         <div id="Menu">
           <ProfileBox />
-          <Menu />
+          <ListMenu />
         </div>
         <div id="Dashboard">
           <MainBoard />
