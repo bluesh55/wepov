@@ -139,6 +139,16 @@ function editPointTitle(pointData) {
   });
 }
 
+function deletePoint(pointData) {
+  $.ajax({
+    url: '/points/' + pointData.id,
+    type: 'delete',
+    success: function() {
+      readDebate();
+    }
+  });
+}
+
 AppDispatcher.register(function(action) {
   switch(action.actionType) {
     case Constants.READ_DEBATES:
@@ -173,6 +183,10 @@ AppDispatcher.register(function(action) {
 
     case Constants.EDIT_POINT_TITLE:
       editPointTitle(action.pointData);
+      break;
+
+    case Constants.DELETE_POINT:
+      deletePoint(action.pointData);
       break;
   }
 });

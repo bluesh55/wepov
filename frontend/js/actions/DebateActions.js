@@ -43,6 +43,13 @@ module.exports = {
     });
   },
 
+  deletePoint: function(pointData) {
+    AppDispatcher.dispatch({
+      actionType: Constants.DELETE_POINT,
+      pointData: pointData
+    });
+  },
+
 
 
   /* Comment */

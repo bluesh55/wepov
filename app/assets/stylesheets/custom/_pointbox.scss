@@ -22,7 +22,8 @@
       i {
       }
       .edit-box {
-        float: right;
+        position: absolute;
+        right: 0;
         font-size: 0.7em;
         margin-left: 5px;
         cursor: pointer;

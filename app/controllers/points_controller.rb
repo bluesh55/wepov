@@ -54,10 +54,7 @@ class PointsController < ApplicationController
   # DELETE /points/1.json
   def destroy
     @point.destroy
-    respond_to do |format|
-      format.html { redirect_to points_url, notice: 'Point was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    render :json => {status: 200}
   end
 
   def up

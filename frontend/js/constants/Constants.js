@@ -12,5 +12,6 @@ module.exports = keymirror({
   CLICK_PROS: null,
   CLICK_CONS: null,
 
-  EDIT_POINT_TITLE: null
+  EDIT_POINT_TITLE: null,
+  DELETE_POINT: null
 });

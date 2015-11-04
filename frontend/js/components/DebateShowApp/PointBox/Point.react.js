@@ -44,10 +44,15 @@ var Point = React.createClass({
     });
   },
 
+  /* 삭제 기능 수행 */
   onClickDeletePoint: function() {
-  
+    var point = this.props.point;
+    DebateActions.deletePoint({
+      id: point.id
+    });
   },
 
+  /* 수정 기능 수행 */
   onClickEdit: function() {
     var point = this.props.point;
     var edittedTitle = this.refs.editTitle.value;
