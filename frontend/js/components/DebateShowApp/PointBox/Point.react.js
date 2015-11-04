@@ -4,13 +4,16 @@ var Reason = require('./Reason.react');
 var AddReasonButton = require('./AddReasonButton.react');
 var ReasonEditor = require('./ReasonEditor.react');
 
+var DebateActions = require('../../../actions/DebateActions');
+
 var _ = require('underscore');
 
 var Point = React.createClass({
   getInitialState: function() {
     return {
       prosEditorOpened: false,
-      consEditorOpend: false
+      consEditorOpend: false,
+      pointEditable: false
     };
   },
 
@@ -35,18 +38,60 @@ var Point = React.createClass({
     });
   },
 
+  onClickEditPoint: function() {
+    this.setState({
+      pointEditable: true
+    });
+  },
+
+  onClickDeletePoint: function() {
+  
+  },
+
+  onClickEdit: function() {
+    var point = this.props.point;
+    var edittedTitle = this.refs.editTitle.value;
+    DebateActions.editPointTitle({
+      edittedTitle: edittedTitle,
+      id: point.id
+    });
+
+    this.setState({
+      pointEditable: false
+    });
+  },
+
   render: function() {
+    var debate = this.props.debate;
     var point = this.props.point;
     var reasons = point.reasons;
 
     var prosReasons = _.filter(reasons, function(obj) { return obj.is_pros });
     var consReasons = _.filter(reasons, function(obj) { return !obj.is_pros });
 
+    var editBox = debate.cuid === point.user_id && this.state.pointEditable === false ? 
+      (<Point.EditBox 
+        onClickEditPoint={this.onClickEditPoint}
+        onClickDeletePoint={this.onClickDeletePoint}
+        />) : "";
+
+    var pointTitle = this.state.pointEditable ? 
+      (
+        <span>
+          <input type="text" defaultValue={point.title} ref="editTitle" />
+          <button onClick={this.onClickEdit}>수정</button>
+        </span>
+      )
+      :
+      <span>{point.title}</span>;
+
     return (
       <div className="point">
         <h3 className="title">
           <i className="fa fa-balance-scale"></i>
-          <span>{point.title}</span>
+
+          {pointTitle}
+          {editBox}
         </h3>
 
         <div className="procon row">
@@ -102,6 +147,21 @@ var Point = React.createClass({
           onClickPostReason={this.onClickPostReason}
         />
       </div>       
+    );
+  }
+});
+
+Point.EditBox = React.createClass({
+  render: function() {
+    return (
+      <span className="edit-box">
+        <span onClick={this.props.onClickEditPoint}>
+          <i className="fa fa-pencil"></i>수정
+        </span>
+        <span onClick={this.props.onClickDeletePoint}>
+          <i className="fa fa-trash-o"></i>삭제
+        </span>
+      </span>
     );
   }
 });

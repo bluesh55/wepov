@@ -10,5 +10,7 @@ module.exports = keymirror({
   POST_COMMENT: null,
 
   CLICK_PROS: null,
-  CLICK_CONS: null
+  CLICK_CONS: null,
+
+  EDIT_POINT_TITLE: null
 });

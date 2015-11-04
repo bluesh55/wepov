@@ -8,11 +8,12 @@ var PointInput = require('./PointInput.react');
 var PointBox = React.createClass({
   render: function() {
     var points;
+    var debate = this.props.debateData;
 
-    if(this.props.debateData.points) {
-      points = this.props.debateData.points.map(function(point) {
+    if(debate.points) {
+      points = debate.points.map(function(point) {
         return (
-          <Point point={point} key={point.id} />
+          <Point point={point} key={point.id} debate={debate}/>
         );
       });
     }

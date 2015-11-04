@@ -41,14 +41,12 @@ class PointsController < ApplicationController
   # PATCH/PUT /points/1
   # PATCH/PUT /points/1.json
   def update
-    respond_to do |format|
-      if @point.update(point_params)
-        format.html { redirect_to @point, notice: 'Point was successfully updated.' }
-        format.json { render :show, status: :ok, location: @point }
-      else
-        format.html { render :edit }
-        format.json { render json: @point.errors, status: :unprocessable_entity }
-      end
+    point = Point.find_by(id: params[:id], user: current_user)
+
+    if point.update(title: params[:title])
+      render :json => {status: 200}
+    else
+      render :json => {status: 422, :errors => point.errors}
     end
   end
 

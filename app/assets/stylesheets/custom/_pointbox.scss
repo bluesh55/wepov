@@ -21,15 +21,23 @@
       text-align: center;
       i {
       }
-      span {
+      .edit-box {
+        float: right;
+        font-size: 0.7em;
         margin-left: 5px;
+        cursor: pointer;
+        span {
+          margin-right: 10px;
+          i {
+            visibility: hidden;
+          }
+          &:hover {
+            i {
+              visibility: visible;
+            }
+          }
+        }
       }
-    }
-    span.remove {
-      position: absolute;
-      top: 0;
-      right: 0;
-      cursor: pointer;
     }
 
     .procon {

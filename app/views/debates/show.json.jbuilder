@@ -1,10 +1,12 @@
 json.extract!  @debate, :id, :user_id, :title, :image, :content, :pros_count, :cons_count, :priority, :is_visible, :created_at, :updated_at
 
 json.name @debate.user.name
+json.cuid current_user.id if current_user
 
 json.points @debate.points do |p|
   json.id p.id
-  json.user_id p.user_id
+  json.user_id p.user.id
+  json.user_name p.user.name
   json.title p.title
   json.visible p.is_visible
   json.priority p.priority
@@ -13,6 +15,7 @@ end
 
 json.comments @debate.main_comments do |c|
   json.id c.id
+  json.user_id c.user.id
   json.user_name c.user.name
   json.content c.content
   json.like_count c.like_count

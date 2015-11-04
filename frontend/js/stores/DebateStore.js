@@ -125,6 +125,20 @@ function clickCons(debate_id) {
   }); 
 }
 
+/* Point */
+function editPointTitle(pointData) {
+  $.ajax({
+    url: '/points/' + pointData.id,
+    type: 'put',
+    data: {
+      title: pointData.edittedTitle
+    },
+    success: function(data) {
+      readDebate();
+    }
+  });
+}
+
 AppDispatcher.register(function(action) {
   switch(action.actionType) {
     case Constants.READ_DEBATES:
@@ -155,6 +169,10 @@ AppDispatcher.register(function(action) {
 
     case Constants.CLICK_CONS:
       clickCons(action.debate_id);
+      break;
+
+    case Constants.EDIT_POINT_TITLE:
+      editPointTitle(action.pointData);
       break;
   }
 });
