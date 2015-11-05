@@ -10,7 +10,6 @@ var MainBoard = React.createClass({
       <div className="main dashboard" style={{minHeight: this.props.minHeight}}>
         <MainBoard.VotedDebatesBox />
         <MainBoard.MyDebatesBox />
-        <MainBoard.MyPointsAndReasonsBox />
       </div>
     );
   }
@@ -91,15 +90,15 @@ MainBoard.MyDebatesBox = React.createClass({
   },
   render: function() {
     return (
-      <div id="MyDebatesBox" className="col-md-12 col-sm-12">
+      <div id="MyDebatesBox">
         <div className="wrapper">
           <div className="title">
             만든 논쟁들
           </div>
 
-          <div id="MyDebatesSlider">
-            <div><MainBoard.MyDebatesSliderItem /></div>
-            <div><MainBoard.MyDebatesSliderItem /></div>
+          <div id="MyDebates">
+            <MainBoard.MyDebate />
+            <MainBoard.MyDebate />
           </div>
         </div>
       </div>
@@ -107,41 +106,50 @@ MainBoard.MyDebatesBox = React.createClass({
   }
 });
 
-/* MyDebatesBox => MyDebatesSliderItem */
-MainBoard.MyDebatesSliderItem = React.createClass({
+/* MyPoints And Reasons */
+MainBoard.MyDebate = React.createClass({
   render: function() {
     return (
-       <div className="item-wrapper">
-        <div className="item">
-          <div className="info-wrapper">
-            <img src="#" />
-            <div className="info">
-              <div className="progress-bar">
-              </div>
-
-              <div className="title">
-                2015 한국사 교과서 국정화 논쟁
-              </div>
-              
-              <div className="description">
-                검정 국사 교과서 중 보수적인 논조였던 교학사의 고등학교 역사교과서가 부실 논란 후 검정 취소되었다. 이후, 검정교과서의 대다수가 국사를 부정적으로 서술하며, 좌편향되었다는 논리로, 정부주도로 국정교과서로 환원하려는 움직임이 일고 있다.
-              </div>
-            </div>
+      <div className="my-debate debate-label">
+        <div className="wrapper">
+          <div className="title">
+            <span className="type">논쟁</span>
+            2015 한국사 교과서 국정화 논쟁
           </div>
+          <MainBoard.MyPoint />
         </div>
-      </div>     
+      </div>
     );
   }
 });
 
-
-/* MyPointsAndReasonsBox */
-MainBoard.MyPointsAndReasonsBox = React.createClass({
+/* MyPoints And Reasons */
+MainBoard.MyPoint = React.createClass({
   render: function() {
     return (
-      <div id="MyPointsAndReasonsBox" className="col-md-12 col-sm-12">
+      <div className="my-point debate-label">
         <div className="wrapper">
-          MyPointsAndReasonsBox
+          <div className="title">
+            <span className="type">논점</span>
+            하나의 교과서로 전 국민
+          </div>
+
+          <MainBoard.MyReason />
+        </div>
+      </div>
+    );
+  }
+});
+
+MainBoard.MyReason = React.createClass({
+  render: function() {
+    return (
+      <div className="my-reason debate-label">
+        <div className="wrapper">
+          <div className="title">
+            <span className="type">근거</span>
+            모두가 인정할 수 있는 하나의 교과서로 전 국민이 배워야, 사회적 통합을 이룰 수 있다.
+          </div>
         </div>
       </div>
     );

@@ -1,4 +1,6 @@
 $borderColor: #e9e9e9;
+$prosColor: #7cc7ff;
+$consColor: #ff7676;
 
 #ProfileApp {
   #Menu {
@@ -101,7 +103,7 @@ $borderColor: #e9e9e9;
 
         #MyDebatesBox {
           padding: 0;
-          .wrapper {
+          > .wrapper {
             margin-left: 5px;
             padding: 15px;
             border: 1px solid $borderColor;
@@ -109,49 +111,67 @@ $borderColor: #e9e9e9;
               padding: 5px 0 15px 0;
               border-bottom: 1px solid $borderColor;
             }
+          }
+        } // MyDebatesBox
 
-            #MyDebatesSlider {
-              width: 400px;
-              margin: 0 auto;
+      }
+    }
+  }
+}
 
-              button {
-                &:before {
-                  color: #31708F;
-                }
-              }
-              .item-wrapper {
-                width: 400px;
-                padding: 10px;
-                .item {
-                  padding: 10px;
-                  background-color: #F7F7F7;
-                  .info-wrapper {
-                    background-color: white;
-                    img {
-                      width: 360px;
-                      height: 260px;
-                    }
-                  }
-                }
-              }
-            }
+
+
+#MyDebates {
+  .debate-label {
+    .wrapper {
+      .title {
+        padding: 15px;
+        span {
+          display: inline-block;
+          &:nth-child(2) {
+            margin-left: 15px;
           }
         }
-
-        #MyPointsAndReasonsBox {
-          padding: 0;
-          .wrapper {
-            margin-left: 5px;
-            padding: 15px;
-            border: 1px solid $borderColor;
-            > .title {
-              padding: 5px 0 15px 0;
-              border-bottom: 1px solid $borderColor;            
-            }
-          }
+        .type {
+          padding: 0 12px;
+          line-height: 18px;
+          border: 2px solid #b0b0b0;
+          border-radius: 20px;
+          font-size: 0.9em;
+          font-weight: bold;
         }
       }
     }
 
+    &.my-debate.on {
+      .type:nth-child(1) {
+        border-color: black;
+      }
+    }
+
+    &.my-point {
+      margin-left: 20px;
+      &.on {
+        .type:nth-child(1) {
+          border-color: black;
+        }
+      }
+
+    }
+
+    &.my-reason {
+      margin-left: 20px;
+      &.pros {
+        .type:nth-child(1) {
+          border-color: $prosColor;
+        }
+      }
+
+      &.cons {
+        .type:nth-child(1) {
+          border-color: $consColor;
+        }
+      }
+    }
   }
-}
+} // MyDebates
