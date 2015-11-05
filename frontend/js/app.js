@@ -17,7 +17,7 @@ ReactDOM.render((
     <Route path="/" component={DebateMainApp} />
     <Route path="/debates/new" component={DebateNewApp} />
     <Route path="/debates/:debateId" component={DebateShowApp} />
-    <Route path="/users/:userId" component={ProfileApp} />
+    <Route path="/profile/:userId" component={ProfileApp} />
 
     <Route path="*" component={null} />
   </Router>
