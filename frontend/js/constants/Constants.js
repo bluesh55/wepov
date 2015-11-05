@@ -13,5 +13,7 @@ module.exports = keymirror({
   CLICK_CONS: null,
 
   EDIT_POINT_TITLE: null,
-  DELETE_POINT: null
+  DELETE_POINT: null,
+
+  FETCH_PROFILE_DATA: null
 });

@@ -3,6 +3,8 @@
 <head>
   <title>WEPOV</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.8/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.8/slick-theme.css"/>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
@@ -34,7 +36,7 @@
 
         <% if user_signed_in? %>
         <li class="mega-fw">
-        <%= link_to('Mypage', "/profile/#{current_user.id}")  %>
+        <%= link_to('Mypage', user_path(current_user.id))  %>
         </li>
         <li class="mega-fw">
             <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
@@ -51,7 +53,7 @@
   </div><!-- / .container -->
 </nav><!-- / .navbar -->
 
-<div id="app">
+<div id="app-wrapper">
   <div class="container">
     <div class="row">
       <div class="col-md-offset-3 col-md-6">

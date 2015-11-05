@@ -73,5 +73,14 @@ module.exports = {
       actionType: Constants.CLICK_CONS,
       debate_id: debate_id
     });
+  },
+
+
+  /* Mypage */
+  fetchProfileData: function(user_id) {
+    AppDispatcher.dispatch({
+      actionType: Constants.FETCH_PROFILE_DATA,
+      user_id: user_id
+    });
   }
 };

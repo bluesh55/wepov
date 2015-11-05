@@ -29,7 +29,8 @@ Rails.application.routes.draw do
     end
   end
   devise_for :users
-  get 'profile/:id' => 'home#profile'
+
+  resources :users, :only => [:show], :path => "profile"
 
   root 'home#index'
 

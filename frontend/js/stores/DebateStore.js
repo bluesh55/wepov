@@ -149,6 +149,7 @@ function deletePoint(pointData) {
   });
 }
 
+
 AppDispatcher.register(function(action) {
   switch(action.actionType) {
     case Constants.READ_DEBATES:
