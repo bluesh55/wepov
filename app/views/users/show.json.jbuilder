@@ -29,4 +29,5 @@ json.votedDebates @user_votes do |vote|
   json.points_count debate.points.count
   json.pros_count debate.pros_count
   json.cons_count debate.cons_count
+  json.isPros vote.is_pros
 end

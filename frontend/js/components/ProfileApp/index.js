@@ -48,7 +48,6 @@ var ProfileApp = React.createClass({
           <ProfileBox
             profileData={this.state.profileData}
           />
-          <ListMenu />
         </div>
         <div id="Dashboard">
           {board}

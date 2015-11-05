@@ -1,17 +1,18 @@
 var React = require('react');
+var Link = require('react-router').Link;
 
 var $ = require('jquery');
 var slick = require('slick-carousel');
 
+var classnames = require('classnames');
+
 
 var MainBoard = React.createClass({
   render: function() {
-    var votedDebates = this.props.profileData.votedDebates;
-
     return (
       <div className="main dashboard">
         <MainBoard.VotedDebatesBox
-          votedDebates={votedDebates}
+          profileData={this.props.profileData}
         />
         <MainBoard.MyDebatesBox />
       </div>
@@ -30,7 +31,8 @@ MainBoard.VotedDebatesBox = React.createClass({
     });
   },
   render: function() {
-    var debates = this.props.votedDebates;
+    var profileData = this.props.profileData;
+    var votedDebates = this.props.profileData.votedDebates;
 
     return (
       <div id="VotedDebatesBox">
@@ -40,11 +42,12 @@ MainBoard.VotedDebatesBox = React.createClass({
           </div>
 
           <div id="VotedDebatesSlider">
-            {debates.map(function(debate) {
+            {votedDebates.map(function(debate) {
               return (
                 <div key={debate.id}>
                   <MainBoard.VotedDebatesSliderItem
                     debate={debate}
+                    profileData={profileData}
                   />
                 </div>
               );
@@ -59,38 +62,96 @@ MainBoard.VotedDebatesBox = React.createClass({
 /* VotedDebatesBox => VotedDebatesSliderItem */
 MainBoard.VotedDebatesSliderItem = React.createClass({
   render: function() {
+    var profileData = this.props.profileData;
     var debate = this.props.debate;
+
+    var total = debate.pros_count + debate.cons_count;
+    var prosPercentage = Math.round(debate.pros_count / (total / 100));
+    var consPercentage = Math.round(debate.cons_count / (total / 100));
     return (
       <div className="item-wrapper">
         <div className="item">
           <img src={debate.image} />
-          <div className="title">
-          {debate.title}
-          </div>
+          <div className="info">
+            <div className="title">
+            <Link to={'/debates/' + debate.id}>{debate.title}</Link>
+            </div>
 
-          <div className="count-wrapper">
-            <span className="comments-count">
-              댓글 수 {debate.comments_count}
-            </span>
-            <span className="points-count">
-              논점 {debate.points_count}
-            </span>
-          </div>
+            <div className="count-wrapper">
+              <span className="comments-count">
+                <i className="fa fa-comment-o"></i>
+                <span className="prefix">댓글</span>
+                <span className="number">{debate.comments_count}</span>
+              </span>
+              <span className="points-count">
+                <i className="fa fa-book"></i>
+                <span className="prefix">논점</span>
+                <span className="number">{debate.points_count}</span>
+              </span>
+            </div>
 
-          <div className="proscons-count">
-            <span className="pros-count">
-              찬성 {debate.pros_count}명
-            </span>
+            <div className="proscons-wrapper">
+              <span className="pros-count">
+                <span className="prefix">찬성</span>
+                <span className="percentage">{prosPercentage + "%"}</span>
+                <span className="number">{debate.pros_count}</span>
+              </span>
 
-            <span className="cons-count">
-              {debate.cons_count}명 반대
-            </span>
+              <span className="cons-count">
+                <span className="number">{debate.cons_count}</span>
+                <span className="percentage">{consPercentage + "%"}</span>
+                <span className="suffix">반대</span>
+              </span>
+            </div>
+
+            <MainBoard.HorizontalStickGraph
+              leftCount={debate.pros_count}
+              rightCount={debate.cons_count}
+              isLeftImage={debate.isPros}
+              imageURL={profileData.image}
+            />
           </div>
         </div>
       </div>
     );
   }
 });
+
+MainBoard.HorizontalStickGraph = React.createClass({
+  render: function() {
+    var leftCount = this.props.leftCount;
+    var rightCount = this.props.rightCount;
+    var total = leftCount + rightCount;
+    var leftPercentage = Math.round(leftCount / (total / 100));
+    var rightPercentage = Math.round(rightCount / (total / 100));
+
+    var isFullLeftBar = leftPercentage == 100;
+
+    var barClass = classnames({
+      'bar': true,
+      'full': isFullLeftBar
+    });
+
+    var imageClass = classnames({
+      'left': this.props.isLeftImage,
+      'right': !this.props.isLeftImage
+    });
+
+    return (
+      <div id="HorizontalStickGraph">
+        <div className="graph">
+          <div className={barClass} style={{width: leftPercentage + '%'}}>
+          </div>
+
+          <div className="overlay">
+            <img src={this.props.imageURL} className={imageClass} />
+          </div>
+        </div>
+      </div>
+    );
+  }
+});
+
 
 
 /* MyDebatesBox */
