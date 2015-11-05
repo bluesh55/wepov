@@ -1,33 +1,38 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-<!-- Email -->
-<div class="form-group">
-  <%= f.email_field :email, id: "email-signup-1", class: "form-control", placeholder: "Enter your email", autofocus: true %>
-  <label for="email-signup-1">Email</label>
-</div>
-<!-- Name -->
-<div class="form-group col-md-6 no-gap-left">
-  <%= f.text_field :name, id: "name-signup-1", class: "form-control", placeholder: "What is your name" %>
-  <label for="name-login-1">Name</label>
-</div>
-<!-- Password -->
-<div class="form-group">
-  <%= f.password_field :password, id: "pass-signup-1", class: "form-control", placeholder: "Enter a password", autocomplete: "off" %>
-  <label for="pass-signup-1">Password</label>
-  <% if @minimum_password_length %>
-    <span class="pull-right">(<%= @minimum_password_length %> characters minimum)</span>
-  <% end %>
-</div>
-<!-- Re-Enter Password -->
-<div class="form-group">
-  <%= f.password_field :password_confirmation, id: "re-pass-signup-1", class: "form-control", placeholder: "Re-enter your password", autocomplete: "off" %>
-  <label for="re-pass-signup-1">Re-enter password</label>
-</div>
-<!-- Intro -->
-<div class="form-group">
-  <%= f.text_area :intro, class: "form-control", id: "txt-forms", rows: 9, placeholder: "Introduce yourself" %>
-  <label for="txt-forms">Introduction</label>
-</div>
-<!-- Submit -->
-<%= f.submit "Register", class: "btn" %>
+  <!-- Avatar -->
+  <div class="form-group">
+    <label for="avatar">Avatar</label>
+    <%= f.file_field :avatar, id: "avatar", class: "form-control" %>
+  </div>
+  <!-- Email -->
+  <div class="form-group">
+    <label for="email-signup-1">Email</label>
+    <%= f.email_field :email, id: "email-signup-1", class: "form-control", placeholder: "Enter your email", autofocus: true %>
+  </div>
+  <!-- Name -->
+  <div class="form-group">
+    <label for="name-login-1">Name</label>
+    <%= f.text_field :name, id: "name-signup-1", class: "form-control", placeholder: "What is your name" %>
+  </div>
+  <!-- Password -->
+  <div class="form-group">
+    <label for="pass-signup-1">Password</label>
+    <%= f.password_field :password, id: "pass-signup-1", class: "form-control", placeholder: "Enter a password", autocomplete: "off" %>
+    <% if @minimum_password_length %>
+      <span class="pull-right">(<%= @minimum_password_length %> characters minimum)</span>
+    <% end %>
+  </div>
+  <!-- Re-Enter Password -->
+  <div class="form-group">
+    <label for="re-pass-signup-1">Re-enter password</label>
+    <%= f.password_field :password_confirmation, id: "re-pass-signup-1", class: "form-control", placeholder: "Re-enter your password", autocomplete: "off" %>
+  </div>
+  <!-- Intro -->
+  <div class="form-group">
+    <label for="txt-forms">Introduction</label>
+    <%= f.text_area :intro, class: "form-control", id: "txt-forms", rows: 9, placeholder: "Introduce yourself" %>
+  </div>
+  <!-- Submit -->
+  <%= f.submit "Register", class: "btn" %>
 <% end %>
