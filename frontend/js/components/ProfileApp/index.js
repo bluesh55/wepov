@@ -8,11 +8,8 @@ var ListMenu   = require('./ListMenu.react');
 var MainBoard  = require('./MainBoard.react');
 
 
-var minHeight = window.innerHeight - 75;
-
 var getStateFromStores = function() {
   return {
-    minHeight: minHeight,
     profileData: ProfileStore.getProfileData()
   };
 };
@@ -22,17 +19,6 @@ var ProfileApp = React.createClass({
     this.setState(getStateFromStores());
   },
 
-  onResize: function() {
-    if(window.innerHeight > minHeight) {
-      this.setState({
-        minHeight: window.innerHeight - 75
-      });
-    } else if(this.state.minHeight != minHeight) {
-      this.setState({
-        minHeight: minHeight
-      });
-    }
-  },
   /* props로 초기화하면 될 듯 */
   getInitialState: function() {
     return getStateFromStores();
@@ -42,7 +28,6 @@ var ProfileApp = React.createClass({
     ProfileStore.addChangeListener(this._onChange);
 
     DebateActions.fetchProfileData(this.props.params.userId);
-    window.onresize = this.onResize;
   },
 
   componentWillUnmount: function() {
@@ -59,9 +44,7 @@ var ProfileApp = React.createClass({
           <ListMenu />
         </div>
         <div id="Dashboard">
-          <MainBoard
-            minHeight={this.state.minHeight}
-          />
+          <MainBoard />
         </div>
       </div>
     );

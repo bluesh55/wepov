@@ -7,7 +7,7 @@ var slick = require('slick-carousel');
 var MainBoard = React.createClass({
   render: function() {
     return (
-      <div className="main dashboard" style={{minHeight: this.props.minHeight}}>
+      <div className="main dashboard">
         <MainBoard.VotedDebatesBox />
         <MainBoard.MyDebatesBox />
       </div>
