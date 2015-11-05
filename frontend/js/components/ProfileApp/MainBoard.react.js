@@ -54,6 +54,7 @@ MainBoard.VotedDebatesSliderItem = React.createClass({
     return (
       <div className="item-wrapper">
         <div className="item">
+          <img src="#" />
           <div className="title">
             2015 한국사 교과서 국정화 논쟁
           </div>
