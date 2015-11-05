@@ -77,9 +77,9 @@ module.exports = {
 
 
   /* Mypage */
-  fetchUserInfo: function(user_id) {
+  fetchProfileData: function(user_id) {
     AppDispatcher.dispatch({
-      actionType: Constants.FETCH_USER_INFO,
+      actionType: Constants.FETCH_PROFILE_DATA,
       user_id: user_id
     });
   }

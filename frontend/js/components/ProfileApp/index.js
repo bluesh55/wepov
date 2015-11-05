@@ -1,7 +1,7 @@
 var React = require('react');
 
 var DebateActions = require('../../actions/DebateActions');
-var DebateStore   = require('../../stores/DebateStore');
+var ProfileStore   = require('../../stores/ProfileStore');
 
 var ProfileBox = require('./ProfileBox.react');
 var ListMenu   = require('./ListMenu.react');
@@ -13,7 +13,7 @@ var minHeight = window.innerHeight - 75;
 var getStateFromStores = function() {
   return {
     minHeight: minHeight,
-    userData: DebateStore.getUserData()
+    profileData: ProfileStore.getProfileData()
   };
 };
 
@@ -39,14 +39,14 @@ var ProfileApp = React.createClass({
   },
 
   componentDidMount: function() {
-    DebateStore.addChangeListener(this._onChange);
+    ProfileStore.addChangeListener(this._onChange);
 
-    DebateActions.fetchUserInfo(this.props.params.userId);
+    DebateActions.fetchProfileData(this.props.params.userId);
     window.onresize = this.onResize;
   },
 
   componentWillUnmount: function() {
-    DebateStore.removeChangeListener(this._onChange);
+    ProfileStore.removeChangeListener(this._onChange);
   },
 
   render: function() {
@@ -54,7 +54,7 @@ var ProfileApp = React.createClass({
       <div id="ProfileApp">
         <div id="Menu">
           <ProfileBox
-            userData={this.state.userData}
+            profileData={this.state.profileData}
           />
           <ListMenu />
         </div>

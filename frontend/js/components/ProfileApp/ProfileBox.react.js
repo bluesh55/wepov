@@ -3,9 +3,9 @@ var React = require('react');
 
 var ProfileBox = React.createClass({
   render: function() {
-    var name = this.props.userData.name;
-    var email = this.props.userData.email;
-    var intro = this.props.userData.intro;
+    var name = this.props.profileData.name;
+    var email = this.props.profileData.email;
+    var intro = this.props.profileData.intro;
 
     return (
       <div id="ProfileBox">
