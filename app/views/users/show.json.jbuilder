@@ -19,3 +19,14 @@ json.debates @user_debates do |debate|
     end
   end
 end
+
+json.votedDebates @user_votes do |vote|
+  debate = vote.debate
+  json.id debate.id
+  json.title debate.title
+  json.image debate.image.url
+  json.comments_count debate.comments.count
+  json.points_count debate.points.count
+  json.pros_count debate.pros_count
+  json.cons_count debate.cons_count
+end

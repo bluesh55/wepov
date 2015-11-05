@@ -35,6 +35,13 @@ var ProfileApp = React.createClass({
   },
 
   render: function() {
+    var board = Object.keys(this.state.profileData).length > 0 ?
+      (
+        <MainBoard
+          profileData={this.state.profileData}
+        />
+      ) : 
+      null;
     return (
       <div id="ProfileApp">
         <div id="Menu">
@@ -44,7 +51,7 @@ var ProfileApp = React.createClass({
           <ListMenu />
         </div>
         <div id="Dashboard">
-          <MainBoard />
+          {board}
         </div>
       </div>
     );

@@ -6,9 +6,13 @@ var slick = require('slick-carousel');
 
 var MainBoard = React.createClass({
   render: function() {
+    var votedDebates = this.props.profileData.votedDebates;
+
     return (
       <div className="main dashboard">
-        <MainBoard.VotedDebatesBox />
+        <MainBoard.VotedDebatesBox
+          votedDebates={votedDebates}
+        />
         <MainBoard.MyDebatesBox />
       </div>
     );
@@ -26,6 +30,8 @@ MainBoard.VotedDebatesBox = React.createClass({
     });
   },
   render: function() {
+    var debates = this.props.votedDebates;
+
     return (
       <div id="VotedDebatesBox">
         <div className="wrapper">
@@ -34,12 +40,15 @@ MainBoard.VotedDebatesBox = React.createClass({
           </div>
 
           <div id="VotedDebatesSlider">
-            <div><MainBoard.VotedDebatesSliderItem /></div>
-            <div><MainBoard.VotedDebatesSliderItem /></div>
-            <div><MainBoard.VotedDebatesSliderItem /></div>
-            <div><MainBoard.VotedDebatesSliderItem /></div>
-            <div><MainBoard.VotedDebatesSliderItem /></div>
-            <div><MainBoard.VotedDebatesSliderItem /></div>
+            {debates.map(function(debate) {
+              return (
+                <div key={debate.id}>
+                  <MainBoard.VotedDebatesSliderItem
+                    debate={debate}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -50,30 +59,31 @@ MainBoard.VotedDebatesBox = React.createClass({
 /* VotedDebatesBox => VotedDebatesSliderItem */
 MainBoard.VotedDebatesSliderItem = React.createClass({
   render: function() {
+    var debate = this.props.debate;
     return (
       <div className="item-wrapper">
         <div className="item">
-          <img src="#" />
+          <img src={debate.image} />
           <div className="title">
-            2015 한국사 교과서 국정화 논쟁
+          {debate.title}
           </div>
 
           <div className="count-wrapper">
             <span className="comments-count">
-              댓글 수 235
+              댓글 수 {debate.comments_count}
             </span>
             <span className="points-count">
-              논점 10
+              논점 {debate.points_count}
             </span>
           </div>
 
           <div className="proscons-count">
             <span className="pros-count">
-              찬성 210명
+              찬성 {debate.pros_count}명
             </span>
 
             <span className="cons-count">
-              1123명 반대
+              {debate.cons_count}명 반대
             </span>
           </div>
         </div>
