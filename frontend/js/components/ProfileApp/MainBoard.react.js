@@ -108,7 +108,7 @@ MainBoard.VotedDebatesSliderItem = React.createClass({
               leftCount={debate.pros_count}
               rightCount={debate.cons_count}
               isLeftImage={debate.isPros}
-              imageURL={profileData.image}
+              imageURL={profileData.avatar}
             />
           </div>
         </div>

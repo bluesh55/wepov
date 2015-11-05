@@ -6,12 +6,13 @@ var ProfileBox = React.createClass({
     var name = this.props.profileData.name;
     var email = this.props.profileData.email;
     var intro = this.props.profileData.intro;
+    var avatar = this.props.profileData.avatar;
 
     return (
       <div id="ProfileBox">
         <div className="profile-container">
           <div className="image-wrapper">
-            <img src="#" />
+            <img src={avatar} />
           </div>
 
           <div className="name">
