@@ -8,6 +8,8 @@ var assign = require('object-assign');
 
 var CHANGE_EVENT = "change";
 
+var userData = {};
+
 var debatesData = [];
 var debateData = {};
 var pointInputState = false;
@@ -21,6 +23,10 @@ var DebateStore = assign(EventEmitter.prototype, {
 
   getDebateData: function() {
     return debateData;
+  },
+
+  getUserData: function() {
+    return userData;
   },
 
   getPointInputState: function() {
@@ -149,6 +155,17 @@ function deletePoint(pointData) {
   });
 }
 
+/* Mypage */
+function fetchUserInfo(user_id) {
+  $.get('/profile/' + user_id + '.json', function(data) {
+    userData.name = data.name;
+    userData.email = data.email;
+    userData.intro = data.intro;
+
+    DebateStore.emitChange();
+  });
+}
+
 AppDispatcher.register(function(action) {
   switch(action.actionType) {
     case Constants.READ_DEBATES:
@@ -187,6 +204,10 @@ AppDispatcher.register(function(action) {
 
     case Constants.DELETE_POINT:
       deletePoint(action.pointData);
+      break;
+
+    case Constants.FETCH_USER_INFO:
+      fetchUserInfo(action.user_id);
       break;
   }
 });

@@ -1,5 +1,8 @@
 is_signed_in = !current_user.nil?
 
+json.name @user.name
+json.email @user.email
+json.intro @user.intro
 
 json.debates @user_debates do |debate|
   json.id debate.id

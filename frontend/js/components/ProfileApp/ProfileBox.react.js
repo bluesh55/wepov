@@ -3,6 +3,10 @@ var React = require('react');
 
 var ProfileBox = React.createClass({
   render: function() {
+    var name = this.props.userData.name;
+    var email = this.props.userData.email;
+    var intro = this.props.userData.intro;
+
     return (
       <div id="ProfileBox">
         <div className="profile-container">
@@ -11,15 +15,15 @@ var ProfileBox = React.createClass({
           </div>
 
           <div className="name">
-            <span>KHRIS</span>
+            <span>{name}</span>
           </div>
 
           <div className="email">
-            <span>kaka00007@naver.com</span>
+            <span>{email}</span>
           </div>
 
           <p clsasName="intro">
-            ASDFASDF 님의 프로필ASDFASDF 님의 프로필.
+            {intro}
           </p>
         </div>
       </div>

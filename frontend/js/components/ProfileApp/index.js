@@ -12,11 +12,12 @@ var minHeight = window.innerHeight - 75;
 
 var getStateFromStores = function() {
   return {
-    minHeight: minHeight
+    minHeight: minHeight,
+    userData: DebateStore.getUserData()
   };
 };
 
-var DebateMainApp = React.createClass({
+var ProfileApp = React.createClass({
   _onChange: function() {
     this.setState(getStateFromStores());
   },
@@ -40,6 +41,7 @@ var DebateMainApp = React.createClass({
   componentDidMount: function() {
     DebateStore.addChangeListener(this._onChange);
 
+    DebateActions.fetchUserInfo(this.props.params.userId);
     window.onresize = this.onResize;
   },
 
@@ -51,7 +53,9 @@ var DebateMainApp = React.createClass({
     return (
       <div id="ProfileApp">
         <div id="Menu">
-          <ProfileBox />
+          <ProfileBox
+            userData={this.state.userData}
+          />
           <ListMenu />
         </div>
         <div id="Dashboard">
@@ -64,4 +68,4 @@ var DebateMainApp = React.createClass({
   }
 });
 
-module.exports = DebateMainApp;
+module.exports = ProfileApp;
