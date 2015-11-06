@@ -1,132 +1,234 @@
-#pointBox {
-  margin: 50px 0;
+$prosColor: #7cc7ff;
+$consColor: #ff7676;
 
+$backgroundColor: #f7f7f7;
+$pointBorderColor: #CBCBCB;
+$titleBackgroundColor: #F1F1F1;
+
+#pointBox {
+  padding: 20px 300px;
+  background-color: $backgroundColor;
   a {
     text-decoration: none;
-
-  }
-
-  .no-reason-point {
-
   }
 
   .point {
-    position: relative;
-    padding-bottom: 18px;
-    margin: 100px 50px;
-    > .title {
-      padding-left: 5px;
-      padding-bottom: 15px;
-      border-bottom: 2px solid black;
-      text-align: center;
-      i {
-      }
-      .edit-box {
-        position: absolute;
-        right: 0;
-        font-size: 0.7em;
-        margin-left: 5px;
-        cursor: pointer;
-        span {
-          margin-right: 10px;
-          i {
-            visibility: hidden;
+    padding: 30px 0;
+    .wrapper {
+      border: 1px solid $pointBorderColor;
+      > .title {
+        position: relative;
+        margin: 0;
+        padding: 15px 40px;
+        background-color: $titleBackgroundColor;
+
+        > img {
+          display: inline-block;
+          width: 50px;
+          height: 50px;
+          margin: 0 15px;
+        }
+
+        .prefix {
+          margin: 0 10px;
+          font-size: 0.8em;
+          font-weight: 300;
+          letter-spacing: 1px;
+        }
+
+        > .title-view {
+          display: inline-block;
+
+          > span:nth-child(1) {
+            text-transform: none;
           }
-          &:hover {
-            i {
-              visibility: visible;
+
+          .edit-tools {
+            position: absolute;
+            top: inherit;
+            right: 25px;
+            
+            span {
+              cursor: pointer;
+              margin-right: 15px;
+              font-size: 0.85em;
             }
           }
         }
-      }
-    }
 
-    .procon {
-      margin-top: 10px;
-      .col-md-6 {
-        > .title {
-          padding: 10px 5px;
-          font-size: 1.1em;
-          color: #222;
-          font-weight: 500;
-          text-align: center;
+        .edit-box {
+          display: inline-block;
+          input {
+            padding: 5px 15px;
+            border-radius: 5px;
+            border: 1px solid #e0e0e0;
 
-          .fa-stack {
-            font-size: 0.7em;
           }
-        }
+          .button {
+            padding: 7px 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 20px;
+            font-size: 0.8em;
+            color: white;
+            font-weight: 200;
+            outline: none;
 
-        .reasons {
-          .reason {
-            padding: 0 15px;
-
-            h5 {
-              display: inline-block;
-              width: 80%;
-            }
-
-            .collapse {
-              
+            &:hover {
+              background-color: #999;
             }
           }
-        }
-      }
-      .pro {
-        .title {
-          border-bottom: 2px solid $proColor;
+
+          .edit-btn {
+            margin-left: 10px;
+          }
+
+          .cancel-btn {
+            position: absolute;
+            top: inherit;
+            right: 10px;
+          }
         }
       }
 
-      .con {
-        .title {
-          border-bottom: 2px solid $conColor;
-        }
-      }
-    }
-
-    .add-reason {
-      margin-top: 10px;
-      text-align: center;
-      &.active {
-        button {
-          background-color: #f0f0f0;
-        }
-      }
-      button {
-        width: 100%;
+      .procon-wrapper {
+        padding: 25px 0;
         background-color: white;
-        border: 1px solid #ddd;
-        padding: 5px;
-        outline: none;
-      }
-    }
+        white-space: nowrap;
+        .pc-box {
+          display: inline-block;
+          width: 50%;
+          padding: 0 15px 0 10px;
+          vertical-align: top;
 
-    .reason-input-wrapper {
-      display: none;
-      margin-top: 20px;
-      white-space: nowrap;
-      &.active {
-        display: block;
-      }
+          .box-item {
+            > .title {
+              padding: 20px 25px;
+              background-color: $backgroundColor;
+              border-top: 1px solid #e5e5e5;
+              border-bottom: 1px solid #e5e5e5;
+              font-size: 1.3em;
+              font-weight: 500;
+            }
 
-      textarea {
-        display: block;
-        width: 100%;
-        margin-top: -8px;
-        border: 1px solid #ddd;
-        outline: none;
+            .reason-editor-wrapper {
+              display: none;
+
+              &.active {
+                display: block;
+              }
+            }
+
+            .append-reason {
+              button {
+                width: 100%;
+                padding: 5px;
+                margin: 10px 0;
+                border: none;
+                border-radius: 8px;
+                background-color: #b2b2b2;
+                color: white;
+                font-weight: 200;
+                outline: none;
+
+                &:hover {
+                  background-color: #333;
+                }
+              }
+            }
+          }
+
+          .pros {
+            color: $prosColor;
+          }
+
+          .cons {
+            color: $consColor;
+          }
+        }
       }
     }
   }
 
-  .point-input {
-    input {
-    }
+}
+
+.reasons {
+  .empty-reason {
+    padding: 25px;
+    text-align: center;
   }
 
-  .add-point {
-    button {
-      width: 100%;
+  .reason-wrapper {
+    margin-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e5e5e5;
+    white-space: nowrap;
+    .prefix {
+      float: left;
+      width: 50px;
+      margin-top: 5px;
+      border-radius: 20px;
+      line-height: 18px;
+      font-size: 0.8em;
+      text-align: center;
+
+      &.pros {
+        border: 2px solid $prosColor;
+      }
+
+      &.cons {
+        border: 2px solid $consColor;
+      }
     }
+
+    .reason {
+      margin-left: 60px;
+      .title {
+        padding: 5px 0;
+        font-size: 1.2em;
+        font-weight: bold;
+        letter-spacing: 0.8px;
+        color: black;
+      }
+
+      .content {
+        display: none;
+        padding: 5px 0 15px 0;
+        border-top: 1px solid #e5e5e5;
+        color: #4d4d4d;
+        letter-spacing: 0.8px;
+        white-space: pre-line;
+        
+        &.show {
+          display: block;
+        }
+      }
+
+      .toggle {
+        padding: 0 10px;
+        border: none;
+        border-radius: 20px;
+        background-color: #999;
+        color: #fafafa;
+        font-size: 0.8em;
+        letter-spacing: 0.8px;
+        line-height: 20px;
+        outline: none;
+
+        &:hover {
+          background-color: #777;
+        }
+      }
+    }
+
+    &:nth-last-child(1) {
+      border-bottom: none;
+    }
+
+  }
+}
+
+#PointForm {
+  button {
+    margin-top: 15px;
   }
 }

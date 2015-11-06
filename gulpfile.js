@@ -17,6 +17,11 @@ gulp.task('browserify', function() {
     .pipe(gulp.dest('public/js'));
 });
 
+gulp.task('image', function() {
+  return gulp.src('frontend/images/*')
+        .pipe(gulp.dest('public/images'));
+});
+
 gulp.task('watch', function() {
   gulp.watch([
     'frontend/js/*',
@@ -24,4 +29,4 @@ gulp.task('watch', function() {
   ], ['browserify']);
 });
 
-gulp.task('default', ['browserify']);
+gulp.task('default', ['browserify', 'image']);

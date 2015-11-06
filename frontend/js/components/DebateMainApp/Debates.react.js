@@ -12,8 +12,8 @@ var Debates = React.createClass({
         <section id="blog" className="section container blog-columns blog-preview">
           <div className="row">
             <header className="sec-heading">
-              <h2>Latest from our blog</h2>
-              <span className="subheading">Check out our blog to see what were up to</span>
+              <h2>WEPOV에서는</h2>
+              <span className="subheading">관심있는 논쟁을 등록하고, 관련된 논점들을 정리해 설득력있게 보여줄 수 있습니다.</span>
             </header>
 
             {debatesData.map(function(debate) {

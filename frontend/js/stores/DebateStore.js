@@ -165,11 +165,6 @@ AppDispatcher.register(function(action) {
       postPoint(action.point);
       break;
 
-    case Constants.CLICK_ADD_POINT_BUTTON:
-      pointInputState = true;
-      DebateStore.emitChange();
-      break;
-
     case Constants.POST_COMMENT:
       postComment(action.commentData);
       break;

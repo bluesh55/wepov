@@ -5,7 +5,11 @@ var CommentCount = React.createClass({
     var comments = this.props.comments;
 
     return (
-      <h4 className="blog-section-title">Comments <span>({comments.length})</span></h4>
+      <div id="CommentsCount">
+        <h4 className="count-title">
+          Comments <span>({comments.length})</span>
+        </h4>
+      </div>
     );
   }
 });
