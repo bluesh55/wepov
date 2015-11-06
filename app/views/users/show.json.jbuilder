@@ -8,13 +8,15 @@ json.debates @user_debates do |debate|
   json.title debate.title
   json.isMine user_signed_in? && (debate.user_id == current_user.id)
   json.points debate.points do |point|
-    json.id point.id
-    json.title point.title
-    json.isMine user_signed_in? && (point.user_id == current_user.id)
-    json.reasons point.reasons.select{|e| e.user_id == current_user.id} do |reason|
-      json.id reason.id
-      json.title reason.title
-      json.isPros reason.is_pros
+    if point.reasons.exists?(user_id: @user.id)
+      json.id point.id
+      json.title point.title
+      json.isMine user_signed_in? && (point.user_id == current_user.id)
+      json.reasons point.reasons.select{|e| e.user_id == @user.id} do |reason|
+        json.id reason.id
+        json.title reason.title
+        json.isPros reason.is_pros
+      end
     end
   end
 end
