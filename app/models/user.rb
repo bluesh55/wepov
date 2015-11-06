@@ -13,4 +13,17 @@ class User < ActiveRecord::Base
   has_many :points
   has_many :reasons
 
+  def writes
+    debates | points.map(&:debate) | reasons.map(&:debate)
+  end
+
+  def test_query
+    debates_id = []
+    debates_id = reasons.map { |r| r.debate.id }
+    debates_id += points.map { |p| p.debate.id }
+    debates_id += debates.map { |d| d.id }
+    debates_id = debates_id.uniq
+    Debate.where(id: debates_id)
+  end
+
 end

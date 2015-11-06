@@ -5,15 +5,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.json do
-        debates_id = []
-        debates_id = @user.reasons.map { |r| r.point.debate.id }
-        debates_id += @user.points.map { |p| p.debate.id }
-        debates_id += @user.debates.map { |d| d.id }
-        debates_id = debates_id.uniq
-
-        @user_debates = Debate.where(id: debates_id)
+        @user_debates = @user.writes
       end
-
       format.html
     end
   end
