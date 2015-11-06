@@ -51,17 +51,15 @@ var DebateShowApp = React.createClass({
           debateData={this.state.debateData}
         />
 
-        <div className="container">
-          <PointBox
-            pointInputState={this.state.pointInputState}
-            debateData={this.state.debateData}
-            withReason={true}
-          />
+        <PointBox
+          pointInputState={this.state.pointInputState}
+          debateData={this.state.debateData}
+          withReason={true}
+        />
 
-          <CommentBox
-            debateData={this.state.debateData}
-          />
-        </div>
+        <CommentBox
+          debateData={this.state.debateData}
+        />
       </div>
     );
 

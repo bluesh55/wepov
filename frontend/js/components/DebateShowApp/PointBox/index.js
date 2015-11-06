@@ -11,23 +11,25 @@ var PointBox = React.createClass({
     var debate = this.props.debateData;
 
     if(debate.points) {
-      points = debate.points.map(function(point) {
+      points = debate.points.map(function(point, index) {
         return (
-          <Point point={point} key={point.id} debate={debate}/>
+          <Point point={point} key={point.id} debate={debate} index={index} />
         );
       });
     }
 
     return (
       <div id="pointBox">
-        {points}
+        <div className="wrapper">
+          {points}
 
-        <PointInput
-          debateData={this.props.debateData}
-          pointInputState={this.props.pointInputState}
-        />
+          <PointInput
+            debateData={this.props.debateData}
+            pointInputState={this.props.pointInputState}
+          />
 
-        <AddPointButton />
+          <AddPointButton />
+        </div>
       </div>
     );
   }
