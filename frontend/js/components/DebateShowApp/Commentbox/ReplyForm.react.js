@@ -21,13 +21,11 @@ var ReplyForm = React.createClass({
   render: function() {
     return (
       <div className="reply-form">
-        <h4 className="blog-section-title">Leave a reply</h4>
+        <div className="form">
+          <textarea className="form-control" id="txt-forms" rows="5" placeholder="답글을 남겨주세요." ref="content"></textarea>
 
-        <div className="col-md-12 form-group no-gap">
-          <textarea className="form-control" id="txt-forms" rows="5" placeholder="Your Comment" ref="content"></textarea>
+          <button className="btn pull-right" onClick={this.onClickSubmit}>댓글 쓰기</button>
         </div>
-
-        <input type="submit" value="Send Comment" className="btn pull-right" onClick={this.onClickSubmit} />
       </div>
     );
   }

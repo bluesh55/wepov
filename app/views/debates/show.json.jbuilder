@@ -17,6 +17,7 @@ json.comments @debate.main_comments do |c|
   json.id c.id
   json.user_id c.user.id
   json.user_name c.user.name
+  json.avatar c.user.avatar.url
   json.content c.content
   json.like_count c.like_count
   json.dislike_count c.dislike_count
@@ -27,6 +28,7 @@ json.comments @debate.main_comments do |c|
   json.replies c.comments do |reply|
     json.id reply.id
     json.user_name reply.user.name
+    json.avatar reply.user.avatar.url
     json.content reply.content
     json.like_count reply.like_count
     json.dislike_count reply.dislike_count

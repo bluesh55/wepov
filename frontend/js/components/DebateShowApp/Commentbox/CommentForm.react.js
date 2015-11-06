@@ -22,14 +22,14 @@ var CommentForm = React.createClass({
     var debate = this.props.debateData;
 
     return (
-      <div className="comment-form">
-        <h4 className="blog-section-title">Leave a comment</h4>
+      <div id="CommentForm">
+        <h4 className="title">의견 남기기</h4>
 
-        <div className="col-md-12 form-group no-gap">
-          <textarea className="form-control" id="txt-forms" rows="5" placeholder="Your Comment" ref="content"></textarea>
-        </div>
+        <textarea className="form-control" rows="5" placeholder="여러분의 생각은 어떠신가요?" ref="content"></textarea>
 
-        <input type="submit" value="Send Comment" className="btn pull-right" onClick={this.onClickSubmit} />
+        <button className="btn" onClick={this.onClickSubmit}>
+          등록하기
+        </button>
       </div>
     );
   }

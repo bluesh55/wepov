@@ -6,13 +6,13 @@ var ReplyForm = require('./ReplyForm.react');
 var Comment = React.createClass({
   getInitialState: function() {
     return {
-      replyForm: false
+      replyShow: false
     };
   },
 
-  onClickReplyForm: function() {
+  onClickShowReply: function() {
     this.setState({
-      replyForm: true
+      replyShow: true
     });
   },
 
@@ -22,32 +22,68 @@ var Comment = React.createClass({
     var replies = comment.replies;
 
     return (
-      <div>
-        <div className="comment">
-          <div className="comment-info">
-            <h6 className="comment-name">{comment.user_name}</h6>
-            <span className="comment-time">{comment.date}</span>
-            <button className="comment-replay-btn" onClick={this.onClickReplyForm}><i className="fa fa-mail-reply-all"></i> Reply</button>
+      <div className="comment">
+        <div className="wrapper">
+          <div className="info">
+            <img src={comment.avatar} className="avatar" />
+            <p className="name">{comment.user_name}</p>
+            <p className="date">{comment.date}</p>
           </div>
-          <p className="comment-content">{comment.content}</p>
+
+          <div className="balloon">
+            <div className="wrapper">
+              <p className="content">
+              {comment.content}
+              </p>
+
+              <div className="buttons">
+                <button className="show-reply" onClick={this.onClickShowReply}>
+                  <span>답글</span>
+                  <span>{replies.length}</span>
+                  <i className="fa fa-angle-down"></i>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {replies.map(function(reply) {
-          return (
-            <Reply
-              reply={reply}
-              key={reply.id}
-            />
-          );
-        })}
-
-        {this.state.replyForm ? 
-        <ReplyForm
-          debate_id={debate.id}
-          comment_id={comment.id}
-        /> :
-        ""
+        {
+          this.state.replyShow ?
+          <Comment.ReplyBox
+            debate={debate}
+            comment={comment}
+            replies={replies}
+          /> :
+          ""
         }
+      </div>
+    );
+  }
+});
+
+Comment.ReplyBox = React.createClass({
+  render: function() {
+    var debate = this.props.debate;
+    var comment = this.props.comment;
+    var replies = this.props.replies;
+
+    return (
+      <div className="reply-box">
+        <div className="wrapper">
+          {replies.map(function(reply) {
+            return (
+              <Reply
+                reply={reply}
+                key={reply.id}
+              />
+            );
+          })}
+
+          <ReplyForm
+            debate_id={debate.id}
+            comment_id={comment.id}
+          />
+        </div>
       </div>
     );
   }

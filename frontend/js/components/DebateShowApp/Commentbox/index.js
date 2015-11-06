@@ -19,30 +19,33 @@ var CommentBox = React.createClass({
       );
     });
 
-    var commentsEmptyView = (
-      <div>
-        작성된 댓글이 없습니다.
-      </div>
-    );
-
     return (
-      <div className="row">
-        <div className="col-md-12 blog-post-comments">
+      <div id="Comments">
+        <div className="comments-wrapper">
           <CommentCount
             comments={comments}
           />
 
-
           {
             comments.length > 0 ?
             commentsView :
-            commentsEmptyView
+            <CommentBox.EmptyView />
           }
 
           <CommentForm
             debateData={debate}
           />
         </div>
+      </div>
+    );
+  }
+});
+
+CommentBox.EmptyView = React.createClass({
+  render: function() {
+    return (
+      <div id="EmptyComments">
+        작성된 댓글이 없습니다.
       </div>
     );
   }
