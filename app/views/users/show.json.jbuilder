@@ -8,7 +8,7 @@ json.debates @user_debates do |debate|
   json.title debate.title
   json.isMine user_signed_in? && (debate.user_id == current_user.id)
   json.points debate.points do |point|
-    if point.reasons.exists?(user_id: @user.id)
+    if point.reasons.exists?(user_id: @user.id) or point.user_id == @user.id
       json.id point.id
       json.title point.title
       json.isMine user_signed_in? && (point.user_id == current_user.id)
