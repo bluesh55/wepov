@@ -6,7 +6,7 @@ $pointBorderColor: #CBCBCB;
 $titleBackgroundColor: #F1F1F1;
 
 #pointBox {
-  padding: 0 300px;
+  padding: 20px 300px;
   background-color: $backgroundColor;
   a {
     text-decoration: none;
@@ -224,5 +224,11 @@ $titleBackgroundColor: #F1F1F1;
       border-bottom: none;
     }
 
+  }
+}
+
+#PointForm {
+  button {
+    margin-top: 15px;
   }
 }

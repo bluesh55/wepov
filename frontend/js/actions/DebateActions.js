@@ -30,12 +30,6 @@ module.exports = {
     });
   },
 
-  clickAddPointButton: function() {
-    AppDispatcher.dispatch({
-      actionType: Constants.CLICK_ADD_POINT_BUTTON
-    });
-  },
-
   editPointTitle: function(pointData) {
     AppDispatcher.dispatch({
       actionType: Constants.EDIT_POINT_TITLE,
