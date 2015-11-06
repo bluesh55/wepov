@@ -131,7 +131,7 @@ Point.Title = React.createClass({
 
     return (
       <h3 className="title">
-        <img src="#" />
+        <img src="/images/point.png" />
         <span className="prefix">
         {"논점 " + (this.props.index + 1)}
         </span>
