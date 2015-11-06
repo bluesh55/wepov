@@ -21,3 +21,10 @@ guard           # for auto test in new tab
 rake db:migrate
 rails s
 ```
+
+## After develop
+
+```
+npm install # if package.json updated
+gulp
+```
