@@ -6,10 +6,15 @@ $pointBorderColor: #CBCBCB;
 $titleBackgroundColor: #F1F1F1;
 
 #pointBox {
-  padding: 20px 300px;
+  padding: 50px 0;
   background-color: $backgroundColor;
   a {
     text-decoration: none;
+  }
+
+  .wrapper {
+    width: 1200px;
+    margin: 0 auto;
   }
 
   .point {
