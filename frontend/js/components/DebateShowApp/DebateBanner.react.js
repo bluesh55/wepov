@@ -82,7 +82,29 @@ var DebateBanner = React.createClass({
               debateData={debateData}
             />
           </div>
+
+          <DebateBanner.FBLike
+            did={debateData.id}
+          />
         </div>
+      </div>
+    );
+  }
+});
+
+DebateBanner.FBLike = React.createClass({
+  render: function() {
+    var did = this.props.did;
+    return (
+      <div className="fb-wrapper">
+        <div className="fb-like"
+             data-href={"http://www.wepov.com/" + did}
+             data-layout="button_count" data-action="like"
+             data-show-faces="true" data-share="false" />
+
+        <div className="fb-share-button"
+             data-href={"http://www.wepov.com/" + did}
+             data-layout="button_count" />
       </div>
     );
   }

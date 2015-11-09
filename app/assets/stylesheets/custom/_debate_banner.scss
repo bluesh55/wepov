@@ -59,6 +59,13 @@
       padding: 30px 0;
       text-align: center;
     }
+
+    .fb-wrapper {
+      padding-left: 150px;
+      .fb-share-button {
+        margin-left: 15px;
+      }
+    }
   }
 
   &:before {
