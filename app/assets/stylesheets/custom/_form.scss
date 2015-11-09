@@ -1,0 +1,10 @@
+form {
+  .nessesary {
+    visibility: hidden;
+    color: #FD6767;
+
+    &.on {
+      visibility: visible;
+    }
+  }
+}

@@ -71,7 +71,9 @@ MainBoard.VotedDebatesSliderItem = React.createClass({
     return (
       <div className="item-wrapper">
         <div className="item">
-          <img src={debate.image} />
+          <Link to={'/debates/' + debate.id}>
+            <img src={debate.image} />
+          </Link>
           <div className="info">
             <div className="title">
             <Link to={'/debates/' + debate.id}>{debate.title}</Link>
@@ -138,7 +140,7 @@ MainBoard.HorizontalStickGraph = React.createClass({
     });
 
     return (
-      <div id="HorizontalStickGraph">
+      <div className="horizontalStickGraph">
         <div className="graph">
           <div className={barClass} style={{width: leftPercentage + '%'}}>
           </div>

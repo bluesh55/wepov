@@ -160,19 +160,21 @@ Point.ReasonsBox = React.createClass({
     var isPros = this.props.isPros;
     var point = this.props.point;
 
-    DebateActions.postReason({
-      title: title,
-      content: content,
-      is_pros: isPros,
-      point_id: point.id
-    });
+    if(title != "" && content != "") {
+      DebateActions.postReason({
+        title: title,
+        content: content,
+        is_pros: isPros,
+        point_id: point.id
+      });
 
-    this.refs.title.value = "";
-    this.refs.reason.value = "";
-    
-    this.setState({
-      isReasonEditorOpened: false
-    });
+      this.refs.title.value = "";
+      this.refs.reason.value = "";
+      
+      this.setState({
+        isReasonEditorOpened: false
+      });
+    }
   },
 
   render: function() {

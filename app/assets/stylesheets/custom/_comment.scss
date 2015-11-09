@@ -2,9 +2,10 @@ $balloonBGColor: #F9F9F9;
 $balloonBorderColor: #CBCBCB;
 
 #Comments {
-  padding: 50px 300px;
+  padding: 50px 0;
   .comments-wrapper {
-
+    width: 1200px;
+    margin: 0 auto;
     
   }
 }

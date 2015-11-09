@@ -1,8 +1,12 @@
 var React = require('react');
+var Link = require('react-router').Link;
+
+var Buttons = require('../Utils/Buttons.react');
 
 var classnames = require('classnames');
 
 var DebateActions = require('../../actions/DebateActions');
+
 
 var DebateBanner = React.createClass({
   updateChart: function() {
@@ -11,14 +15,12 @@ var DebateBanner = React.createClass({
     var data = [
       {
         value: debate.pros_count,
-        color:"#F7464A",
-        highlight: "#FF5A5E",
+        color:"#7cc7ff",
         label: "찬성"
       },
       {
         value: debate.cons_count,
-        color: "#46BFBD",
-        highlight: "#5AD3D1",
+        color: "#ff7676",
         label: "반대"
       }
     ];
@@ -53,45 +55,47 @@ var DebateBanner = React.createClass({
 
 
     return (
-      <header className="page-title pt-light pt-plax-md-light"  style={style}>
-        <div className="bg-overlay">
-          <div className="container">
-            <div className="row">
-
-              <div className="col-sm-12 title">
-                <h1>{debateData.title}</h1>
-              </div>
-              <div className="col-sm-6 info">
-                <p>{debateData.content}</p>
-              </div>
-
-              <div className="col-sm-6">
-                {isVoteEmpty ? 
-                  <DebateBanner.EmptyVote id="chartBox" /> :
-                  <canvas id="chartBox" ref="chart" key={Date.now()} />
-                }
-
-                <DebateBanner.VoteBox
-                  debateData={debateData}
-                />
-
-              </div>
+      <div id="DebateBanner" style={style}>
+        <div className="wrapper">
+          <div className="banner-image">
+            <img src={imageURL} />
+          </div>
+          <div className="contents">
+            <h1 className="title">{debateData.title}</h1>
+            <div className="author">
+              by <Link to={"/profile/" + debateData.user_id}>
+                  <span className="name">{debateData.name}</span>
+                </Link>
             </div>
+            <div className="date">
+              {debateData.created_at}
+            </div>
+            <p className="content">{debateData.content}</p>
+          </div>
+          <div className="chart">
+            {isVoteEmpty ? 
+              <DebateBanner.EmptyChart id="EmptyChart" /> :
+              <canvas id="Chart" ref="chart" key={Date.now()} />
+            }
+
+            <DebateBanner.VoteBox
+              debateData={debateData}
+            />
           </div>
         </div>
-      </header>
+      </div>
     );
   }
 });
 
 
 /* Empty Vote Block */
-DebateBanner.EmptyVote = React.createClass({
+DebateBanner.EmptyChart = React.createClass({
 
   render: function() {
     return (
-      <div id={this.props.id} className="empty">
-        가장 먼저 투표를 해보세요!
+      <div id={this.props.id}>
+        <div>가장 먼저 투표를 해보세요!</div>
       </div>
     );
   }
@@ -115,23 +119,29 @@ DebateBanner.VoteBox = React.createClass({
     var isVoted = debate.isVoted;
     var isPros = debate.isPros;
 
-    var prosBtnClass = classnames({
-      'btn': true,
-      'voted': isPros == true
-    });
-
-    var consBtnClass = classnames({
-      'btn': true,
-      'voted': isPros == false
-    });
-
     return (
-      <div id="voteBox">
-        <button className={prosBtnClass} onClick={this.onClickPros}>찬성</button>
-        <button className={consBtnClass} onClick={this.onClickCons}>반대</button>
+      <div id="VoteBox">
+        <div className="wrapper">
+          <Buttons.LikeButton
+            isSelected={isPros == true}
+            onClick={this.onClickPros}
+          />
+          <div className="desc">{debate.pros_count + "명이 찬성합니다."}</div>
+        </div>
+
+        <div className="wrapper">
+          <Buttons.DislikeButton
+            isSelected={isPros == false}
+            onClick={this.onClickCons}
+          />
+          <div className="desc">{debate.cons_count + "명이 반대합니다."}</div>
+        </div>
       </div>
     );
   }
 });
+
+
+
 
 module.exports = DebateBanner;

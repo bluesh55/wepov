@@ -2,6 +2,10 @@ $borderColor: #e9e9e9;
 $prosColor: #7cc7ff;
 $consColor: #ff7676;
 
+.slick-slide {
+  outline: none;
+}
+
 #ProfileApp {
   #Menu {
     float: left;
@@ -46,8 +50,7 @@ $consColor: #ff7676;
 
   #Dashboard {
     display: block;
-    max-width: 1500px;
-    min-height: 100%;
+    min-width: 1280px;
     padding-left: 300px;
   
     .dashboard {
@@ -84,9 +87,11 @@ $consColor: #ff7676;
       .item-wrapper {
         padding: 10px;
         .item {
-          > img {
-            width: 100%;
-            height: 260px;
+          >a {
+            > img {
+              width: 100%;
+              height: 260px;
+            }
           }
 
           .info {
@@ -97,6 +102,10 @@ $consColor: #ff7676;
             border-bottom-right-radius: 5px;
             background-color: #f9f9f9;
             .title {
+              display: block;
+              white-space: pre;
+              overflow: hidden;
+              text-overflow: ellipsis;
               text-align: center;
               font-size: 1.22em;
               font-weight: bold;
@@ -125,7 +134,6 @@ $consColor: #ff7676;
             }
 
             .proscons-wrapper {
-              width: 260px;
               margin: 10px auto;
               .pros-count {
                 .prefix {
@@ -184,7 +192,7 @@ $consColor: #ff7676;
 }//VotedDebatesBox
 
 
-#HorizontalStickGraph {
+.horizontalStickGraph {
   margin-top: 10px;
   .graph {
     position: relative;
@@ -216,10 +224,10 @@ $consColor: #ff7676;
         border-radius: 50%;
         border: 1px solid #b9b9b9;
         &.left {
-          left: -15px;
+          left: 0;
         }
         &.right {
-          right: -15px;
+          right: 0;
         }
       }
     }

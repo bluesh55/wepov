@@ -6,10 +6,15 @@ $pointBorderColor: #CBCBCB;
 $titleBackgroundColor: #F1F1F1;
 
 #pointBox {
-  padding: 20px 300px;
+  padding: 50px 0;
   background-color: $backgroundColor;
   a {
     text-decoration: none;
+  }
+
+  .wrapper {
+    width: 1200px;
+    margin: 0 auto;
   }
 
   .point {
@@ -45,8 +50,9 @@ $titleBackgroundColor: #F1F1F1;
 
           .edit-tools {
             position: absolute;
-            top: inherit;
+            top: 30px;
             right: 25px;
+            line-height: 20px;
             
             span {
               cursor: pointer;
@@ -227,8 +233,28 @@ $titleBackgroundColor: #F1F1F1;
   }
 }
 
+#EmptyPoints {
+  margin: 20px 0 50px 0;
+  text-align: center;
+}
+
 #PointForm {
+  margin-top: 50px;
+  .point-input-wrapper {
+    display: inline-block;
+    width: 1000px;
+    margin-right: 20px;
+    input {
+
+    }
+  }
   button {
-    margin-top: 15px;
+    width: 180px;
+    margin-top: -2px;
+  }
+
+  .desc {
+    margin: 5px 0 0 20px;
+    font-size: 0.75em;
   }
 }
