@@ -267,39 +267,24 @@ $consColor: #ff7676;
               border-radius: 20px;
               font-size: 0.9em;
               font-weight: bold;
-            }
-          }
-        }
 
-        &.my-debate.on {
-          .type:nth-child(1) {
-            border-color: black;
+              &.debate { border-color: black; color: black; }
+              &.point { border-color: black; color: black; }
+              &.reason {
+                &.pros { border-color: $prosColor; color: $prosColor; }
+                &.cons { border-color: $consColor; color: $consColor; }
+              }
+
+            }
           }
         }
 
         &.my-point {
           margin-left: 20px;
-          &.on {
-            .type:nth-child(1) {
-              border-color: black;
-            }
-          }
-
         }
 
         &.my-reason {
           margin-left: 20px;
-          &.pros {
-            .type:nth-child(1) {
-              border-color: $prosColor;
-            }
-          }
-
-          &.cons {
-            .type:nth-child(1) {
-              border-color: $consColor;
-            }
-          }
         }
       }
     } // MyDebates

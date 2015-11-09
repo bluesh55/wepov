@@ -14,7 +14,9 @@ var MainBoard = React.createClass({
         <MainBoard.VotedDebatesBox
           profileData={this.props.profileData}
         />
-        <MainBoard.MyDebatesBox />
+        <MainBoard.MyDebatesBox
+          profileData={this.props.profileData}
+        />
       </div>
     );
   }
@@ -162,6 +164,8 @@ MainBoard.MyDebatesBox = React.createClass({
     $('#MyDebatesSlider').slick();
   },
   render: function() {
+    var myDebates = this.props.profileData.debates;
+
     return (
       <div id="MyDebatesBox">
         <div className="wrapper">
@@ -170,8 +174,13 @@ MainBoard.MyDebatesBox = React.createClass({
           </div>
 
           <div id="MyDebates">
-            <MainBoard.MyDebate />
-            <MainBoard.MyDebate />
+            {myDebates.map(function(debate) {
+              return (
+                <MainBoard.MyDebate
+                  debate={debate}
+                />
+              );
+            })}
           </div>
         </div>
       </div>
@@ -182,14 +191,28 @@ MainBoard.MyDebatesBox = React.createClass({
 /* MyPoints And Reasons */
 MainBoard.MyDebate = React.createClass({
   render: function() {
+    var debate = this.props.debate;
+    var isMine = debate.isMine;
+
+    var typeClass = classnames({
+      type: true,
+      debae: isMine
+    });
     return (
       <div className="my-debate debate-label">
         <div className="wrapper">
           <div className="title">
-            <span className="type">논쟁</span>
-            2015 한국사 교과서 국정화 논쟁
+            <span className={typeClass}>논쟁</span>
+            {debate.title}
           </div>
-          <MainBoard.MyPoint />
+
+          {debate.points.map(function(point) {
+            return (
+              <MainBoard.MyPoint
+                point={point}
+              />
+            );
+          })}
         </div>
       </div>
     );
@@ -199,15 +222,29 @@ MainBoard.MyDebate = React.createClass({
 /* MyPoints And Reasons */
 MainBoard.MyPoint = React.createClass({
   render: function() {
+    var point = this.props.point;
+    var isMine = point.isMine;
+    var typeClass = classnames({
+      type: true,
+      point: isMine
+    });
     return (
       <div className="my-point debate-label">
         <div className="wrapper">
           <div className="title">
-            <span className="type">논점</span>
-            하나의 교과서로 전 국민
+            <span className={typeClass}>논점</span>
+            {point.title}
           </div>
 
-          <MainBoard.MyReason />
+
+          {point.reasons.map(function(reason) {
+            return (
+              <MainBoard.MyReason
+                reason={reason}
+              />
+            );
+          })}
+
         </div>
       </div>
     );
@@ -216,12 +253,20 @@ MainBoard.MyPoint = React.createClass({
 
 MainBoard.MyReason = React.createClass({
   render: function() {
+    var reason = this.props.reason;
+    var isPros = reason.isPros;
+    var typeClass = classnames({
+      type: true,
+      reason: true,
+      pros: isPros,
+      cons: !isPros
+    });
     return (
       <div className="my-reason debate-label">
         <div className="wrapper">
           <div className="title">
-            <span className="type">근거</span>
-            모두가 인정할 수 있는 하나의 교과서로 전 국민이 배워야, 사회적 통합을 이룰 수 있다.
+            <span className={typeClass}>근거</span>
+            {reason.title}
           </div>
         </div>
       </div>
