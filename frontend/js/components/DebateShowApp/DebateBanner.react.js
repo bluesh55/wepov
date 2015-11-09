@@ -132,7 +132,7 @@ DebateBanner.VoteBox = React.createClass({
         <div className="wrapper">
           <Buttons.DislikeButton
             isSelected={isPros == false}
-            onClick={this.onClickPros}
+            onClick={this.onClickCons}
           />
           <div className="desc">{debate.cons_count + "명이 반대합니다."}</div>
         </div>
