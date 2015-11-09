@@ -177,6 +177,7 @@ MainBoard.MyDebatesBox = React.createClass({
             {myDebates.map(function(debate) {
               return (
                 <MainBoard.MyDebate
+                  key={debate.id}
                   debate={debate}
                 />
               );
@@ -209,6 +210,7 @@ MainBoard.MyDebate = React.createClass({
           {debate.points.map(function(point) {
             return (
               <MainBoard.MyPoint
+                key={point.id}
                 point={point}
               />
             );
@@ -240,6 +242,7 @@ MainBoard.MyPoint = React.createClass({
           {point.reasons.map(function(reason) {
             return (
               <MainBoard.MyReason
+                key={reason.id}
                 reason={reason}
               />
             );
