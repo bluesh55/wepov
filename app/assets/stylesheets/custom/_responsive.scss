@@ -1,0 +1,107 @@
+$screen-lg: 1280px;
+$screen-md: 768px;
+$screen-sm: 480px;
+$screen-xsm: 320px;
+
+/* Debate Show Page */
+// large screen
+// 1280 < screen
+@media (min-width: $screen-lg) {
+  .banner-image {
+  }
+}
+
+// md screen
+// 768 < screen < 1280
+@media (min-width: $screen-md) and (max-width: $screen-lg) {
+  
+}
+
+// sm screen
+// 480 < screen < 768
+@media (min-width: $screen-sm) and (max-width: $screen-md) {
+
+  #DebateBanner {
+    > .wrapper {
+      width: auto;
+      .contents {
+        width: 400px;
+        margin: 0 auto;
+        padding: 0;
+        display: block;
+      }
+
+      .chart {
+        display: block;
+        width: 100%;
+
+      }
+    }
+  }
+
+}
+
+// 320 < screen < 480
+@media (min-width: $screen-xsm) and (max-width: $screen-sm) {
+  #DebateBanner {
+    > .wrapper {
+      width: auto;
+      .contents {
+        width: 300px;
+        margin: 0 auto;
+        padding: 0;
+        display: block;
+        .date {
+          display: inline-block;
+          float: right;
+        }
+      }
+
+      .chart {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+}
+
+// screen < 320
+@media (max-width: $screen-xsm) {
+  #DebateBanner {
+    > .wrapper {
+      min-width: 300px;
+      .contents {
+        width: 300px;
+        margin: 0 auto;
+        padding: 0;
+        display: block;
+        text-align: center;
+        .author { display: block; float: none; }
+        .date { display: block; float: none; }
+      }
+
+      .chart {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+}
+
+
+
+// screen < 1280
+@media (max-width: $screen-lg) {
+  #DebateBanner {
+    > .wrapper {
+      width: auto;
+    }
+  }
+}
+
+// screen < 768
+@media (max-width: $screen-md) {
+  .banner-image {
+    display: none !important;
+  }
+}
