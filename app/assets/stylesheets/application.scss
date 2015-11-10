@@ -25,6 +25,9 @@ body > #app-wrapper {
   padding-top: 75px;
 }
 
+p {
+  word-break: break-all;
+}
 
 .wepov-desc {
   width: 700px;
@@ -32,6 +35,3 @@ body > #app-wrapper {
   letter-spacing: 1px !important;
   line-height: 25px;
 }
-
-
-
