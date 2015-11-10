@@ -185,6 +185,69 @@ $screen-xsm: 320px;
   #Comments {
     .comments-wrapper {
       width: 100%;
+      .comment {
+        padding: 20px 0;
+        > .wrapper {
+          .info {
+            float: none;
+            display: block;
+            width: 100%;
+            padding: 0 15px;
+            text-align: left;
+
+            .avatar {
+              display: inline-block;
+            }
+
+            .name {
+              display: inline-block;
+              margin-left: 15px;
+            }
+
+            .date {
+              position: absolute;
+              top: 0;
+              right: 5px;
+              margin-top: 10px;
+              margin-bottom: 0;
+            }
+          }
+
+          .balloon {
+            margin: 15px 10px;
+          }
+        }
+
+        .reply-box {
+          margin-left: 0;
+          padding: 0;
+          > .wrapper {
+            .reply {
+              padding: 30px 15px;
+            }
+
+            .reply-form {
+              padding: 0 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// screen < 480
+@media (max-width: $screen-sm) {
+  #Comments {
+    .comments-wrapper {
+      .comment {
+        .reply-form {
+          button {
+            width: 100%;
+          }
+        }
+      }
     }
   }
 }
