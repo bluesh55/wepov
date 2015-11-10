@@ -197,7 +197,7 @@ MainBoard.MyDebate = React.createClass({
 
     var typeClass = classnames({
       type: true,
-      debae: isMine
+      debate: isMine
     });
     return (
       <div className="my-debate debate-label">

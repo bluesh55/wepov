@@ -6,7 +6,7 @@ json.avatar @user.avatar.url
 json.debates @user_debates do |debate|
   json.id debate.id
   json.title debate.title
-  json.isMine user_signed_in? && (debate.user_id == current_user.id)
+  json.isMine debate.user_id == @user.id
   json.points debate.points do |point|
     if point.reasons.exists?(user_id: @user.id) or point.user_id == @user.id
       json.id point.id
