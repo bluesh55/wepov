@@ -26,4 +26,5 @@ class User < ActiveRecord::Base
     Debate.where(id: debates_id)
   end
 
+
 end

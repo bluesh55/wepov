@@ -1,7 +1,7 @@
 json.name @user.name
 json.email @user.email
 json.intro @user.intro
-json.avatar @user.avatar.url || image_path('profile.png')
+json.avatar @user.avatar.url
 
 json.debates @user_debates do |debate|
   json.id debate.id
