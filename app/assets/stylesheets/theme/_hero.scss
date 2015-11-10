@@ -191,7 +191,9 @@
 	background-attachment: fixed;
 
 	.bg-overlay {
-		background: rgba(17,17,17, .9);
+		background: rgba(102,102,102, .8);
+		background-image: image-url('main');
+		background-size: cover;
 	}
 
 	.large-header {
