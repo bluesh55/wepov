@@ -35,7 +35,7 @@ json.comments @debate.main_comments do |c|
     json.like_count reply.like_count
     json.dislike_count reply.dislike_count
     json.is_visible reply.is_visible
-    json.date reply.updated_at
+    json.date reply.created_at.localtime.strftime('%Y-%m-%d %H:%M')
   end
 end
 
