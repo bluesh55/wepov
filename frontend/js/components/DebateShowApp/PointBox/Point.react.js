@@ -99,44 +99,51 @@ Point.Title = React.createClass({
   render: function() {
     var debate = this.props.debate;
     var point = this.props.point;
-    var editBox = debate.cuid === point.user_id && this.state.pointEditable === false ? 
+    var editView;
+
+    var titleView = this.state.pointEditable ?
       (
-        <span className="edit-tools">
+        <input type="text" defaultValue={point.title} ref="editTitle" />
+      ) :
+      (
+        <span>{point.title}</span>
+      );
+
+    if(this.state.pointEditable && debate.cuid === point.user_id) {
+      editView = (
+        <div className="dynamic">
+          <button className="button edit-btn" onClick={this.onClickEdit}>수정</button>
+          <button className="button cancel-btn" onClick={this.onClickCancel}>취소</button>
+        </div>
+      );
+    } else if(!this.state.pointEditable && debate.cuid === point.user_id) {
+      editView = (
+        <div className="static">
           <span onClick={this.onClickEditPoint}>
             <i className="fa fa-pencil"></i>수정
           </span>
           <span onClick={this.onClickDeletePoint}>
             <i className="fa fa-trash-o"></i>삭제
           </span>
-        </span>
-      ) : "";
-
-    var title = this.state.pointEditable ? 
-      (
-        <div className="edit-box">
-          <input type="text" defaultValue={point.title} ref="editTitle" />
-          <button className="button edit-btn" onClick={this.onClickEdit}>수정</button>
-          <button className="button cancel-btn" onClick={this.onClickCancel}>취소</button>
         </div>
-      ) :
-      (
-        <div className="title-view">
-          
-          <span>
-            {point.title}
-          </span>
-          {editBox}
-        </div>
-      )
+      );
+    }
 
     return (
-      <h3 className="title">
-        <img src="/images/point.png" />
-        <span className="prefix">
-        {"논점 " + (this.props.index + 1)}
-        </span>
-        {title}
-      </h3>
+      <header>
+        <div className="title">
+          <img src="/images/point.png" />
+          <span className="prefix">
+          {"논점 " + (this.props.index + 1)}
+          </span>
+
+          {titleView}
+        </div>
+
+        <div className="edit-tools">
+          {editView}
+        </div>
+      </header>
     );
   }
 });

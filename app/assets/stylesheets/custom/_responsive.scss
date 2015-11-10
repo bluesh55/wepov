@@ -15,6 +15,12 @@ $screen-xsm: 320px;
 // large screen
 // 960 < screen < 1280
 @media (min-width: $screen-lg) and (max-width: $screen-xlg) {
+  #DebateBanner {
+    > .wrapper {
+      width: 900px;
+    }
+  }
+
   #pointBox {
     > .wrapper {
       width: 900px;
@@ -38,6 +44,11 @@ $screen-xsm: 320px;
 // md screen
 // 768 < screen < 960
 @media (min-width: $screen-md) and (max-width: $screen-lg) {
+  #DebateBanner {
+    > .wrapper {
+      width: 700px;
+    }
+  }
   #pointBox {
     > .wrapper {
       width: 700px;
@@ -60,7 +71,6 @@ $screen-xsm: 320px;
 // sm screen
 // 480 < screen < 768
 @media (min-width: $screen-sm) and (max-width: $screen-md) {
-
   #DebateBanner {
     > .wrapper {
       width: auto;
@@ -79,9 +89,37 @@ $screen-xsm: 320px;
     }
   }
 
+  #pointBox {
+    > .wrapper {
+      width: auto;
+      .point {
+        > .wrapper {
+          header {
+            .title {
+              display: block;
+            }
+            .edit-tools {
+              display: block;
+              position: relative;
+              top: 0;
+              right: 0;
+              padding-left: 90px;
+            }
+          }
+        }
+      }
+    }
+  }
+
   #PointForm {
     button {
       margin-right: 10px;
+    }
+  }
+
+  #Comments {
+    .comments-wrapper {
+      width: auto;
     }
   }
 
@@ -109,12 +147,31 @@ $screen-xsm: 320px;
       }
     }
   }
+
+  #pointBox {
+    > .wrapper {
+      width: auto;
+      .point {
+        > .wrapper {
+          
+        }
+      }
+    }
+  }
+
+  #Comments {
+    .comments-wrapper {
+      width: auto;
+    }
+  }
+
 }
 
 // screen < 320
 @media (max-width: $screen-xsm) {
   #DebateBanner {
     > .wrapper {
+      width: auto;
       min-width: 300px;
       .contents {
         width: 300px;
@@ -133,6 +190,18 @@ $screen-xsm: 320px;
     }
   }
 
+  #pointBox {
+    > .wrapper {
+      width: auto;
+    }
+  }
+
+  #Comments {
+    .comments-wrapper {
+      width: auto;
+    }
+  }
+
   #PointForm {
     button {
       width: 100%;
@@ -148,11 +217,6 @@ $screen-xsm: 320px;
 
 // screen < 1280
 @media (max-width: $screen-xlg) {
-  #DebateBanner {
-    > .wrapper {
-      width: auto;
-    }
-  }
 }
 
 // screen < 960
@@ -167,14 +231,23 @@ $screen-xsm: 320px;
 
   #pointBox {
     > .wrapper {
-      width: 100%;
-
       .point {
         > .wrapper {
           .procon-wrapper {
+            padding: 0 0 30px 0;
             .pc-box {
               display: block;
               width: 100%;
+              padding: 0;
+              .box-item {
+                > .title {
+                  text-align: center;
+                  background-color: white;
+                }
+                .reasons {
+                  padding: 0 15px;
+                }
+              }
             }
           }
         }
@@ -184,7 +257,6 @@ $screen-xsm: 320px;
 
   #Comments {
     .comments-wrapper {
-      width: 100%;
       .comment {
         padding: 20px 0;
         > .wrapper {
@@ -239,6 +311,39 @@ $screen-xsm: 320px;
 
 // screen < 480
 @media (max-width: $screen-sm) {
+
+  #pointBox {
+    > .wrapper {
+      .point {
+        > .wrapper {
+          header {
+            text-align: center;
+            .title {
+              display: block;
+              img {
+                display: none;
+              }
+              .prefix {
+                display: block;
+              }
+
+              > span:nth-last-child(1) {
+                display: block;
+              }
+            }
+            .edit-tools {
+              display: block;
+              position: relative;
+              top: 0;
+              right: 0;
+              padding-left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
   #Comments {
     .comments-wrapper {
       .comment {
