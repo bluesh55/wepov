@@ -1,4 +1,6 @@
-json.extract!  @debate, :id, :user_id, :title, :image, :content, :pros_count, :cons_count, :priority, :is_visible, :created_at, :updated_at
+json.extract!  @debate, :id, :user_id, :title, :image, :content, :pros_count, :cons_count, :priority, :is_visible
+
+json.created_at @debate.created_at.localtime.strftime('%Y-%m-%d')
 
 json.name @debate.user.name
 json.cuid current_user.id if current_user
@@ -22,7 +24,7 @@ json.comments @debate.main_comments do |c|
   json.like_count c.like_count
   json.dislike_count c.dislike_count
   json.is_visible c.is_visible
-  json.date c.updated_at
+  json.date c.created_at.localtime.strftime('%Y-%m-%d %H:%M')
   json.replies_count c.comments.count
 
   json.replies c.comments do |reply|
