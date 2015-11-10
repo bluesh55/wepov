@@ -12,14 +12,14 @@ $titleBackgroundColor: #F1F1F1;
     text-decoration: none;
   }
 
-  .wrapper {
+  > .wrapper {
     width: 1200px;
     margin: 0 auto;
   }
 
   .point {
     padding: 30px 0;
-    .wrapper {
+    > .wrapper {
       border: 1px solid $pointBorderColor;
       > .title {
         position: relative;
@@ -242,16 +242,14 @@ $titleBackgroundColor: #F1F1F1;
 #PointForm {
   margin-top: 50px;
   .point-input-wrapper {
-    display: inline-block;
-    width: 1000px;
-    margin-right: 20px;
     input {
 
     }
   }
   button {
+    float: right;
     width: 180px;
-    margin-top: -2px;
+    margin-top: 10px;
   }
 
   .desc {
