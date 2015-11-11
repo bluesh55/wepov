@@ -1,4 +1,4 @@
-$screen-xlg: 1280px;
+$screen-xlg: 1200px;
 $screen-lg: 960px;
 $screen-md: 768px;
 $screen-sm: 480px;
@@ -6,7 +6,7 @@ $screen-xsm: 320px;
 
 /* Debate Show Page */
 // x large screen
-// 1280 < screen
+// 1280 > screen
 @media (min-width: $screen-xlg) {
   .banner-image {
   }
@@ -42,6 +42,17 @@ $screen-xsm: 320px;
   #PointForm {
     .point-input-wrapper {
       width: 900px;
+    }
+  }
+
+  #ProfileApp {
+    #Menu {
+      width: 200px;
+    }
+
+    #Dashboard {
+      width: 960px;
+      padding-left: 200px;
     }
   }
 }
@@ -224,6 +235,16 @@ $screen-xsm: 320px;
 
 // screen < 960
 @media (max-width: $screen-lg) {
+  #ProfileApp {
+    #Menu {
+      float: none;
+      width: 100%;
+    }
+
+    #Dashboard {
+      padding-left: 0;
+    }
+  }
 }
 
 // screen < 768
