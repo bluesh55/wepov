@@ -15,6 +15,12 @@ $screen-xsm: 320px;
 // large screen
 // 960 < screen < 1280
 @media (min-width: $screen-lg) and (max-width: $screen-xlg) {
+  #HomeBanner {
+    > .wrapper {
+      width: 900px;
+    }
+  }
+
   #DebateBanner {
     > .wrapper {
       width: 900px;
@@ -44,6 +50,11 @@ $screen-xsm: 320px;
 // md screen
 // 768 < screen < 960
 @media (min-width: $screen-md) and (max-width: $screen-lg) {
+  #HomeBanner {
+    > .wrapper {
+      width: 700px;
+    }
+  }
   #DebateBanner {
     > .wrapper {
       width: 700px;
@@ -71,6 +82,7 @@ $screen-xsm: 320px;
 // sm screen
 // 480 < screen < 768
 @media (min-width: $screen-sm) and (max-width: $screen-md) {
+  
   #DebateBanner {
     > .wrapper {
       width: auto;
@@ -225,6 +237,17 @@ $screen-xsm: 320px;
 
 // screen < 768
 @media (max-width: $screen-md) {
+  #HomeBanner {
+    > .wrapper {
+      width: auto;
+      margin: 0 20px;
+
+      h3 {
+        line-height: 20px;
+      }
+    }
+  }
+
   .banner-image {
     display: none !important;
   }
