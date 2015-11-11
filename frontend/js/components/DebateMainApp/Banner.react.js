@@ -5,26 +5,29 @@ var Link = require('react-router').Link;
 var DebateMainApp = React.createClass({
   render: function() {
     return (
-      <div id="home" className="agency2-hero">
-        <div className="bg-overlay">
-          <div id="large-header" className="large-header">
-            <canvas id="demo-canvas" className="demo-canvas"></canvas>
+      <div id="HomeBanner">
+        <canvas id="demo-canvas" className="demo-canvas"></canvas>
 
-            <div className="hero-content-wrapper">
-              <div className="hero-content">
-                <h1 className="hero-lead">Wepov</h1>
-                <h4 className="h-alt hero-secondary wepov-desc">WEPOV는 우리를 뜻하는 WE와, 관점을 뜻하는 POV(Point Of View)의 합성어로,
-                비록 관점이 다르더라도 '우리 모두의 관점은 의미있다'는 뜻을 내포하고 있습니다.</h4>
-                <Link to={`/debates/new`} className="btn btn-light">새 논쟁 만들기</Link>
-                <a href="#about" className="scroller">
-                  <span className="scroller-text">scroll down</span>
-                  <span className="linea-basic-magic-mouse"></span>
-                </a>
+        <div className="wrapper">
+          <h1>WEPOV</h1>
 
-              </div>
-            </div>
+          <h3>WEPOV는 우리를 뜻하는 WE와, 관점을 뜻하는 POV(Point Of View)의 합성어로,<br />비록 관점이 다르더라도 '우리 모두의 관점은 의미있다'는 뜻을 내포하고 있습니다.</h3>
 
-          </div>
+          <h2>WEPOV에서는,</h2>
+          <h3>
+          관심있는 논쟁을 등록하고, 관련된 논점들을 정리해 설득력있게 보여줄 수 있습니다.<br />
+          다른 사람이 개설한 논쟁에도 새로운 논점과 근거를 추가할 수 있습니다.<br />
+          투표를 통해 논쟁에 대한 사용자들의 여론을 알아볼 수 있습니다. <br />
+          댓글창에서 나와 다른 관점을 가진 사용자와 발전적인 토론이 가능합니다. <br />
+          토론 후 의견이 변했다면, 논쟁에 대한 찬/반을 변경할 수 있습니다.<br />
+          마이페이지에서 내가 찬성/반대를 표한 논쟁들을 모아 볼 수 있습니다. <br />
+          </h3>
+
+          <h2>WEPOV는,</h2>
+          <h3>
+          사회적 이슈가 되는 논쟁에 대해 양측의 입장을 균형있게 듣고 나의 의견을 정립할 수 있게하는
+          가장 중립적인 토론의 교과서이자, 지식의 보고가 될 것입니다
+          </h3>
 
         </div>
       </div>
