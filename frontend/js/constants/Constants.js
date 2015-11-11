@@ -15,5 +15,7 @@ module.exports = keymirror({
   EDIT_POINT_TITLE: null,
   DELETE_POINT: null,
 
-  FETCH_PROFILE_DATA: null
+  FETCH_PROFILE_DATA: null,
+
+  FETCH_GLOBAL_DATA: null
 });

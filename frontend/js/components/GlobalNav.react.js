@@ -3,6 +3,33 @@ var Link  = require('react-router').Link;
 
 var GlobalNav = React.createClass({
   render: function() {
+    var globalData = this.props.globalData;
+    var menuItems = [
+      {
+        text: "새 논쟁 만들기",
+        link: "/debates/new",
+        state: globalData.is_signed
+      },
+      {
+        text: "프로필",
+        link: "/profile/" + globalData.id,
+        state: globalData.is_signed
+      },
+      {
+        text: "로그인",
+        link: "/users/sign_in",
+        state: !globalData.is_signed,
+        refresh: true
+      },
+      {
+        text: "로그아웃",
+        link: "/users/sign_out",
+        method: "delete",
+        state: globalData.is_signed,
+        refresh: true
+      }
+    ];
+
     return (
       <nav className="navbar navbar-default navbar-fixed-top mega navbar-inverse navbar-trans" role="navigation">
         <div className="container">
@@ -13,30 +40,42 @@ var GlobalNav = React.createClass({
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand" href="/">
-              <img src="#" />
-            </a>
+            <Link to="/" className="navbar-brand">
+              <img src={globalData.brand_image_url} />
+            </Link>
           </div>
 
           <div id="navbar" className="navbar-collapse collapse">
             <ul className="nav navbar-nav navbar-right">
-              <li className="mega-fw">
-                <Link to="/debates/new" />
-              </li>
+              
+              {menuItems.map(function(item, index) {
+                return item.state ?
+                  <GlobalNav.Item key={index} link={item.link} method={item.method} refresh={item.refresh}>{item.text}</GlobalNav.Item> : null;
+              })}
 
-              <li className="mega-fw">
-                MyPage
-              </li>
-              <li className="mega-fw">
-                  Logout
-              </li>
-              <li className="mega-fw">
-                  Login
-              </li>
             </ul>
           </div>
         </div>
       </nav>
+    );
+  }
+});
+
+GlobalNav.Item = React.createClass({
+  render: function() {
+    var link = this.props.link;
+    var method = this.props.method || "get";
+    var refresh = this.props.refresh || false;
+
+    var view;
+
+    if(refresh)
+      view = <a href={link} data-method={method}>{this.props.children}</a>;
+    else
+      view = <Link to={link}>{this.props.children}</Link>;
+
+    return (
+      <li>{view}</li>
     );
   }
 });

@@ -12,14 +12,42 @@ var DebateNewApp = require('./components/DebateNewApp.react');
 var DebateShowApp = require('./components/DebateShowApp.react');
 var ProfileApp    = require('./components/ProfileApp');
 
+var GlobalActions = require('./actions/GlobalActions');
+var GlobalStore   = require('./stores/GlobalStore');
+
+function getStatesFromStore() {
+  return {
+    globalData: GlobalStore.getGlobalData()
+  };
+}
+
 var RootApp = React.createClass({
+  getInitialState: getStatesFromStore,
+  onChange: function() {
+    this.setState(getStatesFromStore());
+  },
+  componentDidMount: function() {
+    GlobalStore.addChangeListener(this.onChange);
+    GlobalActions.fetchGlobalData();
+  },
+
   render: function() {
-    return (
-      <div id="root">
-        <GlobalNav />
-        {this.props.children || <DebateMainApp />}
-      </div>
-    );
+    var is_fetched = Object.keys(this.state.globalData).length > 0;
+
+    var view = <div id="root"/>;
+
+    if(is_fetched) {
+      view = (
+        <div id="root">
+          <GlobalNav
+            globalData={this.state.globalData}
+          />
+          {this.props.children || <DebateMainApp />}
+        </div>
+      );
+    }
+
+    return view;
   }
 });
 
