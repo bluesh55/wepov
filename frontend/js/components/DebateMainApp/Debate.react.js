@@ -10,36 +10,34 @@ var Debate = React.createClass({
     var debateURL = "/debates/" + debate.id;
 
     return (
-      <div className="col-lg-4 col-md-6 mb-sm-50">
-        <div className="blog-post wow fadeIn" data-wow-duration="2s">
-
-          <Link to={debateURL} className="post-img">
+      <div className="col-lg-4 col-md-6 debate-wrapper">
+        <div className="debate">
+          <Link to={debateURL}>
             <img src={debate.image.image.thumb.url} />
           </Link>
 
-          <div className="bp-content">
-            <div className="post-meta">
-              <a href="#" className="post-date">
+          <div className="info-wrapper">
+            <div className="debate-meta">
+              <a href={debateURL} className="date">
                 <i className="fa fa-calendar-o"></i>
                 <span>{debate.created_at}</span>
               </a>
-              <a href="#" className="post-comments">
+              <a href={debateURL} className="comments">
                 <i className="fa fa-comments-o"></i>
                 <span>{debate.comments_count}</span>
               </a>
             </div>
 
-            <Link to={debateURL} className="post-title">
-              <h4>{debate.title}</h4>
+            <Link to={debateURL} className="debate-title">
+              {debate.title}
             </Link>
 
-            <p>{debate.content}</p>
+            <p className="debate-desc">{debate.content}</p>
 
-            <Link to={debateURL} className="btn btn-small">Read More</Link>
-
+            <Link to={debateURL} className="btn btn-primary">Read More</Link>
           </div>
-
         </div>
+
       </div>
     );
   }
