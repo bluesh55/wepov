@@ -214,15 +214,6 @@ $screen-xsm: 320px;
     }
   }
 
-  #PointForm {
-    button {
-      width: 100%;
-    }
-
-    .desc {
-      display: none;
-    }
-  }
 }
 
 
@@ -322,7 +313,8 @@ $screen-xsm: 320px;
             }
 
             .reply-form {
-              padding: 0 15px;
+              padding-left: 15px;
+              padding-right: 15px;
             }
           }
         }
@@ -376,6 +368,12 @@ $screen-xsm: 320px;
           }
         }
       }
+    }
+  }
+
+  #PointForm {
+    button {
+      width: 100%;
     }
   }
 }

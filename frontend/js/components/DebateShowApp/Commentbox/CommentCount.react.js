@@ -7,7 +7,7 @@ var CommentCount = React.createClass({
     return (
       <div id="CommentsCount">
         <h4 className="count-title">
-          Comments <span>({comments.length})</span>
+          의견이 <span>{comments.length}</span>개 있습니다.
         </h4>
       </div>
     );

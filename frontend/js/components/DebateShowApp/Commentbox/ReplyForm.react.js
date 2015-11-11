@@ -24,7 +24,7 @@ var ReplyForm = React.createClass({
         <div className="form">
           <textarea className="form-control" id="txt-forms" rows="5" placeholder="답글을 남겨주세요." ref="content"></textarea>
 
-          <button className="btn pull-right" onClick={this.onClickSubmit}>댓글 쓰기</button>
+          <button className="btn btn-success pull-right" onClick={this.onClickSubmit}>댓글 쓰기</button>
         </div>
       </div>
     );

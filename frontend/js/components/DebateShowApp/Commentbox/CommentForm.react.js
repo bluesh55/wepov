@@ -27,7 +27,7 @@ var CommentForm = React.createClass({
 
         <textarea className="form-control" rows="5" placeholder="여러분의 생각은 어떠신가요?" ref="content"></textarea>
 
-        <button className="btn" onClick={this.onClickSubmit}>
+        <button className="btn btn-success" onClick={this.onClickSubmit}>
           등록하기
         </button>
       </div>

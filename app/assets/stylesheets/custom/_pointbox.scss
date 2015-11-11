@@ -1,7 +1,7 @@
 $prosColor: #7cc7ff;
 $consColor: #ff7676;
 
-$backgroundColor: #f7f7f7;
+$backgroundColor: #eee;
 $pointBorderColor: #CBCBCB;
 $titleBackgroundColor: #eaeaea;
 
@@ -21,7 +21,7 @@ $titleBackgroundColor: #eaeaea;
   .point {
     padding: 30px 0;
     > .wrapper {
-      border: 1px solid $pointBorderColor;
+      border: 2px solid $pointBorderColor;
       > header {
         position: relative;
         margin: 0;

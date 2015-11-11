@@ -36,7 +36,7 @@ PointBox.EmptyPoints = React.createClass({
   render: function() {
     return (
       <div id="EmptyPoints">
-        아직 논점이 등록되지 않았습니다.
+        등록된 논점이 없습니다.
       </div>
     );
   }
@@ -59,10 +59,9 @@ PointBox.PointForm = React.createClass({
     return (
       <div id="PointForm">
         <div className="point-input-wrapper">
-          <input type="text" className="form-control" placeholder="새로운 논점을 추가해보세요." ref="pointInput" />
+          <input type="text" className="form-control" placeholder="논점은 5자 이상 작성해주세요." ref="pointInput" />
         </div>
-        <button className="btn" onClick={this.onClickPostPoint}>논점 추가하기</button>
-        <div className="desc">논점은 5자 이상 작성해주세요.</div>
+        <button className="btn btn-success" onClick={this.onClickPostPoint}>논점 추가하기</button>
       </div>
     );
   }
