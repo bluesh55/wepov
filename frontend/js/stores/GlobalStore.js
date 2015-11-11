@@ -31,7 +31,7 @@ var GlobalStore = assign(EventEmitter.prototype, {
 });
 
 function fetchGlobalData() {
-  $.get('/api/session.json', function(data) {
+  $.get('/api/sessions.json', function(data) {
     globalData = data;
 
     GlobalStore.emitChange();

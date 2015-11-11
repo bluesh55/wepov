@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def session
+  def sessions
     @user = current_user
   end
 end

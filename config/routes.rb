@@ -32,7 +32,7 @@ Rails.application.routes.draw do
 
   resources :users, :only => [:show], :path => "profile"
 
-  get '/api/session' => 'users#session'
+  get '/api/sessions' => 'users#sessions'
 
   root 'home#index'
 
