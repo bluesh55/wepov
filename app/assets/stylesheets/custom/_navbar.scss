@@ -1,14 +1,24 @@
 nav {
-  .contaienr {
-
-    
+  .container {
+    .navbar-header {
+      .navbar-brand {
+        img {
+          width: 125px;
+        }
+      }
+    }
   }
 }
 
 #navbar {
   ul {
     li {
-
+      a {
+        color: #bbb;
+        &:hover {
+          color: white;
+        }
+      }
     }
   }
 }
