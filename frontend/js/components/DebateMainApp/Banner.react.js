@@ -6,8 +6,6 @@ var DebateMainApp = React.createClass({
   render: function() {
     return (
       <div id="HomeBanner">
-        <canvas id="demo-canvas" className="demo-canvas"></canvas>
-
         <div className="wrapper">
           <h1>WEPOV</h1>
 
