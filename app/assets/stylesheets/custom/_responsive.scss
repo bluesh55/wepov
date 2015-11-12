@@ -239,12 +239,35 @@ $screen-xsm: 320px;
     #Menu {
       float: none;
       width: 100%;
+      #ProfileBox {
+        .profile-container {
+          margin: 10px 0 10px 5px;
+          border: 1px solid #e0e0e0;
+        }
+      }
     }
 
     #Dashboard {
       padding-left: 0;
     }
   }
+
+  #VotedDebatesBox {
+    > .wrapper {
+      #VotedDebatesSlider {
+        .item-wrapper {
+          .item {
+            >a {
+              > img {
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
 }
 
 // screen < 768
@@ -342,6 +365,7 @@ $screen-xsm: 320px;
       }
     }
   }
+
 }
 
 
@@ -397,4 +421,17 @@ $screen-xsm: 320px;
       width: 100%;
     }
   }
+
+  #VotedDebatesSlider {
+    font-size: 0.8em;
+    .item-wrapper {
+      .item {
+        .info {
+          .proscons-wrapper {
+          }
+        }
+      }
+    }
+  }
+
 }
