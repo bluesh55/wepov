@@ -58,13 +58,16 @@ $titleBackgroundColor: #eaeaea;
             font-size: 1.2em;
             font-weight: bold;
             color: #444;
+            word-break: break-all;
           }
         }
 
         .edit-tools {
-          position: absolute;
-          top: 25px;
-          right: 30px;
+          display: block;
+          position: relative;
+          top: 0;
+          right: 0;
+          text-align: right;
           .static {
             span {
               margin-right: 15px;

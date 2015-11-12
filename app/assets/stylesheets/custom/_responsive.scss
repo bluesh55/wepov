@@ -121,13 +121,6 @@ $screen-xsm: 320px;
             .title {
               display: block;
             }
-            .edit-tools {
-              display: block;
-              position: relative;
-              top: 0;
-              right: 0;
-              padding-left: 90px;
-            }
           }
         }
       }
@@ -394,9 +387,7 @@ $screen-xsm: 320px;
             .edit-tools {
               display: block;
               position: relative;
-              top: 0;
-              right: 0;
-              padding-left: 0;
+              text-align: center;
             }
           }
         }
