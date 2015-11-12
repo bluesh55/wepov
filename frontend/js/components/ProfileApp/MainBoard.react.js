@@ -27,8 +27,7 @@ var MainBoard = React.createClass({
 MainBoard.VotedDebatesBox = React.createClass({
   componentDidMount: function() {
     $('#VotedDebatesSlider').slick({
-      infinite: true,
-      dots: true,
+      infinite: false,
       slidesToShow: 3,
       slidesToScroll: 3,
       responsive: [
@@ -37,8 +36,6 @@ MainBoard.VotedDebatesBox = React.createClass({
           settings: {
             slidesToShow: 2,
             slidesToScroll: 2,
-            infinite: true,
-            dots: true
           }
         },
         {
