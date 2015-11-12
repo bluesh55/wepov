@@ -1,8 +1,14 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
 var Link  = require('react-router').Link;
 
 var GlobalNav = React.createClass({
+  onClickMenuItem: function() {
+    $(this.refs.mobile_menu_btn.dataset.target).collapse('toggle');
+  },
+
   render: function() {
+    var self = this;
     var globalData = this.props.globalData;
     var menuItems = [
       {
@@ -34,7 +40,7 @@ var GlobalNav = React.createClass({
       <nav className="navbar navbar-default navbar-fixed-top mega navbar-inverse navbar-trans" role="navigation">
         <div className="container">
           <div className="navbar-header">
-            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" ref="mobile_menu_btn">
               <span className="sr-only">Toggle navigation</span>
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
@@ -50,7 +56,13 @@ var GlobalNav = React.createClass({
               
               {menuItems.map(function(item, index) {
                 return item.state ?
-                  <GlobalNav.Item key={index} link={item.link} method={item.method} refresh={item.refresh}>{item.text}</GlobalNav.Item> : null;
+                  <GlobalNav.Item
+                    key={index}
+                    link={item.link}
+                    method={item.method}
+                    refresh={item.refresh}
+                    onClick={self.onClickMenuItem}
+                    >{item.text}</GlobalNav.Item> : null;
               })}
 
             </ul>
@@ -75,7 +87,7 @@ GlobalNav.Item = React.createClass({
       view = <Link to={link}>{this.props.children}</Link>;
 
     return (
-      <li>{view}</li>
+      <li onClick={this.props.onClick}>{view}</li>
     );
   }
 });
