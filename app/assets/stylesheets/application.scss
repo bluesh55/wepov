@@ -10,19 +10,17 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *= require debates
+ *= require home
  *= require_self
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-@import "theme/main";
-@import "theme/responsive";
-
 @import "custom/main";
 
-body > #app-wrapper {
-  padding-top: 75px;
+body > #react-app {
+  padding-top: 50px;
 }
 
 p {
@@ -34,4 +32,9 @@ p {
   margin: 30px auto 30px auto;
   letter-spacing: 1px !important;
   line-height: 25px;
+}
+
+::selection {
+  color: white;
+  background: #17da5b;
 }

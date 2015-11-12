@@ -1,0 +1,437 @@
+$screen-xlg: 1200px;
+$screen-lg: 960px;
+$screen-md: 768px;
+$screen-sm: 480px;
+$screen-xsm: 320px;
+
+/* Debate Show Page */
+// x large screen
+// 1280 > screen
+@media (min-width: $screen-xlg) {
+  .banner-image {
+  }
+}
+
+// large screen
+// 960 < screen < 1280
+@media (min-width: $screen-lg) and (max-width: $screen-xlg) {
+  #HomeBanner {
+    > .wrapper {
+      width: 900px;
+    }
+  }
+
+  #DebateBanner {
+    > .wrapper {
+      width: 900px;
+    }
+  }
+
+  #pointBox {
+    > .wrapper {
+      width: 900px;
+    }
+  }
+
+  #Comments {
+    .comments-wrapper {
+      width: 900px;
+    }
+  }
+
+  #PointForm {
+    .point-input-wrapper {
+      width: 900px;
+    }
+  }
+
+  #ProfileApp {
+    #Menu {
+      width: 200px;
+    }
+
+    #Dashboard {
+      width: 960px;
+      padding-left: 200px;
+    }
+  }
+}
+
+
+// md screen
+// 768 < screen < 960
+@media (min-width: $screen-md) and (max-width: $screen-lg) {
+  #HomeBanner {
+    > .wrapper {
+      width: 700px;
+    }
+  }
+  #DebateBanner {
+    > .wrapper {
+      width: 700px;
+    }
+  }
+  #pointBox {
+    > .wrapper {
+      width: 700px;
+    }
+  }
+
+  #Comments {
+    .comments-wrapper {
+      width: 700px;
+    }
+  }
+
+  #PointForm {
+    .point-input-wrapper {
+      width: 700px;
+    }
+  }
+}
+
+// sm screen
+// 480 < screen < 768
+@media (min-width: $screen-sm) and (max-width: $screen-md) {
+  
+  #DebateBanner {
+    > .wrapper {
+      width: auto;
+      .contents {
+        width: 400px;
+        margin: 0 auto;
+        padding: 0;
+        display: block;
+      }
+
+      .chart {
+        display: block;
+        width: 100%;
+
+      }
+    }
+  }
+
+  #pointBox {
+    > .wrapper {
+      width: auto;
+      .point {
+        > .wrapper {
+          header {
+            .title {
+              display: block;
+            }
+            .edit-tools {
+              display: block;
+              position: relative;
+              top: 0;
+              right: 0;
+              padding-left: 90px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #PointForm {
+    button {
+      margin-right: 10px;
+    }
+  }
+
+  #Comments {
+    .comments-wrapper {
+      width: auto;
+    }
+  }
+
+}
+
+// 320 < screen < 480
+@media (min-width: $screen-xsm) and (max-width: $screen-sm) {
+  #DebateBanner {
+    > .wrapper {
+      width: auto;
+      .contents {
+        width: 300px;
+        margin: 0 auto;
+        padding: 0;
+        display: block;
+        .date {
+          display: inline-block;
+          float: right;
+        }
+      }
+
+      .chart {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+
+  #pointBox {
+    > .wrapper {
+      width: auto;
+      .point {
+        > .wrapper {
+          
+        }
+      }
+    }
+  }
+
+  #Comments {
+    .comments-wrapper {
+      width: auto;
+    }
+  }
+
+}
+
+// screen < 320
+@media (max-width: $screen-xsm) {
+  #DebateBanner {
+    > .wrapper {
+      width: auto;
+      min-width: 300px;
+      .contents {
+        width: 300px;
+        margin: 0 auto;
+        padding: 0;
+        display: block;
+        text-align: center;
+        .author { display: block; float: none; }
+        .date { display: block; float: none; }
+      }
+
+      .chart {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+
+  #pointBox {
+    > .wrapper {
+      width: auto;
+    }
+  }
+
+  #Comments {
+    .comments-wrapper {
+      width: auto;
+    }
+  }
+
+}
+
+
+
+// screen < 1280
+@media (max-width: $screen-xlg) {
+}
+
+// screen < 960
+@media (max-width: $screen-lg) {
+  #ProfileApp {
+    #Menu {
+      float: none;
+      width: 100%;
+      #ProfileBox {
+        .profile-container {
+          margin: 10px 0 10px 5px;
+          border: 1px solid #e0e0e0;
+        }
+      }
+    }
+
+    #Dashboard {
+      padding-left: 0;
+    }
+  }
+
+  #VotedDebatesBox {
+    > .wrapper {
+      #VotedDebatesSlider {
+        .item-wrapper {
+          .item {
+            >a {
+              > img {
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+}
+
+// screen < 768
+@media (max-width: $screen-md) {
+  #HomeBanner {
+    > .wrapper {
+      width: auto;
+      margin: 0 20px;
+
+      h3 {
+        line-height: 20px;
+      }
+    }
+  }
+
+  .banner-image {
+    display: none !important;
+  }
+
+  #pointBox {
+    > .wrapper {
+      .point {
+        > .wrapper {
+          .procon-wrapper {
+            padding: 0 0 30px 0;
+            .pc-box {
+              display: block;
+              width: 100%;
+              padding: 0;
+              .box-item {
+                > .title {
+                  text-align: center;
+                  background-color: white;
+                }
+                .reasons {
+                  padding: 0 15px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #Comments {
+    .comments-wrapper {
+      .comment {
+        padding: 20px 0;
+        > .wrapper {
+          .info {
+            float: none;
+            display: block;
+            width: 100%;
+            padding: 0 25px;
+            text-align: left;
+
+            .avatar {
+              display: inline-block;
+            }
+
+            .name {
+              display: inline-block;
+              margin-left: 15px;
+            }
+
+            .date {
+              position: absolute;
+              top: 0;
+              right: 5px;
+              margin-top: 10px;
+              margin-bottom: 0;
+            }
+          }
+
+          .balloon {
+            margin: 15px 10px;
+          }
+        }
+
+        .reply-box {
+          margin-left: 0;
+          padding: 0;
+          > .wrapper {
+            .reply {
+              padding: 30px 15px;
+            }
+
+            .reply-form {
+              padding-left: 15px;
+              padding-right: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+
+// screen < 480
+@media (max-width: $screen-sm) {
+
+  #pointBox {
+    > .wrapper {
+      .point {
+        > .wrapper {
+          header {
+            text-align: center;
+            .title {
+              display: block;
+              img {
+                display: none;
+              }
+              .prefix {
+                display: block;
+              }
+
+              > span:nth-last-child(1) {
+                display: block;
+              }
+            }
+            .edit-tools {
+              display: block;
+              position: relative;
+              top: 0;
+              right: 0;
+              padding-left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #Comments {
+    .comments-wrapper {
+      .comment {
+        .reply-form {
+          button {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  #PointForm {
+    button {
+      width: 100%;
+    }
+  }
+
+  #VotedDebatesSlider {
+    font-size: 0.8em;
+    .item-wrapper {
+      .item {
+        .info {
+          .proscons-wrapper {
+          }
+        }
+      }
+    }
+  }
+
+}

@@ -27,9 +27,25 @@ var MainBoard = React.createClass({
 MainBoard.VotedDebatesBox = React.createClass({
   componentDidMount: function() {
     $('#VotedDebatesSlider').slick({
-      infinite: true,
+      infinite: false,
       slidesToShow: 3,
-      slidesToScroll: 3
+      slidesToScroll: 3,
+      responsive: [
+        {
+          breakpoint: 1280,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        },
+      ]
     });
   },
   render: function() {

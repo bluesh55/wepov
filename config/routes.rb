@@ -32,6 +32,8 @@ Rails.application.routes.draw do
 
   resources :users, :only => [:show], :path => "profile"
 
+  get '/api/sessions' => 'users#sessions'
+
   root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

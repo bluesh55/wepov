@@ -1,6 +1,5 @@
 var React = require('react');
 
-var BreadCrumb = require('./DebateShowApp/BreadCrumb.react');
 var DebateBanner = require('./DebateShowApp/DebateBanner.react');
 var PointBox = require('./DebateShowApp/PointBox');
 var CommentBox = require('./DebateShowApp/Commentbox');
@@ -43,10 +42,6 @@ var DebateShowApp = React.createClass({
     var view = _.isEmpty(this.state.debateData) ? 
       <div></div> :  (
       <div>
-        <BreadCrumb
-          title={this.state.debateData.title}
-        />
-
         <DebateBanner
           debateData={this.state.debateData}
         />

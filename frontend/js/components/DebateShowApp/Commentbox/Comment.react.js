@@ -25,9 +25,11 @@ var Comment = React.createClass({
       <div className="comment">
         <div className="wrapper">
           <div className="info">
-            <img src={comment.avatar} className="avatar" />
-            <p className="name">{comment.user_name}</p>
-            <p className="date">{comment.date}</p>
+            <div className="wrapper">
+              <img src={comment.avatar} className="avatar" />
+              <p className="name">{comment.user_name}</p>
+              <p className="date">{comment.date}</p>
+            </div>
           </div>
 
           <div className="balloon">

@@ -1,3 +1,110 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#HomeBanner {
+  position: relative;
+  background-image: url('/images/home_bg.jpg'); 
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  > .wrapper {
+    width: 700px;
+    min-width: 300px;
+    margin: 0 auto;
+    padding: 150px 0;
+    text-align: center;
+    color: white;
+
+    h1 {
+      font-size: 4em;
+    }
+    
+    h2 {
+      font-size: 2em;
+    }
+
+    h3 {
+      width: 70%;
+      margin: 0 auto;
+      font-size: 0.8em;
+      font-weight: 200;
+      line-height: 25px;
+      letter-spacing: 0.5px;
+      
+      &:nth-child(2) {
+        padding: 20px 0;
+        border-top: 2px solid white;
+        border-bottom: 2px solid white;
+      }
+    }
+  }
+}
+
+#DebatesList {
+  padding: 30px 0;
+
+  .debate-wrapper {
+    padding-bottom: 20px;
+    .debate {
+      a{
+        img {
+          width: 100%;
+          min-height: 260px;
+        }
+      }
+
+      .info-wrapper {
+        padding: 20px;
+        border: 1px solid #e0e0e0;
+        border-top: none;
+        a {
+          color: #999;
+          text-decoration: none;
+        }
+
+        .debate-meta {
+          font-weight: 200;
+          letter-spacing: 1px;
+          i {
+            padding-right: 5px;
+            margin-right: 5px;
+            border-right: 1px solid #dbdbdb;
+          }
+
+          .date {
+            
+          }
+          .comments {
+            float: right;
+          }
+        }
+        .debate-title {
+          display: inline-block;
+          height: 50px;
+          line-height: 25px;
+          margin: 10px 0 15px 0;
+          font-size: 1.3em;
+          color: black;
+        }
+
+        .debate-desc {
+          display: block;
+          display: -webkit-box;
+          height: 40px;
+          line-height: 20px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          color: #777;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+        }
+
+        .btn {
+          margin-top: 10px;
+          color: white;
+        }
+      }
+    }
+  }
+}

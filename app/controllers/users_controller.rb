@@ -10,4 +10,8 @@ class UsersController < ApplicationController
       format.html
     end
   end
+
+  def sessions
+    @user = current_user
+  end
 end

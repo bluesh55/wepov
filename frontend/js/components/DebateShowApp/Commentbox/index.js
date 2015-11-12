@@ -45,7 +45,7 @@ CommentBox.EmptyView = React.createClass({
   render: function() {
     return (
       <div id="EmptyComments">
-        작성된 댓글이 없습니다.
+        작성된 의견이 없습니다.
       </div>
     );
   }

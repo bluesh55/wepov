@@ -1,0 +1,25 @@
+nav {
+  min-width: 300px;
+  .container {
+    .navbar-header {
+      .navbar-brand {
+        img {
+          width: 125px;
+        }
+      }
+    }
+  }
+}
+
+#navbar {
+  ul {
+    li {
+      a {
+        color: #bbb;
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+}

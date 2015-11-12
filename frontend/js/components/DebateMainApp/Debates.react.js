@@ -8,14 +8,9 @@ var Debates = React.createClass({
     var debatesData = this.props.debatesData;
 
     return (
-      <div className="gray-bg">
-        <section id="blog" className="section container blog-columns blog-preview">
+      <section id="DebatesList" className="">
+        <div className="container">
           <div className="row">
-            <header className="sec-heading">
-              <h2>WEPOV에서는</h2>
-              <span className="subheading">관심있는 논쟁을 등록하고, 관련된 논점들을 정리해 설득력있게 보여줄 수 있습니다.</span>
-            </header>
-
             {debatesData.map(function(debate) {
               return (
                 <Debate
@@ -24,10 +19,9 @@ var Debates = React.createClass({
                 />
               );
             })}
-
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     );
   }
 });
