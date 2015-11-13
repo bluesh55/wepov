@@ -385,6 +385,9 @@ $screen-xsm: 320px;
                 display: block;
               }
 
+              input {
+                width: 100%;
+              }
               > span:nth-last-child(1) {
                 display: block;
               }
@@ -392,6 +395,7 @@ $screen-xsm: 320px;
             .edit-tools {
               display: block;
               position: relative;
+              margin-top: 10px;
               text-align: center;
             }
           }

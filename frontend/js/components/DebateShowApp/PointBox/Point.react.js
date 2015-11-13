@@ -112,8 +112,12 @@ Point.Title = React.createClass({
     if(this.state.pointEditable && debate.cuid === point.user_id) {
       editView = (
         <div className="dynamic">
-          <button className="button edit-btn" onClick={this.onClickEdit}>수정</button>
-          <button className="button cancel-btn" onClick={this.onClickCancel}>취소</button>
+          <span onClick={this.onClickEdit}>
+            <i className="fa fa-pencil"></i>수정
+          </span>
+          <span onClick={this.onClickCancel}>
+            <i className="fa fa-times"></i>취소
+          </span>
         </div>
       );
     } else if(!this.state.pointEditable && debate.cuid === point.user_id) {
