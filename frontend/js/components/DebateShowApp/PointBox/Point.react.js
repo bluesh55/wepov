@@ -33,6 +33,7 @@ var Point = React.createClass({
                 reasons={prosReasons}
                 title="찬성"
                 isPros={true}
+                debate={debate}
               />
             </div>
 
