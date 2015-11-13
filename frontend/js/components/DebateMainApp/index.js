@@ -1,11 +1,11 @@
 var React = require('react');
 
-var DebateActions = require('../actions/DebateActions');
-var DebateStore   = require('../stores/DebateStore');
+var DebateActions = require('../../actions/DebateActions');
+var DebateStore   = require('../../stores/DebateStore');
 
 
-var Banner = require('./DebateMainApp/Banner.react');
-var Debates = require('./DebateMainApp/Debates.react');
+var Banner = require('./Banner.react');
+var Debates = require('./Debates.react');
 
 var getStateFromStores = function() {
   return {

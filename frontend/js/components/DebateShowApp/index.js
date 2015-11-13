@@ -1,11 +1,11 @@
 var React = require('react');
 
-var DebateBanner = require('./DebateShowApp/DebateBanner.react');
-var PointBox = require('./DebateShowApp/PointBox');
-var CommentBox = require('./DebateShowApp/Commentbox');
+var DebateBanner = require('./DebateBanner.react');
+var PointBox = require('./PointBox');
+var CommentBox = require('./Commentbox');
 
-var DebateActions = require('../actions/DebateActions');
-var DebateStore   = require('../stores/DebateStore');
+var DebateActions = require('../../actions/DebateActions');
+var DebateStore   = require('../../stores/DebateStore');
 
 var _ = require('underscore');
 

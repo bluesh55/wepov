@@ -7,9 +7,9 @@ var createBrowserHistory = require('history/lib/createBrowserHistory');
 var history = createBrowserHistory();
 
 var GlobalNav     = require('./components/GlobalNav.react');
-var DebateMainApp = require('./components/DebateMainApp.react');
-var DebateNewApp = require('./components/DebateNewApp.react');
-var DebateShowApp = require('./components/DebateShowApp.react');
+var DebateMainApp = require('./components/DebateMainApp');
+var DebateNewApp = require('./components/DebateNewApp');
+var DebateShowApp = require('./components/DebateShowApp');
 var ProfileApp    = require('./components/ProfileApp');
 var SignApp      = require('./components/SignApp');
 
