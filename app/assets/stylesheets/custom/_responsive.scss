@@ -281,8 +281,13 @@ $screen-xsm: 320px;
   }
 
   #pointBox {
+    padding-top: 0;
     > .wrapper {
       .point {
+        &:first-child {
+          padding-top: 0;
+        }
+
         > .wrapper {
           .procon-wrapper {
             padding: 0 0 30px 0;
