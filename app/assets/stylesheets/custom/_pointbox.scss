@@ -68,13 +68,18 @@ $titleBackgroundColor: #eaeaea;
           top: 0;
           right: 0;
           text-align: right;
-          span {
-            &:first-child {
-              margin-right: 15px;
+          .static, .dynamic {
+            > span {
+              &:first-child {
+                margin-right: 15px;
+              }
+              font-size: 0.9em;
+              cursor: pointer;
+              letter-spacing: 2.5px;
+              &.disabled {
+                cursor: not-allowed;
+              }
             }
-            font-size: 0.9em;
-            cursor: pointer;
-            letter-spacing: 2.5px;
           }
         }
       }

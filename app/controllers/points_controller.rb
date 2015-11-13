@@ -32,9 +32,9 @@ class PointsController < ApplicationController
     @point.user_id = current_user.id
 
     if @point.save
-      render :json => {status: :ok, point: @point}
+      render :json => {status: 1, point: @point}
     else
-      render :json => {status: :fail}
+      render :json => {status: -1, errors: point.errors}
     end
   end
 
@@ -43,10 +43,10 @@ class PointsController < ApplicationController
   def update
     point = Point.find_by(id: params[:id], user: current_user)
 
-    if point.update(title: params[:title])
-      render :json => {status: 200}
+    if point.reasons.length == 0 and point.update(title: params[:title])
+      render :json => {status: 1}
     else
-      render :json => {status: 422, :errors => point.errors}
+      render :json => {status: -1, :errors => point.errors}
     end
   end
 
@@ -54,7 +54,7 @@ class PointsController < ApplicationController
   # DELETE /points/1.json
   def destroy
     @point.destroy
-    render :json => {status: 200}
+    render :json => {status: 1}
   end
 
   def up

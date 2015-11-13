@@ -134,7 +134,13 @@ function editPointTitle(pointData) {
       title: pointData.edittedTitle
     },
     success: function(data) {
-      readDebate();
+      if(data.status == -1) {
+        var msg = data.errors.title.pop();
+        if(msg)
+          alert(msg);
+      } else {
+        readDebate();
+      }
     }
   });
 }

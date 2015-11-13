@@ -11,6 +11,7 @@ json.points @debate.points do |p|
   json.user_name p.user.name
   json.title p.title
   json.visible p.is_visible
+  json.is_editable p.reasons.length == 0
   json.priority p.priority
   json.reasons p.reasons.select([:id, :user_id, :title, :content, :priority, :is_visible, :is_pros])
 end

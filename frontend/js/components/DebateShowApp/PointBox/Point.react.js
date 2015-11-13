@@ -56,10 +56,24 @@ var Point = React.createClass({
 Point.Title = React.createClass({
   getInitialState: function() {
     return {
-      pointEditable: false
+      pointEditable: false,
+      pointValidate: false
     };
   },
 
+  onChangeEditTitle: function() {
+    var edittedTitle = this.refs.editTitle.value;
+    if(edittedTitle.length >= 5 && edittedTitle.length <= 40) {
+      this.setState({
+        pointValidate: true
+      });
+    } else {
+      this.setState({
+        pointValidate: false
+      });
+    }
+
+  },
   onClickEditPoint: function() {
     this.setState({
       pointEditable: true
@@ -78,14 +92,17 @@ Point.Title = React.createClass({
   onClickEdit: function() {
     var point = this.props.point;
     var edittedTitle = this.refs.editTitle.value;
-    DebateActions.editPointTitle({
-      edittedTitle: edittedTitle,
-      id: point.id
-    });
 
-    this.setState({
-      pointEditable: false
-    });
+    if(this.state.pointValidate) {
+      DebateActions.editPointTitle({
+        edittedTitle: edittedTitle,
+        id: point.id
+      });
+
+      this.setState({
+        pointEditable: false
+      });
+    }
   },
 
 
@@ -101,18 +118,22 @@ Point.Title = React.createClass({
     var point = this.props.point;
     var editView;
 
+    var dynamicEditClass = classnames({
+      disabled: !this.state.pointValidate
+    });
+
     var titleView = this.state.pointEditable ?
       (
-        <input type="text" defaultValue={point.title} ref="editTitle" />
+        <input type="text" defaultValue={point.title} ref="editTitle" onChange={this.onChangeEditTitle}/>
       ) :
       (
         <span>{point.title}</span>
       );
 
-    if(this.state.pointEditable && debate.cuid === point.user_id) {
+    if(this.state.pointEditable && debate.cuid === point.user_id && point.is_editable) {
       editView = (
         <div className="dynamic">
-          <span onClick={this.onClickEdit}>
+          <span className={dynamicEditClass} onClick={this.onClickEdit}>
             <i className="fa fa-pencil"></i>수정
           </span>
           <span onClick={this.onClickCancel}>
@@ -120,7 +141,7 @@ Point.Title = React.createClass({
           </span>
         </div>
       );
-    } else if(!this.state.pointEditable && debate.cuid === point.user_id) {
+    } else if(!this.state.pointEditable && debate.cuid === point.user_id && point.is_editable) {
       editView = (
         <div className="static">
           <span onClick={this.onClickEditPoint}>
