@@ -64,7 +64,7 @@ var DebateNewApp = React.createClass({
       on: !this.state.contentStatus
     });
     return (
-      <div className="container">
+      <div className="container" id="DebateNewForm">
         <h1>새 논쟁 만들기</h1>
         <form className="debate-form" encType="multipart/form-data" method="post" acceptCharset="UTF-8" action="/debates" ref="form" onSubmit={this.onSubmit}>
           <div className="form-group">
@@ -82,7 +82,7 @@ var DebateNewApp = React.createClass({
           </div>
 
           <div className="form-group">
-            <button className="btn" ref="submitBtn">작성하기</button>
+            <button className="btn btn-success pull-right" ref="submitBtn">작성하기</button>
           </div>     
         </form>
       </div>
