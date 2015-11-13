@@ -1,5 +1,5 @@
 class Point < ActiveRecord::Base
   belongs_to :user
   belongs_to :debate
-  has_many :reasons
+  has_many :reasons, dependent: :destroy
 end
