@@ -24,8 +24,7 @@ var GlobalNav = React.createClass({
       {
         text: "로그인",
         link: "/users/sign_in",
-        state: !globalData.is_signed,
-        refresh: true
+        state: !globalData.is_signed
       },
       {
         text: "로그아웃",
