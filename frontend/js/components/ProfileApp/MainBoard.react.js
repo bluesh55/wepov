@@ -177,7 +177,6 @@ MainBoard.HorizontalStickGraph = React.createClass({
 /* MyDebatesBox */
 MainBoard.MyDebatesBox = React.createClass({
   componentDidMount: function() {
-    $('#MyDebatesSlider').slick();
   },
   render: function() {
     var myDebates = this.props.profileData.debates;
