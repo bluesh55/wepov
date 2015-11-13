@@ -54,7 +54,7 @@ var RootApp = React.createClass({
 });
 
 ReactDOM.render((
-  <Router history={history}>
+  <Router history={history} onUpdate={() => window.scrollTo(0, 0)}>
     <Route path="/" component={RootApp}>
       <Route path="/debates/new" component={DebateNewApp} />
       <Route path="/debates/:debateId" component={DebateShowApp} />
