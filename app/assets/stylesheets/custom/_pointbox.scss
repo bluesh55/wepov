@@ -175,6 +175,7 @@ $titleBackgroundColor: #eaeaea;
     }
 
     .reason {
+      position: relative;
       margin-left: 60px;
       .title {
         padding: 5px 0;
@@ -183,6 +184,15 @@ $titleBackgroundColor: #eaeaea;
         letter-spacing: 0.8px;
         color: black;
         white-space: pre-line;
+      }
+      
+      .edit-tools {
+        position: absolute;
+        top: 5px;
+        right: 0;
+        .delete {
+          cursor: pointer;
+        }
       }
 
       .content {

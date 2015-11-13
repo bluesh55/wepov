@@ -69,6 +69,14 @@ module.exports = {
     });
   },
 
+  deleteReason: function(reasonData) {
+    AppDispatcher.dispatch({
+      actionType: Constants.DELETE_REASON,
+      reason_id: reasonData.id
+    });
+
+  },
+
 
   /* Mypage */
   fetchProfileData: function(user_id) {

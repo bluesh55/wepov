@@ -155,6 +155,16 @@ function deletePoint(pointData) {
   });
 }
 
+function deleteReason(reason_id) {
+  $.ajax({
+    url: '/reasons/' + reason_id,
+    type: 'delete',
+    success: function() {
+      readDebate();
+    }
+  });
+}
+
 
 AppDispatcher.register(function(action) {
   switch(action.actionType) {
@@ -189,6 +199,10 @@ AppDispatcher.register(function(action) {
 
     case Constants.DELETE_POINT:
       deletePoint(action.pointData);
+      break;
+
+    case Constants.DELETE_REASON:
+      deleteReason(action.reason_id);
       break;
   }
 });

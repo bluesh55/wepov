@@ -43,6 +43,7 @@ var Point = React.createClass({
                 reasons={consReasons}
                 title="반대"
                 isPros={false}
+                debate={debate}
               />
             </div>
           </div>
@@ -213,6 +214,7 @@ Point.ReasonsBox = React.createClass({
     var cls = this.props.className;
     var reasons = this.props.reasons;
     var title = this.props.title;
+    var debate = this.props.debate;
 
     var editorClass = classnames({
       'reason-editor-wrapper': true,
@@ -225,7 +227,7 @@ Point.ReasonsBox = React.createClass({
 
     var reasonsView = reasons.length > 0 ?
       reasons.map(function(reason, index) {
-        return <Reason reason={reason} key={reason.id} index={index} />;
+        return <Reason debate={debate} reason={reason} key={reason.id} index={index} />;
       }) :
       (
         <Point.EmptyReason />

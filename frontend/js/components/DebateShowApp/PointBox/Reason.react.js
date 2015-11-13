@@ -1,11 +1,13 @@
 var React = require('react');
-
 var classnames = require('classnames');
+
+var DebateActions = require('../../../actions/DebateActions');
 
 var Reason = React.createClass({
   getInitialState: function() {
     return {
-      show: false
+      show: false,
+      reasonEditable: false
     };
   },
 
@@ -21,7 +23,16 @@ var Reason = React.createClass({
     });
   },
 
+  onClickDelete: function() {
+    var reason = this.props.reason;
+
+    DebateActions.deleteReason({
+      id: reason.id
+    });
+  },
+
   render: function() {
+    var debate= this.props.debate;
     var reason = this.props.reason;
 
     var prefixClass = classnames({
@@ -43,11 +54,17 @@ var Reason = React.createClass({
       ) :
       (
         <button className="toggle" onClick={this.showContent}>
-          보기 <i className="fa fa-angle-down"></i>
+          보기 <i ckassName="fa fa-angle-down"></i>
         </button>
       );
 
-
+    var editTools = debate.cuid == reason.user_id ?
+      (
+        <span className="delete" onClick={this.onClickDelete}>
+        삭제
+        </span>
+      ) :
+      null;
 
     return (
       <div className="reason-wrapper">
@@ -57,6 +74,10 @@ var Reason = React.createClass({
         <div className="reason">
           <div className="title">
           {reason.title}
+          </div>
+
+          <div className="edit-tools">
+            {editTools}
           </div>
 
           <div className={contentClass}>

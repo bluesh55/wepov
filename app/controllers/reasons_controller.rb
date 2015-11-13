@@ -31,14 +31,10 @@ class ReasonsController < ApplicationController
     @reason = Reason.new(reason_params)
     @reason.user_id = current_user.id
 
-    respond_to do |format|
-      if @reason.save
-        format.html { redirect_to @reason, notice: 'Reason was successfully created.' }
-        format.json { render :show, status: :created, location: @reason }
-      else
-        format.html { render :new }
-        format.json { render json: @reason.errors, status: :unprocessable_entity }
-      end
+    if @reason.save
+      render :json => {status: 1}
+    else
+      render :json => {status: 1, erros: @reason.errors}
     end
   end
 
@@ -47,11 +43,9 @@ class ReasonsController < ApplicationController
   def update
     respond_to do |format|
       if @reason.update(reason_params)
-        format.html { redirect_to @reason, notice: 'Reason was successfully updated.' }
-        format.json { render :show, status: :ok, location: @reason }
+        render :json => {status: :ok, location: @reason}
       else
-        format.html { render :edit }
-        format.json { render json: @reason.errors, status: :unprocessable_entity }
+        render :json => {errors: @reason.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -60,10 +54,7 @@ class ReasonsController < ApplicationController
   # DELETE /reasons/1.json
   def destroy
     @reason.destroy
-    respond_to do |format|
-      format.html { redirect_to reasons_url, notice: 'Reason was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    render :json => {status: 1}
   end
 
   def up

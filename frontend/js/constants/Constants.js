@@ -17,5 +17,7 @@ module.exports = keymirror({
 
   FETCH_PROFILE_DATA: null,
 
-  FETCH_GLOBAL_DATA: null
+  FETCH_GLOBAL_DATA: null,
+
+  DELETE_REASON: null
 });
