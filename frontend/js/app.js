@@ -11,6 +11,8 @@ var DebateMainApp = require('./components/DebateMainApp.react');
 var DebateNewApp = require('./components/DebateNewApp.react');
 var DebateShowApp = require('./components/DebateShowApp.react');
 var ProfileApp    = require('./components/ProfileApp');
+var SignApp      = require('./components/SignApp');
+
 
 var GlobalActions = require('./actions/GlobalActions');
 var GlobalStore   = require('./stores/GlobalStore');
@@ -57,6 +59,10 @@ ReactDOM.render((
       <Route path="/debates/new" component={DebateNewApp} />
       <Route path="/debates/:debateId" component={DebateShowApp} />
       <Route path="/profile/:userId" component={ProfileApp} />
+      <Route path="/users">
+        <Route path="/users/sign_in" component={SignApp} type="login" />
+        <Route path="/users/sign_up" component={SignApp} type="register" />
+      </Route>
     </Route>
     <Route path="*" component={null} />
   </Router>
