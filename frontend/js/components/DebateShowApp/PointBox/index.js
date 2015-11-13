@@ -46,7 +46,7 @@ PointBox.PointForm = React.createClass({
   onClickPostPoint: function() {
     var value = this.refs.pointInput.value;
 
-    if(value != "" && value.length > 5) {
+    if(value != "" && value.length >= 5 && value.length <= 40) {
       DebateActions.postPoint({
         debate_id: this.props.debate.id,
         title: value
