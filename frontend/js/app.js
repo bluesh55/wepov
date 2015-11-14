@@ -27,8 +27,7 @@ var RootApp = React.createClass({
   getInitialState: getStatesFromStore,
   onChange: function() {
     this.setState(getStatesFromStore());
-  },
-  componentDidMount: function() {
+  }, componentDidMount: function() {
     GlobalStore.addChangeListener(this.onChange);
     GlobalActions.fetchGlobalData();
   },
@@ -54,7 +53,7 @@ var RootApp = React.createClass({
 });
 
 ReactDOM.render((
-  <Router history={history} onUpdate={() => window.scrollTo(0, 0)}>
+  <Router history={history} onUpdate={function() {window.scrollTo(0, 0)}}>
     <Route path="/" component={RootApp}>
       <Route path="/debates/new" component={DebateNewApp} />
       <Route path="/debates/:debateId" component={DebateShowApp} />
