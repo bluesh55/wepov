@@ -83,6 +83,8 @@ class DebatesController < ApplicationController
   end
 
   def pros
+    cancel if Vote.find_by(user_id: current_user.id, debate_id: @debate.id, is_pros: false)
+    
     @vote = Vote.new(user_id: current_user.id, debate_id: @debate.id, is_pros: true)
     Vote.transaction do
       if @vote.save
@@ -97,6 +99,8 @@ class DebatesController < ApplicationController
   end
 
   def cons
+    cancel if Vote.find_by(user_id: current_user.id, debate_id: @debate.id, is_pros: true)
+
     @vote = Vote.new(user_id: current_user.id, debate_id: @debate.id, is_pros: false)
     Vote.transaction do
       if @vote.save
@@ -109,23 +113,22 @@ class DebatesController < ApplicationController
     end
   end
 
-  def cancel
-    @vote = Vote.where(user_id: current_user.id, debate_id: @debate.id).take
-    unless @vote.nil?
-      if @vote.is_pros
-        @debate.pros_count -= 1
-      else
-        @debate.cons_count -= 1
-      end
-      Vote.transaction do
-        @debate.save
-        @vote.destroy
+  private
+    def cancel
+      @vote = Vote.where(user_id: current_user.id, debate_id: @debate.id).take
+      unless @vote.nil?
+        if @vote.is_pros
+          @debate.pros_count -= 1
+        else
+          @debate.cons_count -= 1
+        end
+        Vote.transaction do
+          @debate.save
+          @vote.destroy
+        end
       end
     end
-    render :show, status: :ok, location: @debate
-  end
 
-  private
     # Use callbacks to share common setup or constraints between actions.
     def set_debate
       @debate = Debate.find(params[:id])
