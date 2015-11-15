@@ -9,4 +9,9 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << [:name, :intro, :avatar]
   end
+
+  def after_sign_in_path_for(resource)
+    return debate_path params[:referer] unless params[:referer].empty?
+    return root_path
+  end
 end
