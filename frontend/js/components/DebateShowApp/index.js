@@ -54,6 +54,7 @@ var DebateShowApp = React.createClass({
         />
 
         <CommentBox
+          isSigned={this.props.globalData.is_signed}
           debateData={this.state.debateData}
         />
       </div>

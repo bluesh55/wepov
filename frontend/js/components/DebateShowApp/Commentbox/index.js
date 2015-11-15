@@ -32,9 +32,13 @@ var CommentBox = React.createClass({
             <CommentBox.EmptyView />
           }
 
-          <CommentForm
-            debateData={debate}
-          />
+          {
+            this.props.isSigned ?
+            <CommentForm
+              debateData={debate}
+            /> :
+            null
+          }
         </div>
       </div>
     );
