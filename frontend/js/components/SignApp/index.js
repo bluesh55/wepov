@@ -30,7 +30,7 @@ var SignApp = React.createClass({
       "in": !isLoginPage
     });
     return (
-      <div className="login-1">
+      <div id="SignApp">
         <div className="bg-overlay">
           <div className="container">
             <div className="row">
@@ -40,7 +40,7 @@ var SignApp = React.createClass({
                     <div className="panel-heading" role="tab" id="headingOne">
                       <h4 className="panel-title">
                         <a role="button" data-toggle="collapse" data-parent="#login-accordion" href="#collapseOne" aria-expanded={isLoginPage.toString()} aria-controls="collapseOne">
-                          Login to your account
+                          로그인
                         </a>
                       </h4>
                     </div>
@@ -59,7 +59,7 @@ var SignApp = React.createClass({
                     <div className="panel-heading" role="tab" id="headingTwo">
                       <h4 className="panel-title">
                         <a className="collapsed" role="button" data-toggle="collapse" data-parent="#login-accordion" href="#register-login-page-2" aria-expanded={isLoginPage.toString()} aria-controls="register-login-page-2">
-                          Register account
+                          회원 가입
                         </a>
                       </h4>
                     </div>

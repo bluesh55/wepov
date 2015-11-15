@@ -16,20 +16,20 @@ var LoginApp = React.createClass({
         <input type="hidden" name="authenticity_token" value={this.props.token} />
 
         <div className="form-group">
-          <label htmlFor="LoginEmail">Email</label>
+          <label htmlFor="LoginEmail">이메일</label>
           <input type="email" className="form-control"
-            id="LoginEmail" placeholder="Enter your email"
+            id="LoginEmail" placeholder="이메일을 입력해주세요"
             name="user[email]" />
         </div>
 
         <div className="form-group">
-          <label htmlFor="LoginPassword">Password</label>
+          <label htmlFor="LoginPassword">비밀번호</label>
           <input type="password" className="form-control"
-            id="LoginPassword" placeholder="Enter your password"
+            id="LoginPassword" placeholder="비밀번호를 입력해주세요"
             name="user[password]" />
         </div>
 
-        <input type="submit" name="commit" value="Login" className="btn btn-primary" />
+        <input type="submit" name="commit" value="로그인" className="btn btn-primary" />
       </form>
 
     );
