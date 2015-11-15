@@ -31,6 +31,14 @@ var RootApp = React.createClass({
     GlobalStore.addChangeListener(this.onChange);
     GlobalActions.fetchGlobalData();
   },
+  
+  renderChildren: function () {
+    return React.Children.map(this.props.children, function (child) {
+        return React.cloneElement(child, {
+          globalData: this.state.globalData
+        })
+    }.bind(this))
+  },
 
   render: function() {
     var is_fetched = Object.keys(this.state.globalData).length > 0;
@@ -43,7 +51,7 @@ var RootApp = React.createClass({
           <GlobalNav
             globalData={this.state.globalData}
           />
-          {this.props.children || <DebateMainApp />}
+          {this.renderChildren() || <DebateMainApp />}
         </div>
       );
     }

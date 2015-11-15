@@ -43,6 +43,7 @@ var DebateShowApp = React.createClass({
       <div></div> :  (
       <div>
         <DebateBanner
+          isSigned={this.props.globalData.is_signed}
           debateData={this.state.debateData}
         />
 

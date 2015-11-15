@@ -43,6 +43,7 @@ var DebateBanner = React.createClass({
   },
 
   render: function() {
+    var isSigned = this.props.isSigned;
     var debateData = this.props.debateData;
     var imageURL = debateData.image.image.url;
 
@@ -78,9 +79,14 @@ var DebateBanner = React.createClass({
               <canvas id="Chart" ref="chart" key={Date.now()} />
             }
 
-            <DebateBanner.VoteBox
-              debateData={debateData}
-            />
+            {isSigned ?
+              (<DebateBanner.VoteBox
+                debateData={debateData}
+              />) :
+              (
+               <div className="vote-login-msg">투표하시려면 <Link to={"/users/sign_in#_id=" + debateData.id}>로그인</Link> 해주세요</div>
+              )
+            }
           </div>
 
           <DebateBanner.FBLike
