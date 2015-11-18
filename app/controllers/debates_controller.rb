@@ -7,7 +7,7 @@ class DebatesController < ApplicationController
   # GET /debates
   # GET /debates.json
   def index
-    @debates = Debate.all
+    @debates = Debate.where(is_visible: true)
   end
 
   # GET /debates/1
