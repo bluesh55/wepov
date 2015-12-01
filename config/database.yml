@@ -25,9 +25,9 @@ production:
   encoding: utf8
   reconnect: false
   pool: 5
-  database: wepov
-  username: wepov
-  password: <%= ENV["WEPOV_DB_PASSWORD"] %>
-  host: localhost
+  database: <%= ENV["DB_NAME"] %>
+  username: <%= ENV["DB_USER"] %>
+  password: <%= ENV["DB_PASSWORD"] %>
+  host: <%= ENV["DB_HOST"] %>
   port: 3306
 
